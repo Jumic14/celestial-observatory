@@ -1,0 +1,32 @@
+<div class="arrows-container">
+    <button class="control prev" (click)="onPreviousClick()">
+      <span class="arrow left"></span>
+    </button>
+    <button class="control next" (click)="onNextClick()">
+      <span class="arrow right"></span>
+    </button>
+  </div>
+<!-- carousel -->
+<div class="carousel">
+    <ng-container *ngFor="let slide of slides; let i = index">
+      <div *ngIf="i === currentSlide">
+        <div>
+          <h3>{{ slide.title }}</h3>
+          <p>Photo prise le {{ slide.date | date: 'd MMMM yyyy' }}</p>
+          <p *ngIf="slide.copyright"> ©{{ slide.copyright }}</p>
+        </div>
+        <img [src]="slide.src" class="slide" [alt]="slide.title"/>
+        <button (click)="toggleDetails()">Toggle Details</button>
+        <div *ngIf="showDetails">
+          
+          <p>{{ slide.explanation }}</p>
+         
+        </div>
+      </div>
+    </ng-container>
+  
+    <!-- controls -->
+
+</div>
+<button (click)="onRefresh()">Refresh</button>
+  

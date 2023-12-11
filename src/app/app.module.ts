@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { IssTrackerComponent } from './iss-tracker/iss-tracker.component';
 import { ObservatoryComponent } from './observatory/observatory.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { GalleryComponent } from './gallery/gallery.component';
     LandingPageComponent,
     IssTrackerComponent,
     ObservatoryComponent,
-    GalleryComponent
+    GalleryComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
