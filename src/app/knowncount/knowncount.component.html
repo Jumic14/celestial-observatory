@@ -1,0 +1,11 @@
+<div *ngIf="knowcount">
+    <h2>Known Celestial Objects Count:</h2>
+    <p>Total Known Count: {{ totalKnownCount }}</p>
+    <ul>
+      <li *ngFor="let entry of knowcount">
+        <h3>{{ categoryMapping[entry.id] }}</h3>
+        <p>Known Count: {{ entry.knownCount }}</p>
+      </li>
+    </ul>
+  </div>
+  
