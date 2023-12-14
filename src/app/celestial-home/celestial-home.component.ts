@@ -4,14 +4,12 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-knowncount',
-  templateUrl: './knowncount.component.html',
-  styleUrl: './knowncount.component.scss'
+  selector: 'app-celestial-home',
+  templateUrl: './celestial-home.component.html',
+  styleUrl: './celestial-home.component.scss'
 })
-export class KnowncountComponent implements OnInit, OnDestroy {
+export class CelestialHomeComponent implements OnInit, OnDestroy {
   knowcount: any;
-  totalKnownCount: number = 0;
-  selectedCategoryId: string | null = null; 
   private subscription: Subscription = new Subscription();
   categoryMapping: { [key: string]: string } = {
     planet: 'Planet',
@@ -23,6 +21,8 @@ export class KnowncountComponent implements OnInit, OnDestroy {
     moonsAsteroid: 'Moons of Asteroids'
     // Ajoute d'autres correspondances si nécessaire
   };
+  selectedCategoryId: string | null = null; 
+  allowedBodyTypes: string[] = ['Star', 'Planet', 'Dwarf Planet', 'Asteroid', 'Comet', 'Moon'];
 
   constructor(private knowcountService: KnowcountService, private router: Router) {}
 
@@ -42,7 +42,6 @@ export class KnowncountComponent implements OnInit, OnDestroy {
                 name: this.knowcountService.getCategoryNameFromId(entry.id)
               };
             });
-            this.calculateTotalKnownCount();
           } else {
             console.error('Invalid data format:', data);
           }
@@ -54,15 +53,18 @@ export class KnowncountComponent implements OnInit, OnDestroy {
     );
   }
 
-  calculateTotalKnownCount(): void {
-    // Utilisation de la méthode reduce pour additionner tous les knownCount
-    this.totalKnownCount = this.knowcount.reduce((total: number, entry: any) => {
-      return total + entry.knownCount;
-    }, 0);
-  }
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe(); // Nettoyage de l'abonnement
   }
 
+  onCategorySelected(event: any): void {
+    this.selectedCategoryId = event.target.value; // Stocke la valeur sélectionnée
+    console.log('Selected category:', this.selectedCategoryId);
+  }
+
+  redirectToCategoryDetail(): void {
+    if (this.selectedCategoryId) {
+      this.router.navigate(['/detail', this.selectedCategoryId]); // Redirige avec l'ID sélectionné
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CelestialBody } from '../models/celestial-body.models';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,7 @@ export class KnowcountService {
   }
 
   getCategoryNameFromId(id: string): string {
+    console.log(this.categoryMapping);
     return this.categoryMapping[id] || '';
   }
 }

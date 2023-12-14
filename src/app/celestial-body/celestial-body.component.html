@@ -1,0 +1,9 @@
+<div *ngIf="celestialBody">
+    <h2>{{ celestialBody.name }}</h2>
+    <ul *ngIf="celestialBody.moons && celestialBody.moons.length > 0">
+        <li *ngFor="let moon of celestialBody.moons">
+     
+        </li>
+    </ul>
+    <!-- Autres détails... -->
+</div>
