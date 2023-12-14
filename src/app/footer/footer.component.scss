@@ -1,0 +1,14 @@
+footer {
+    text-align: center;
+    background-color: #EEE;
+    margin-top: 20px;
+    padding: 10px;
+}
+button {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }

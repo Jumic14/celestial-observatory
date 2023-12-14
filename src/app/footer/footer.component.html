@@ -1,0 +1,10 @@
+<footer>
+    <ng-container *ngIf="isHomePage">
+        <button (click)="backToSas()">Back</button>
+      </ng-container>
+      
+      <ng-container *ngIf="!isHomePage">
+        <button (click)="backToHome()">Back</button>
+      </ng-container>
+    
+</footer>
