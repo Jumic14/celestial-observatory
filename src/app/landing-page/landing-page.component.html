@@ -1,6 +1,9 @@
-<div class="landing-block">
+<div class="landing-block" [@openClose]="isOpen ? 'open' : 'closed'">
+  <div class="landing-door"></div>
+  <div class="landing-content">
     <div class="landing-title">
-      Welcome to the Online Celestial Observatory ! 
+      Welcome to the Online Celestial Observatory!
     </div>
     <button (click)="onContinue()">Enter</button>
   </div>
+</div>

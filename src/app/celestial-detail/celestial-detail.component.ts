@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { SolarSystemService } from '../services/solar-system.service';
 import { CelestialBody } from '../models/celestial-body.models';
+import { Moon, MoonData } from '../interfaces/moons-interface';
 
 @Component({
   selector: 'app-celestial-detail',
@@ -10,8 +11,10 @@ import { CelestialBody } from '../models/celestial-body.models';
   styleUrl: './celestial-detail.component.scss'
 })
 export class CelestialDetailComponent implements OnInit {
+  moons: Moon[] = [];
   category: string = '';
   celestialObjects: CelestialBody[] = [];
+  selectedCategoryId: string | null = null; 
   selectedCelestialObject: CelestialBody | null = null; 
   categoryMapping: { [category: string]: string } = {
     planet: 'Planet',
@@ -23,6 +26,7 @@ export class CelestialDetailComponent implements OnInit {
     moonsAsteroid: 'Moons of Asteroids'
     // Ajoute d'autres correspondances si nécessaire
   };
+  
   constructor(
     private route: ActivatedRoute,
     private solarSystemService: SolarSystemService,
@@ -30,6 +34,7 @@ export class CelestialDetailComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      console.log(this.route.params)
       this.category = params['id'];
       this.fetchCelestialObjects(this.category);
     });
@@ -39,14 +44,30 @@ export class CelestialDetailComponent implements OnInit {
   this.solarSystemService.getCelestialObjectsByCategory(categoryId).subscribe({
     next: (data: CelestialBody[]) => {
       this.celestialObjects = data;
+      console.log(this.celestialObjects)
     },
     error: (error: any) => {
       console.error('Error fetching celestial objects:', error);
     }
   });
 }
-redirectToCelestialBodyDetail(celestialObject: CelestialBody): void {
-  this.router.navigate(['/celestial', celestialObject.englishName], { state: { celestialObject } });
+onBodySelected(selectedId: string): void {
+  this.selectedCategoryId = selectedId;
+  console.log('Selected category:', this.selectedCategoryId);
 }
-
+redirectToBody(): void {
+  if (this.selectedCategoryId !== null) {
+    this.router.navigate([this.selectedCategoryId]);
+  } else {
+    console.log('Please select a category!');
+    // Gérer le cas où aucune catégorie n'est sélectionnée
+  }
+}
+getSelectedOptionName(): string {
+  if (this.selectedCategoryId) {
+    const selectedObject = this.celestialObjects.find(obj => obj.id === this.selectedCategoryId);
+    return selectedObject ? selectedObject.englishName : '';
+  }
+  return '';
+}
 }

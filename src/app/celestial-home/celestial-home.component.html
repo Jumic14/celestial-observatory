@@ -1,13 +1,12 @@
-<!-- catalog-home.component.html -->
-<div>
-   
-  
-    <select (change)="onCategorySelected($event)">
-      <option *ngFor="let type of allowedBodyTypes" [value]="type">
-        {{ type }}
-      </option>
-    </select>
-    
-    <button (click)="redirectToCategoryDetail()">Show Category Details</button>
-  </div>
-  
+<div class="options">
+  <p>Please, select a body type :</p>
+  <button *ngFor="let type of allowedBodyTypes" (click)="onCategorySelected(type)">
+    {{ type }}
+  </button>
+</div>
+
+<div *ngIf="selectedCategoryId" class="selected-option">
+  <p>Selected body type:</p>
+  <p>{{ selectedCategoryId }}</p>
+  <button (click)="redirectToCategoryDetail()">Show body type list</button>
+</div>

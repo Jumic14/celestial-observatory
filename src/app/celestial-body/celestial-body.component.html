@@ -1,9 +1,32 @@
 <div *ngIf="celestialBody">
-    <h2>{{ celestialBody.name }}</h2>
+    <h2>{{ celestialBody.englishName }}</h2>
+    <p *ngIf="celestialBody.alternativeName">Alternative name : {{celestialBody.alternativeName}}</p>
+    <p>Body Type : {{celestialBody.bodyType}}</p>
+    <p *ngIf="celestialBody.discoveredBy"> Discover by : {{celestialBody.discoveredBy}}, the {{celestialBody.discoveryDate}}</p>
+    <p *ngIf="celestialBody.perihelion" data-title="The point in an object's orbit of a planet, asteroid or comet at which it is closest from the sun">Perihelion : {{celestialBody.perihelion}} km</p>
+    <p *ngIf="celestialBody.aphelion" data-title="The point in an object's orbit of a planet, asteroid, or comet at which it is furthest from the sun">Aphelion : {{celestialBody.aphelion}} km</p>
+    <p *ngIf="celestialBody.eccentricity" data-title="The deviation of a curve or orbit from circularity">Eccentricity : {{celestialBody.eccentricity}} °</p>
+    <p *ngIf="celestialBody.inclination" data-title="The angle between the orbital plane and the plane of reference">Inclination : {{celestialBody.inclination}} °</p>
+    <p *ngIf="celestialBody.density" data-title="The mass per unit volume of an object">Density : {{celestialBody.density}} g.cm³</p>
+    <p *ngIf="celestialBody.gravity" data-title="The force by which a planet or other body draws objects toward its center">Gravity : {{celestialBody.gravity}} m.s-²</p>
+    <p *ngIf="celestialBody.escape" data-title="The speed necessary for an object to escape the gravitational pull of an object">Escape : {{celestialBody.escape}} m.s-¹</p>
+    <p *ngIf="celestialBody.dimension" data-title="The object dimensions">Dimensions : {{ celestialBody.dimension}} km</p>
+    <p *ngIf="celestialBody.meanRadius" data-title="The average radius">Mean Radius : {{celestialBody.meanRadius}} km</p>
+    <p *ngIf="celestialBody.equaRadius" data-title="The equatorial radius">Equa Radius : {{celestialBody.equaRadius}} km</p>
+    <p *ngIf="celestialBody.polarRadius" data-title="The polar radius">Polar Radius : {{celestialBody.polarRadius}} km</p>
+    <p *ngIf="celestialBody.sideralOrbit" data-title="The period the revolution of an object around another object (the Sun or a planet) in terrestrial days">Sideral Orbit : {{celestialBody.sideralOrbit}} days</p>
+    <p *ngIf="celestialBody.sideralRotation" data-title="The rotation period of an object, the time needed for the object to perform a turn on itself, in hours">Sideral Rotation : {{celestialBody.sideralRotation}} hours</p>
+    <p *ngIf="celestialBody.avgTemp" data-title="The average temperature">Average Temperature : {{celestialBody.avgTemp}} K</p>
     <ul *ngIf="celestialBody.moons && celestialBody.moons.length > 0">
-        <li *ngFor="let moon of celestialBody.moons">
-     
+        <h2>{{ celestialBody.englishName}}'s Moons</h2>
+        <li *ngFor="let moon of celestialBody.moons; let i = index">
+            <ul style="cursor: pointer;" (click)="navigateToMoonDetails(i)">
+                {{moon}}
+            </ul>
         </li>
     </ul>
-    <!-- Autres détails... -->
+    <p *ngIf="celestialBody.bodyType == 'Moon' ">
+        {{ celestialBody.englishName }} orbits around: {{ celestialBody.aroundPlanet.planet | titlecase }}
+    </p>
 </div>
+    

@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'observatory', component: ObservatoryComponent},
   {path: 'gallery', component: GalleryComponent},
   { path: 'detail/:id', component: CelestialDetailComponent }, // Route pour les détails
-  { path: 'celestial/:englishName', component: CelestialBodyComponent },
+  { path: ':id', component: CelestialBodyComponent },
 
 ];
 

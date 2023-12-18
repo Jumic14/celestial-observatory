@@ -1,9 +1,12 @@
+import { Moon } from "../interfaces/moons-interface";
+import { Planet } from "../interfaces/planet.interface";
+
 export class CelestialBody {
     id!: string;
     bodyType!: string;
     name!: string;
     englishName!: string;
-    moons!: string[];
+    moons?: Moon[];
     semimajorAxis!: number;
     perihelion!: number;
     aphelion!: number;
@@ -18,7 +21,10 @@ export class CelestialBody {
     dimension!: string;
     sideralOrbit!: number;
     sideralRotation!: number;
-    aroundPlanet!: string[];
+    aroundPlanet!: {
+        planet: string;
+        rel: string;
+      };
     discoveredBy!: string;
     discoveryDate!: string;
     alternativeName!: string;

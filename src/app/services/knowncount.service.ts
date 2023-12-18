@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CelestialBody } from '../models/celestial-body.models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class KnowcountService {
+export class KnownCountService {
   private apiUrl = 'https://api.le-systeme-solaire.net/rest/';
 
   // Correspondance entre l'ID et le nom des catégories
@@ -23,12 +22,12 @@ export class KnowcountService {
 
   constructor(private http: HttpClient) {}
 
-  getKnowcount(): Observable<any> {
+  getKnownCount(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/knowncount`);
   }
 
   getCategoryNameFromId(id: string): string {
-    console.log(this.categoryMapping);
+    console.log(id);
     return this.categoryMapping[id] || '';
   }
 }

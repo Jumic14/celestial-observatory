@@ -1,9 +1,18 @@
 <div *ngIf="celestialObjects.length > 0">
-    <h2>Celestial Objects for Category:  {{ categoryMapping[category] }}</h2>
-  <ul>
-    <li *ngFor="let object of celestialObjects">
-        <button (click)="redirectToCelestialBodyDetail(object)">{{ object.name }}</button>
-        <!-- Autres détails des astres -->
-      </li>
-  </ul>
+
+
+
+  <h2>Celestial Objects for : {{ category }}</h2>
+  <div class="options">
+    <button *ngFor="let object of celestialObjects" (click)="onBodySelected(object.id)">
+      {{ object.englishName }}
+    </button>
+  </div>
+  <div *ngIf="selectedCategoryId" class="selected-option">
+    <h3>Choix sélectionné :</h3>
+    <p>{{ getSelectedOptionName() }}</p>
+    <button (click)="redirectToBody()">Show Category Details</button>
+  </div>
+
+ 
 </div>

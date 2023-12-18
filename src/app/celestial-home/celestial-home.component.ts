@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { KnowcountService } from '../services/knowncount.service';
+import { KnownCountService } from '../services/knowncount.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -22,9 +22,9 @@ export class CelestialHomeComponent implements OnInit, OnDestroy {
     // Ajoute d'autres correspondances si nécessaire
   };
   selectedCategoryId: string | null = null; 
-  allowedBodyTypes: string[] = ['Star', 'Planet', 'Dwarf Planet', 'Asteroid', 'Comet', 'Moon'];
+  allowedBodyTypes: string[] = ['Star', 'Planet', 'Dwarf Planet',  'Moon'];
 
-  constructor(private knowcountService: KnowcountService, private router: Router) {}
+  constructor(private knownCountService: KnownCountService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchKnowcount();
@@ -32,14 +32,14 @@ export class CelestialHomeComponent implements OnInit, OnDestroy {
 
   fetchKnowcount(): void {
     this.subscription.add(
-      this.knowcountService.getKnowcount().subscribe({
+      this.knownCountService.getKnownCount().subscribe({
         next: (data: any) => {
           if (data.knowncount && Array.isArray(data.knowncount)) {
             this.knowcount = data.knowncount.map((entry: any) => {
               return {
                 id: entry.id,
                 knownCount: entry.knownCount,
-                name: this.knowcountService.getCategoryNameFromId(entry.id)
+                name: this.knownCountService.getCategoryNameFromId(entry.id)
               };
             });
           } else {
@@ -57,11 +57,11 @@ export class CelestialHomeComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe(); // Nettoyage de l'abonnement
   }
 
-  onCategorySelected(event: any): void {
-    this.selectedCategoryId = event.target.value; // Stocke la valeur sélectionnée
+  onCategorySelected(selectedCategory: string): void {
+    this.selectedCategoryId = selectedCategory; // Stocke la catégorie sélectionnée
     console.log('Selected category:', this.selectedCategoryId);
   }
-
+  
   redirectToCategoryDetail(): void {
     if (this.selectedCategoryId) {
       this.router.navigate(['/detail', this.selectedCategoryId]); // Redirige avec l'ID sélectionné
