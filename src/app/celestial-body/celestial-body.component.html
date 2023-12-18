@@ -1,7 +1,12 @@
+<div class="knowcount">
+    <app-knowncount></app-knowncount>
+   </div>
 <div *ngIf="celestialBody">
     <h2>{{ celestialBody.englishName }}</h2>
     <p *ngIf="celestialBody.alternativeName">Alternative name : {{celestialBody.alternativeName}}</p>
+    <span style="cursor: pointer;" (click)="navigateToBodyType()">
     <p>Body Type : {{celestialBody.bodyType}}</p>
+    </span>
     <p *ngIf="celestialBody.discoveredBy"> Discover by : {{celestialBody.discoveredBy}}, the {{celestialBody.discoveryDate}}</p>
     <p *ngIf="celestialBody.perihelion" data-title="The point in an object's orbit of a planet, asteroid or comet at which it is closest from the sun">Perihelion : {{celestialBody.perihelion}} km</p>
     <p *ngIf="celestialBody.aphelion" data-title="The point in an object's orbit of a planet, asteroid, or comet at which it is furthest from the sun">Aphelion : {{celestialBody.aphelion}} km</p>
@@ -21,12 +26,17 @@
         <h2>{{ celestialBody.englishName}}'s Moons</h2>
         <li *ngFor="let moon of celestialBody.moons; let i = index">
             <ul style="cursor: pointer;" (click)="navigateToMoonDetails(i)">
-                {{moon}}
-            </ul>
+                {{ isEarthBody ? 'Moon' : moon }}
+              </ul>
         </li>
     </ul>
-    <p *ngIf="celestialBody.bodyType == 'Moon' ">
-        {{ celestialBody.englishName }} orbits around: {{ celestialBody.aroundPlanet.planet | titlecase }}
-    </p>
+    <p *ngIf="celestialBody.bodyType === 'Moon' ">
+        {{ celestialBody.englishName }} orbits around: 
+        <span style="cursor: pointer;" (click)="navigateToPlanet()">
+            {{ IsMoonBody ? 'Earth' : celestialBody.aroundPlanet.planet | titlecase }}
+          </span>
+      </p>
+      
 </div>
+<app-codex [codexEntries]="codexEntries"></app-codex>
     

@@ -1,12 +1,17 @@
-<div class="options">
-  <p>Please, select a body type :</p>
-  <button *ngFor="let type of allowedBodyTypes" (click)="onCategorySelected(type)">
-    {{ type }}
-  </button>
+<div class="options-container">
+  <div class="options">
+    <button *ngFor="let type of allowedBodyTypes" (click)="onCategorySelected(type)" class="type-button">
+      {{ type }}
+    </button>
+  </div>
+  <p>Selected body type:</p>
+
+  <div class="selected-option">
+    <p *ngIf="selectedCategoryId" class="selected-option">{{ selectedCategoryId }}</p>
+    <p *ngIf="!selectedCategoryId" class="unselected-option">Select body type</p>
+   
+
+  <button (click)="redirectToCategoryDetail()" class="category-details-button">Point Telescope</button>
 </div>
 
-<div *ngIf="selectedCategoryId" class="selected-option">
-  <p>Selected body type:</p>
-  <p>{{ selectedCategoryId }}</p>
-  <button (click)="redirectToCategoryDetail()">Show body type list</button>
-</div>
+

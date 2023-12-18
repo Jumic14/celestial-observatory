@@ -57,7 +57,7 @@ onBodySelected(selectedId: string): void {
 }
 redirectToBody(): void {
   if (this.selectedCategoryId !== null) {
-    this.router.navigate([this.selectedCategoryId]);
+    this.router.navigate(['/observatory/body',this.selectedCategoryId]);
   } else {
     console.log('Please select a category!');
     // Gérer le cas où aucune catégorie n'est sélectionnée

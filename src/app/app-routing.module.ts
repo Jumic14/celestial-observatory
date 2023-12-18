@@ -15,8 +15,8 @@ const routes: Routes = [
   {path: 'iss-tracker', component: IssPageComponent},
   {path: 'observatory', component: ObservatoryComponent},
   {path: 'gallery', component: GalleryComponent},
-  { path: 'detail/:id', component: CelestialDetailComponent }, // Route pour les détails
-  { path: ':id', component: CelestialBodyComponent },
+  { path: 'observatory/bodyType/:id', component: CelestialDetailComponent }, // Route pour les détails
+  { path: 'observatory/body/:id', component: CelestialBodyComponent },
 
 ];
 

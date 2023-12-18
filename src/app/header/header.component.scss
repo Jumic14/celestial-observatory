@@ -1,19 +1,36 @@
+/* Header */
 header {
-    text-align: center;
-    background-color: #EEE;
-    margin-bottom: 20px;
-    padding: 10px;
-  }
-  a {
-    margin: 0 10px;
-    color: #333;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
+  background: #0f2c34; /* Début du dégradé */
+  background: linear-gradient(180deg, #08141b 0%, #3a6a7c 50%, #08141b 100%); /* Dégradé avec le milieu #3a6a7c */
+  color: #c9dce5; /* Couleur du texte */
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #70a7bd; /* Bordure basse */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Légère ombre */
+  margin-bottom: 40px;
+  
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #c9dce5; /* Couleur du titre */
   }
   
-  .active {
-    color: #666;
-    text-decoration: underline;
+  nav {
+    margin-top: 10px;
+    
+    a {
+      margin: 0 10px;
+      color: #c9dce5; /* Couleur des liens */
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &.active {
+        color: #08141b; /* Couleur des liens actifs */
+      }
+      
+      &:hover {
+        color: #08141b; /* Changement de couleur au survol */
+      }
+    }
   }
+}

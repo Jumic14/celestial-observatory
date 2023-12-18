@@ -64,7 +64,7 @@ export class CelestialHomeComponent implements OnInit, OnDestroy {
   
   redirectToCategoryDetail(): void {
     if (this.selectedCategoryId) {
-      this.router.navigate(['/detail', this.selectedCategoryId]); // Redirige avec l'ID sélectionné
+      this.router.navigate(['/observatory/bodyType', this.selectedCategoryId]); // Redirige avec l'ID sélectionné
     }
   }
 }

@@ -1,0 +1,16 @@
+<div *ngIf="codexEntries.length > 0">
+  <h2>Codex</h2>
+  <div class="options">
+    <select (change)="onEntrySelected($event)">
+      <option value="" disabled selected>Please select</option>
+      <option *ngFor="let entry of codexEntries" [value]="entry.title">
+        {{ entry.title | titlecase }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="selectedEntry" class="selected-option">
+    <p>{{ selectedEntry.title | titlecase }}</p>
+    <p>{{ selectedEntry.description }}</p>
+  </div>
+</div>

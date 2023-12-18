@@ -1,0 +1,57 @@
+.dashboard-container {
+    background-color: #08141b; /* Couleur de fond inspirée de Mass Effect */
+  color: #c9dce5; /* Couleur du texte */
+    padding: 20px;
+    border-radius: 90px;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Légère ombre */
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d3d3d3; /* Couleur du titre */
+  }
+  
+  .count-summary {
+    border-bottom: 1px solid #3a6a7c; /* Bordure basse */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  
+    p {
+        color: #70a7bd; /* Couleur du titre */
+    }
+  }
+  
+  .object-list-horizontal {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  
+    .object-item {
+        border: 1px solid #3a6a7c; /* Bordure des éléments */
+      padding: 10px;
+      margin: 5px;
+      background-color: #0f2c34; /* Couleur de fond des éléments */
+      border-radius: 15px;
+  
+      h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #70a7bd; /* Couleur du titre */
+      }
+  
+      p {
+        margin: 0;
+        color: #c9dce5; /* Couleur du texte */
+      }
+    }
+  }

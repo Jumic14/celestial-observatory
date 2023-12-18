@@ -1,14 +1,26 @@
+/* Footer */
 footer {
-    text-align: center;
-    background-color: #EEE;
-    margin-top: 20px;
-    padding: 10px;
-}
-button {
-    margin: 0 10px;
-    color: #333;
-    text-decoration: none;
+  background: #0f2c34; /* Début du dégradé */
+  background: linear-gradient(180deg, #08141b 0%, #3a6a7c 50%, #08141b 100%); /* Dégradé avec le milieu #3a6a7c */
+  color: #c9dce5; /* Couleur du texte */
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #70a7bd; /* Bordure haute */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Légère ombre */
+  margin-top: 40px;
+  
+  button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #70a7bd; /* Couleur de fond du bouton */
+    border: none;
+    border-radius: 5px;
+    color: #08141b; /* Couleur du texte du bouton */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
     &:hover {
-      text-decoration: underline;
+      background-color: #3a6a7c; /* Changement de couleur au survol */
     }
   }
+}
