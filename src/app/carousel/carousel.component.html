@@ -1,3 +1,5 @@
+<div class="carousel container">
+<div class="carousel box">
 <div class="arrows-container">
     <button class="control prev" (click)="onPreviousClick()">
       <span class="arrow left"></span>
@@ -10,7 +12,7 @@
 <div class="carousel">
     <ng-container *ngFor="let slide of slides; let i = index">
       <div *ngIf="i === currentSlide">
-        <div>
+        <div class="slide-info">
           <h3>{{ slide.title }}</h3>
           <p>Photo prise le {{ slide.date | date: 'd MMMM yyyy' }}</p>
           <p *ngIf="slide.copyright"> ©{{ slide.copyright }}</p>
@@ -29,4 +31,6 @@
 
 </div>
 <button (click)="onRefresh()">Refresh</button>
+</div>
+</div>      
   

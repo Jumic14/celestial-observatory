@@ -1,23 +1,70 @@
-[data-title]:hover:after {
-    opacity: 1;
-    transition: all 0.1s ease 0.5s;
-    visibility: visible;
-}
-[data-title]:after {
-    content: attr(data-title);
-    background-color: gray;
-    color: #111;
-    font-size: 150%;
-    padding: 1px 5px 2px 5px;
-    bottom: -1.6em;
-    left: 100%;
-    white-space: nowrap;
-    box-shadow: 1px 1px 3px #222222;
-    opacity: 0.5;
-    border: 1px solid #111111;
-    z-index: 99999;
-    visibility: hidden;
-}
-[data-title] {
-    position: relative;
+
+
+.observatory {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    height: 100%;
+ 
+    .celestial-body {
+
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        height: 100%;
+       
+    
+
+
+        .body-details {
+            display: flex;
+            flex-direction: column;
+            overflow: overlay;
+
+            .codex-details {
+                display: grid;
+                grid-template-columns: 20% 20%;
+        
+                justify-content: space-around;
+                overflow: overlay;
+                height: 70%;
+            }
+
+            .body-moons {
+                display: flex;
+                flex-direction: column;
+                height: 10%;
+   
+            }
+        }
+    }
+
+    .codex {
+        width: 30%;
+    }
+
+   /* [data-title]:hover:after {
+        opacity: 1;
+        transition: all 0.1s ease 0.5s;
+        visibility: visible;
+    }
+    [data-title]:after {
+        content: attr(data-title);
+        background-color: gray;
+        color: #111;
+        font-size: 40%;
+        padding: 1px 5px 2px 5px;
+        bottom: -1.6em;
+        left: 100%;
+        white-space: nowrap;
+        box-shadow: 1px 1px 3px #222222;
+        opacity: 0.5;
+        border: 1px solid #111111;
+        z-index: 99999;
+        visibility: hidden;
+    }
+    [data-title] {
+        position: relative; 
+    } */
 }

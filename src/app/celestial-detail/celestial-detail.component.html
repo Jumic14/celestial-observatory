@@ -1,7 +1,10 @@
+<div class="container">
+  <div class="box">
 <div class="knowcount">
   <app-knowncount></app-knowncount>
  </div>
-<div *ngIf="celestialObjects.length > 0">
+
+<div *ngIf="celestialObjects.length > 0" class="body-list">
 
 
 
@@ -10,12 +13,13 @@
     <button *ngFor="let object of celestialObjects" (click)="onBodySelected(object.id)">
       {{ object.englishName }}
     </button>
+
   </div>
+
   <div *ngIf="selectedCategoryId" class="selected-option">
     <h3>Choix sélectionné :</h3>
     <p>{{ getSelectedOptionName() }}</p>
     <button (click)="redirectToBody()">Show Category Details</button>
   </div>
-
- 
 </div>
+

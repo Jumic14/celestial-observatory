@@ -1,24 +1,33 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 crossorigin=""/>
-<div>
-<div id="map" style="width:1000px; height:500px;"></div>
-</div>
 <div class="iss-info">
-  <h3>Coordonnées de l'ISS</h3>
-  <p>Latitude : {{ issLatitude }}</p>
-  <p>Longitude : {{ issLongitude }}</p>
-  
-  <h3>Informations supplémentaires de l'ISS</h3>
-  <p>Vitesse : {{ velocity }} km/h</p>
-  <p>Visibilité : {{ visibility }}</p>
-  <p>Altitude : {{ altitude }} km</p>
-  
-  <h3>Équipage à bord de l'ISS</h3>
-  <ul>
-    <li *ngFor="let crewMember of crew">{{ crewMember.name }}</li>
-  </ul>
+  <div class="location">
+    <h3>ISS Location</h3>
+    <div class="locaiton-info">
+      <p class="location-title">Latitude : </p>
+      <p>{{ issLatitude }}</p>
+      <p class="location-title">Longitude :</p>
+      <p> {{ issLongitude }}</p>
+      <p class="location-title">Velocity : </p>
+      <p>{{ velocity }} km/h</p>
+      <p class="location-title">Altitude : </p>
+      <p>{{ altitude }} km</p>
+      <p class="location-title">Visibility : </p>
+      <p>{{ visibility }}</p>
+    </div>
+  </div>
+  <div id="map"></div>
 
+
+  <div class="crew">
+    <h3>Crew</h3>
+    <p>Currently, there are {{crewNumber}} people aboard the ISS :</p>
+    <ul>
+      <li *ngFor="let crewMember of crew">{{ crewMember.name }}</li>
+    </ul>
+  </div>
+</div>
   <!-- Ajoute des éléments pour afficher les données de prédiction de passage -->
   
-</div>
+

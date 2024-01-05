@@ -15,6 +15,7 @@ export class IssTrackerComponent implements OnInit {
   issLatitude: number = 0;
   issLongitude: number = 0;
   crew: any[] = [];
+  crewNumber: number = 0;
   velocity: number = 0;
   visibility: string = '';
   altitude: number = 0;
@@ -50,6 +51,7 @@ export class IssTrackerComponent implements OnInit {
 
       this.http.get('http://api.open-notify.org/astros.json').subscribe((data: any) => {
         this.crew = data.people;
+        this.crewNumber = data.number
       });
     }, 5000);
   }

@@ -62,7 +62,7 @@ export class KnowncountComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe(); // Nettoyage de l'abonnement
+    this.subscription.closed; // Nettoyage de l'abonnement
   }
 
 }

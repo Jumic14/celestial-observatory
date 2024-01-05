@@ -1,39 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
-  animations: [
-    trigger('openClose', [
-      state(
-        'open',
-        style({
-          transform: 'perspective(800px) rotateY(-120deg)'
-        })
-      ),
-      state(
-        'closed',
-        style({
-          transform: 'perspective(800px) rotateY(0deg)'
-        })
-      ),
-      transition('open => closed', animate('1s ease-in-out')),
-      transition('closed => open', animate('1s ease-in-out'))
-    ])
-  ]
 })
 export class LandingPageComponent {
-  isOpen: boolean = false;
-
-  constructor(private router: Router) {}
+  constructor(private router: Router, private elRef: ElementRef) {}
 
   onContinue(): void {
-    this.isOpen = true;
-    setTimeout(() => {
-      this.router.navigateByUrl('home');
-    }, 1000);
+    const body = this.elRef.nativeElement.ownerDocument.body;
+    if (body) {
+      body.classList.add('changeBackgroundZoom');
+      setTimeout(() => {
+        this.router.navigateByUrl('home');
+        setTimeout(() => {
+          body.classList.remove('changeBackgroundZoom');
+        }, 1000); // Ajuste ce délai selon la durée de ton animation
+      }, 700); // Délai pour synchroniser le changement de fond avec l'animation
+    }
   }
 }

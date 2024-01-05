@@ -1,10 +1,12 @@
-<ng-container *ngIf="!isLandingPage">
+<body [ngClass]="bodyClass" class="wrapper">
+<div *ngIf="!isLandingPage" class="wrap-header">
     <app-header></app-header>
-  </ng-container>
-  
+  </div>
+  <div class="wrap-center">
   <router-outlet></router-outlet>
-  
-  <ng-container *ngIf="!isLandingPage">
+  </div>
+  <div *ngIf="!isLandingPage" class="wrap-footer">
     <app-footer></app-footer>
-  </ng-container>
+  </div>
+</body>
   

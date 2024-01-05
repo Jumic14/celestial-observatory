@@ -1,1 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0px;
+    padding: 0px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     background-image: url('/assets/img/milky-way-home.png');
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     font-family: 'Ubuntu Mono', monospace;
+}
+app-header, app-footer {
+  display: flex;
+  justify-content: center;
+ 
+
+}
+/*
+.landing-background {
+    background-image: url('/assets/img/milky-way-home.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+.home-background {
+    background-image: url('/assets/img/milky-way-home.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+.iss-page-background {
+    background-image: url('/assets/img/iss-page.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .observatory-background {
+    background-image: url('/assets/img/observatory-page.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .gallery-background {
+    background-image: url('/assets/img/gallery-page.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }*/
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .box {
+    padding: 20px;
+    border-radius: 90px;
+    width: 80%;
+    height: 500px;
+    background-color: rgba(8, 20, 27, 0.5); 
+    color: #c9dce5; 
+    box-shadow: 0 0 10px rgba(112, 167, 189, 0.5);
+
+  }
+  /*
+@keyframes changeBackgroundZoomAnimation {
+  0% {
+    transform: scale(1); 
+  }
+  50% {
+    transform: scale(2);
+  }
+  70% {
+    transform: scale(2); 
+    background-image: url('/assets/img/home-page.png'); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
+
+.changeBackgroundZoom {
+  animation: changeBackgroundZoomAnimation 1s ease forwards;
+}
+*/
+
+  
