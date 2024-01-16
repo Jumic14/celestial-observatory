@@ -32,8 +32,8 @@ export class CelestialBodyComponent implements OnInit {
       this.loadCelestialBody(this.category);
       this.loadCodexEntries(); // Charge les entrées de codex au démarrage
       const currentUrl = this.router.url;
-    this.isEarthBody = currentUrl.includes('observatory/body/terre');
-    this.IsMoonBody = currentUrl.includes('observatory/body/lune');
+    this.isEarthBody = currentUrl.includes('observatory/terre');
+    this.IsMoonBody = currentUrl.includes('observatory/lune');
     });
   }
 
@@ -58,10 +58,10 @@ export class CelestialBodyComponent implements OnInit {
       const currentUrl = this.router.url;
       
       // Vérification de l'URL actuelle pour rediriger de la Terre à la Lune
-      if (currentUrl.includes('/observatory/body/terre')) {
-        this.router.navigateByUrl(`/observatory/body/lune`);
+      if (currentUrl.includes('/observatory/terre')) {
+        this.router.navigateByUrl(`/observatory/lune`);
       } else {
-        this.router.navigateByUrl(`/observatory/body/${moonName}`);
+        this.router.navigateByUrl(`/observatory/${moonName}`);
       }
     }
   }
@@ -69,7 +69,7 @@ export class CelestialBodyComponent implements OnInit {
   navigateToPlanet(): void {
     if (this.celestialBody && this.celestialBody.bodyType === 'Moon' && this.celestialBody.aroundPlanet && this.celestialBody.aroundPlanet.planet) {
       const planetName = this.celestialBody.aroundPlanet.planet;
-      this.router.navigateByUrl(`/observatory/body/${planetName}`);
+      this.router.navigateByUrl(`/observatory/${planetName}`);
     }
   }
 

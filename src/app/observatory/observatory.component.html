@@ -1,10 +1,59 @@
 <div class="observatory container">
   <div class="observatory box">
-    <div class="knowcount">
-     <app-knowncount></app-knowncount>
-    </div>
-    <div class="celestial-home">
-     <app-celestial-home></app-celestial-home>
+    <div class="observatory-page">
+      <h2>Telescope Hub</h2>
+      <div class="observatory-content">
+        <div class="knowncount">
+        <app-knowncount></app-knowncount>
+        </div>
+        <div class="celestial-home">
+          <div class="intro">
+          <p>Start your observation by choosing a celestial body type, then click on the button to see all known bodies for this type.</p>
+          <p>You will then be able to focus the Telescope on the celestial body of your choose to learn more about it.</p>
+         </div>
+          <div class="options">
+            <button *ngFor="let type of allowedBodyTypes" (click)="onCategorySelected(type)">
+              {{ type }}
+            </button>
+          </div>
+        
+        
+          <div class="options-selection">
+            <p *ngIf="selectedCategoryId" class="selected-option">{{ selectedCategoryId }}</p>
+            <p *ngIf="!selectedCategoryId" class="unselected-option">No body type selected</p>
+
+            
+            <dialog #dialog>
+
+              <div class="body-select">
+              <div *ngIf="celestialObjects.length > 0" class="body-list">
+                <h2>Celestial Objects for : {{ category }}</h2>
+                  <div class="options">
+                    <button *ngFor="let object of celestialObjects" (click)="onBodySelected(object.id)">
+                      {{ object.englishName }}
+                    </button>
+                  </div>
+
+              <div *ngIf="selectedCategoryId" class="selected-option">
+                <h3>Choix sélectionné :</h3>
+                  <p>{{ getSelectedOptionName() }}</p>
+                  <button (click)="redirectToBody()">Show Category Details</button>
+              </div>
+              </div>
+            </div>
+
+            <div>
+              <button (click)="dialog.close()">OK</button>
+            </div>
+      </dialog>
+          <button *ngIf="selectedCategoryId" (click)="dialog.showModal()">Show Celestial Bodies</button>
+          <button *ngIf="!selectedCategoryId"  class="type-button">Show Celestial Bodies</button>
+          </div>
+        </div>
+        <div class="codex">
+          <app-codex [codexEntries]="codexEntries"></app-codex>
+        </div>
+      </div>
     </div>
   </div>
 </div>

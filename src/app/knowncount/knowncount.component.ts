@@ -14,10 +14,10 @@ export class KnowncountComponent implements OnInit, OnDestroy {
   selectedCategoryId: string | null = null; 
   private subscription: Subscription = new Subscription();
   categoryMapping: { [key: string]: string } = {
-    planet: 'Planet',
-    dwarfPlanet: 'Dwarf Planet',
-    asteroid: 'Asteroid',
-    comet: 'Comet',
+    planet: 'Planets',
+    dwarfPlanet: 'Dwarf Planets',
+    asteroid: 'Asteroids',
+    comet: 'Comets',
     moonsPlanet: 'Moons of Planets',
     moonsDwarfPlanet: 'Moons of Dwarf Planets',
     moonsAsteroid: 'Moons of Asteroids'

@@ -1,32 +1,52 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 crossorigin=""/>
+<div class="iss-page">
 <div class="iss-info">
-  <div class="location">
-    <h3>ISS Location</h3>
-    <div class="locaiton-info">
-      <p class="location-title">Latitude : </p>
-      <p>{{ issLatitude }}</p>
-      <p class="location-title">Longitude :</p>
-      <p> {{ issLongitude }}</p>
-      <p class="location-title">Velocity : </p>
-      <p>{{ velocity }} km/h</p>
-      <p class="location-title">Altitude : </p>
-      <p>{{ altitude }} km</p>
-      <p class="location-title">Visibility : </p>
-      <p>{{ visibility }}</p>
+  <div class="intro">
+    <p>The ISS Explorer allows you to track the real-time location of the International Space Station (ISS) on a map, access detailed coordinates and view the current crew members aboard the ISS.</p>
+  </div>  
+  <div class="loading" *ngIf="issLatitude == 0">
+   <p>Waiting for ISS response...</p>
     </div>
-  </div>
-  <div id="map"></div>
+  <div class="location" *ngIf="issLatitude !== 0">
+    <h3>ISS Location</h3>
 
-
-  <div class="crew">
-    <h3>Crew</h3>
-    <p>Currently, there are {{crewNumber}} people aboard the ISS :</p>
-    <ul>
-      <li *ngFor="let crewMember of crew">{{ crewMember.name }}</li>
-    </ul>
+    <div class="location-info">
+      <span>
+      <h4>Latitude: </h4>
+      <p>{{ issLatitude | number:'1.2-2' }} N</p>
+    </span>
+    <span>
+      <h4>Longitude:</h4>
+      <p> {{ issLongitude | number:'1.2-2' }} E</p>
+    </span>
+    <span>
+      <h4>Velocity: </h4>
+      <p>{{ velocity | number:'1.2-2'}} km/h</p>
+    </span>
+    <span>
+      <h4>Altitude: </h4>
+      <p>{{ altitude | number:'1.2-2'}} km</p>
+    </span>
+    <span>
+      <h4>Visibility: </h4>
+      <p>{{ visibility }}</p>
+    </span>
+    </div>
+    <div class="crew" >
+      <h5>Crew currently aboard the ISS: <span>{{crew.length}}</span></h5>
+      <ul>
+        <li *ngFor="let crewMember of crew">{{ crewMember.name }}</li>
+      </ul>
+    </div>
+    
   </div>
+
+ 
+</div>
+<div id="map"></div>
+
 </div>
   <!-- Ajoute des éléments pour afficher les données de prédiction de passage -->
   

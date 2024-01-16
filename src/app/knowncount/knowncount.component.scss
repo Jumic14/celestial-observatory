@@ -1,16 +1,26 @@
 
-  
-  h2 {
+  .dashboard-container {
+    border-right: 1px solid #3a6a7c;
+    height: 90%;
+    color: #c9dce5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    p {
+      margin: 0px;
+    }
+  h3 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 0px;
+    color: #d3d3d3; /* Couleur du titre */
+  }
+  h4 {
+    margin: 0px;
     color: #d3d3d3; /* Couleur du titre */
   }
   
   .count-summary {
-    border-bottom: 1px solid #3a6a7c; /* Bordure basse */
     padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-align: center;
   
     p {
         color: #70a7bd; /* Couleur du titre */
@@ -21,26 +31,17 @@
     list-style: none;
     padding: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     width: 100%;
   
     .object-item {
-        border: 1px solid #3a6a7c; /* Bordure des éléments */
-      padding: 10px;
-      margin: 5px;
-      background-color: #0f2c34; /* Couleur de fond des éléments */
-      border-radius: 15px;
   
-      h3 {
-        font-size: 18px;
-        margin-bottom: 5px;
-        color: #70a7bd; /* Couleur du titre */
-      }
-  
-      p {
-        margin: 0;
-        color: #c9dce5; /* Couleur du texte */
+      margin: 2px 0px;
+
+      .count {
+        color:#70a7bd
       }
     }
   }
+}

@@ -1,60 +1,64 @@
 .landing-page {
-
   width: 100vw; /* Largeur de l'écran */
-  height: 100vh; /* Hauteur de l'écran */
+  height: 90vh; /* Hauteur de l'écran */
+
+  body {
+    box-shadow: none;
+  }
 
   .landing-content {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;  
-    
-    .asc-logo {
-      height: auto;
-      width: 300px;
-      opacity: 0.65;
-    }
+ 
 
     .landing-text {
+      height: 100%;
+      width: 90%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-around;    
+      justify-content: space-between;
       color: white;
-      
-      font-family: 'Ubuntu Mono', monospace;
-         h2 {
-  font-size: 72px;
-      opacity: 0.75;
-      background-color: rgba(8, 20, 27, 0.5); /* Couleur de fond inspirée de Mass Effect */
-    }
-    p {
-      font-size: 26px;
-    }
 
-  
-    button {
-      border: 1px solid #3a6a7c;
-      padding: 10px;
-      margin: 5px;
-      background-color: rgba(8, 20, 27, 0.5); /* Couleur de fond inspirée de Mass Effect */
-      border-radius: 15px;
-      color: #e3eff5;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-        color: white; /* Changement de couleur au survol */
-    
-      font-size: 48px;
-      font-family: 'Ubuntu Mono', monospace;
-      opacity: 0.8;
-      &:hover {
-       color: #70a7bd;
-    }
- 
+      font-family: "Ubuntu Mono", monospace;
+      h2 {
+        font-size: 72px;
+      }
+      .landing-intro {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        p {
+          font-size: 26px;
+        }
+        button {
+          height: fit-content;
+          border: 1px solid #3a6a7c;
+          padding: 20px;
+          margin: 5px;
+          background-color: #0f2c34d4;
+          border-radius: 15px;
+          color: #e3eff5;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          color: white; /* Changement de couleur au survol */
 
+          font-size: 48px;
+          font-family: "Ubuntu Mono", monospace;
+          &:hover {
+            background-color: #2c4b5cd2; /* Changement de couleur au survol */
+          }
+        }
+        .asc-logo {
+          height: auto;
+          width: 300px;
+          opacity: 0.65;
+        }
       }
     }
   }
-
 }

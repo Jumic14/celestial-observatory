@@ -7,7 +7,6 @@ export class CelestialBody {
     name!: string;
     englishName!: string;
     moons?: Moon[];
-    semimajorAxis!: number;
     perihelion!: number;
     aphelion!: number;
     eccentricity!: number;

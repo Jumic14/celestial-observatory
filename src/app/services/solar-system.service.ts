@@ -39,7 +39,6 @@ export class SolarSystemService {
               name: bodyData.name,
               englishName: bodyData.englishName,
               moons: moons,
-              semimajorAxis: bodyData.semimajorAxis,
               perihelion: bodyData.perihelion,
               aphelion: bodyData.aphelion,
               eccentricity: bodyData.eccentricity,
@@ -77,7 +76,6 @@ export class SolarSystemService {
             name: data.name,
             englishName: data.englishName,
              moons: data.moons ? data.moons.map((moonData: any) => moonData.moon) : [], // Vérifie si 'moons' existe
-              semimajorAxis: data.semimajorAxis,
             perihelion: data.perihelion,
             aphelion: data.aphelion,
             eccentricity: data.eccentricity,

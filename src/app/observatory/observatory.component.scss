@@ -1,7 +1,92 @@
-.observatory {}
-.knowncount {
+.observatory-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 100%;
-}
-.celestial-home {
-    width: 100%;
-}
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+      margin: 0px;
+  }
+    .observatory-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        .knowncount {
+          height: 100%;
+            width: 20%; 
+        }
+        .celestial-home {
+          height: 100%;
+            width: 55%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              margin: 0px 15px;
+              .intro {
+                padding: 20px;
+              }
+              .codex-info {
+                font-size: 14px;
+              }
+                p {
+       
+                  margin-bottom: 20px;
+                  color: #dbe6ee; /* Couleur du texte */
+                }
+               
+                .options {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  
+                
+          
+                }
+                
+                .options-selection {
+              
+                  text-align: center;
+                
+                  p {
+                    color: #c7d9e6; /* Couleur du texte */
+                    font-weight: bold;
+                    margin: 20px;
+                    line-height: 30px;
+                  }
+                
+                  .type-button {
+                    opacity: 50%;
+                  }
+                }
+                .unselected-option {
+                  font-size: 12px;
+                  font-style: italic;
+                }
+              }
+                
+                
+              dialog {
+  
+      
+                width: 60%;
+                height: 60%;
+                background-color: rgb(28, 38, 44);
+                border-radius: 15px;
+                border: 1px solid #70a7bd;
+                button {
+ 
+                }
+              }
+        }
+        .codex {
+          height: 100%;
+            width: 20%;
+        }
+    }
+
+
+

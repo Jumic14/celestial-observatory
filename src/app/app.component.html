@@ -1,9 +1,9 @@
-<body [ngClass]="bodyClass" class="wrapper">
-<div *ngIf="!isLandingPage" class="wrap-header">
+<body [ngClass]="{'landing-page': isLandingPage, 'wrapper': !isLandingPage}" class="wrapper">
+  <div *ngIf="!isLandingPage" class="wrap-header">
     <app-header></app-header>
   </div>
   <div class="wrap-center">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
   <div *ngIf="!isLandingPage" class="wrap-footer">
     <app-footer></app-footer>

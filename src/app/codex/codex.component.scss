@@ -1,33 +1,35 @@
-.options-container {
-    background-color: #08141b;
-    color: #c9dce5;
-    padding: 20px;
-    border-radius: 90px;
-    font-family: "Arial", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  }
-  
+.codex {
+  border-left: 1px solid #3a6a7c;
+  height: 90%;
+  width: 100%;
+  color: #c9dce5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   p {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #dbe6ee; /* Couleur du texte */
+    margin: 0px 10px;
   }
-  
+h3 {
+  text-align: center;
+  margin: 0px;
+  color: #d3d3d3; /* Couleur du titre */
+  padding-bottom: 5px;
+}
   .options {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-  
+    justify-content: space-between;
+    .selection {
+      text-align: center;
+    }
+
     .type-button {
-        border: 1px solid #3a6a7c;
+        border: 1px solid #70A7BD;
         padding: 10px;
         margin: 5px;
-        background-color: #0f2c34;
+        background-color: rgba(112, 167, 189, 0.155);
       border-radius: 15px;
       color: #e3eff5; /* Couleur du texte des boutons */
       cursor: pointer;
@@ -40,31 +42,10 @@
   }
   
   .selected-option {
-    margin-top: 20px;
-    text-align: center;
-  
-    p {
-      color: #c7d9e6; /* Couleur du texte */
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-  
-    .category-details-button {
-        border: 1px solid #3a6a7c;
-        padding: 10px;
-        margin: 5px;
-        background-color: #0f2c34;
-      border-radius: 15px;
-      color: #e3eff5; /* Couleur du texte des boutons */
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  
-      &:hover {
-        background-color: #2c4b5c; /* Changement de couleur au survol */
-      }
-    }
+    width: auto;
+    height: 80%;
+    overflow: overlay;
+
   }
-  .unselected-option {
-    font-size: 12px;
-    font-style: italic;
-  }
+ 
+}

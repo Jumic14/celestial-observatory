@@ -40,10 +40,6 @@ export class CarouselComponent implements OnInit {
     console.log("next clicked, new current slide is: ", this.currentSlide);
   }
   
-  toggleDetails() {
-    this.showDetails = !this.showDetails; // Inverser l'état du toggle
-  }
-
   onRefresh() {
     this.ngOnInit();
   }
@@ -51,12 +47,15 @@ export class CarouselComponent implements OnInit {
   ngOnInit() {
     this.getImagesFromNasa();
   }
-
+  onImageClick(hdurl: string) {
+    window.open(hdurl, '_blank');
+  }
   getImagesFromNasa() {
     this.nasaApiService.getNasaImages(3)
       .subscribe(images => {
         this.slides = images.map(image => ({
-          src: image.url,
+          url: image.url,
+          hdurl:image.hdurl,
           title: image.title,
           explanation: image.explanation,
           copyright: image.copyright,

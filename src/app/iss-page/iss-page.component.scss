@@ -1,4 +1,19 @@
-.tablet-content {
+.iss-page {
     display: flex;
-    justify-content: center ;
+    width: 100%;
+    .iss {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+   
+        h2 {
+            margin: 0px;
+        }
+        .tracker {
+            width: 100%;
+            height: 90%;
+        }
+    }
+
 }

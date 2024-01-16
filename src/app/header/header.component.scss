@@ -1,19 +1,13 @@
 /* Header */
 header {
-     padding: 0px 20px;
-     margin: 20px 0px;
-    border-radius:  90px;
     width: 100%;
     height: 100%;
-    background-color: rgba(8, 20, 27, 0.5); /* Couleur de fond inspirée de Mass Effect */
     color: #c9dce5; /* Couleur du texte */
-    box-shadow: 0 0 10px rgba(76, 127, 154, 0.5); /* Légère ombre */
     align-items: center;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  border-bottom: 1px solid #70a7bd;
   .asc-logo {
     height: 100px;
     width: auto;

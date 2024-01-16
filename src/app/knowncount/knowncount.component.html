@@ -1,12 +1,14 @@
 <div class="dashboard-container">
-  <h2>Known Celestial Objects Count</h2>
+  <h3>Solar System known bodies count</h3>
 
   <ul class="object-list-horizontal">
     <li *ngFor="let entry of knowcount" class="object-item">
-      <p>{{ categoryMapping[entry.id]}} :</p>
-      <p> {{ entry.knownCount }}</p>
+      <p class="bodies">{{ categoryMapping[entry.id]}}:</p>
+      <p class="count">{{ entry.knownCount }}</p>
     </li>
-  </ul>  <div class="count-summary">
-    <p>Total Known Count: {{ totalKnownCount }}</p>
+  </ul>  
+  <div class="count-summary">
+    <h4>Total Known Count: </h4>
+    <p>{{ totalKnownCount }}</p>
   </div>
 </div>

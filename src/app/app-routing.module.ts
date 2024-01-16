@@ -4,7 +4,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ObservatoryComponent } from './observatory/observatory.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { IssPageComponent } from './iss-page/iss-page.component';
-import { CelestialDetailComponent } from './celestial-detail/celestial-detail.component';
 import { CelestialBodyComponent } from './celestial-body/celestial-body.component';
 import { HomeComponent } from './home/home.component';
 
@@ -15,8 +14,7 @@ const routes: Routes = [
   {path: 'iss-tracker', component: IssPageComponent},
   {path: 'observatory', component: ObservatoryComponent},
   {path: 'gallery', component: GalleryComponent},
-  { path: 'observatory/bodyType/:id', component: CelestialDetailComponent }, // Route pour les détails
-  { path: 'observatory/body/:id', component: CelestialBodyComponent },
+  { path: 'observatory/:id', component: CelestialBodyComponent },
 
 ];
 

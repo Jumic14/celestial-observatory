@@ -1,46 +1,85 @@
-.iss-info {
+.iss-page {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    
+    .iss-info {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        height: 100%;
+        justify-content: flex-start;
+        .loading {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 100%;
+  
+            color: #70a7bd;
 
+            p {
+                font-size: 26px;
+            }
+        }
+
+
+        .location {
+            width: 100%;
+            height: auto;
+        
+            .location-info {
+                margin: 0px ;
+                display: grid;
+                grid-template-columns: 35% 35%;
+ 
+                justify-content: space-between;
+    
+           span {
+            margin: 10px 0px;
+            p {
+                margin: 0px;
+                color: #70a7bd;
+                    }
+           }
+            }
+
+        }
+        .crew {
+            width: 100%;
+            font-size: 18px;
+            span {
+                color: #70a7bd;
+            }
+            ul {
+                display: grid;
+                grid-template-columns: 45% 45%;
+                justify-content: space-between;
+                font-size: 16px;
+                list-style: none;
+         padding: 0px;            
+                margin: 0px;
+             color: #70a7bd;   
+            }
+        }
+    
+        h3, h5 {
+            margin: 10px 0px 
+        }
+        h4 {
+            margin:  0px 
+        }
+        p {
+            font-size: 16px;
+        }
+    }
     #map {
+        border: 3px solid #70a7bd;
         border-radius: 10px;
         width: 60%;
         height: auto;
-    }
-    .location {
-        width: 18%;
-        height: 100%;
-
-        .location-info {
-            display: flex;
-            justify-content: center;
-        }
-    }
-    .crew {
-        width: 18%;
-        font-size: 18px;
-
-        ul {
-            font-size: 16px;
-            list-style: none;
-     padding: 0px;
-        }
-    }
-
-    h3 {
-        display: flex;
-        justify-content: center;
-        color: #70a7bd;
-    }
-    .location-title {
-        text-decoration: underline;
-    }
-    p {
-        font-size: 16px;
+        margin-bottom: 5px;
     }
 }
+
 
