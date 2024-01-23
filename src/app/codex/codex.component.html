@@ -11,6 +11,7 @@
 
   <div *ngIf="selectedEntry" class="selected-option">
 
-    <p>{{ selectedEntry.description }}</p>
+    <p class="description">{{ selectedEntry.description }}</p>
+    <img *ngIf="selectedEntry.imageUrl" src="{{selectedEntry.imageUrl}}" alt="schema" class="schema">
   </div>
 </div>

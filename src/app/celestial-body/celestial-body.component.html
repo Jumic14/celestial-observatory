@@ -1,8 +1,29 @@
 <div class="container">
     <div class="box">
         <div class="body-page">
-        <h2>Telescope Hub</h2>
-        <div class="body-content">
+            <div class="nav-menu">
+                <div class="back-btn" data-title="Back to Telescope Hub"> 
+                    <button (click)="backToHub()">
+                    <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Hub">
+                  </button>
+                </div>
+                <h2>Telescope Hub</h2>
+                <div class="info-btn" data-title="Open informations">
+                    <button (click)="dialog.showModal()">
+                      <img class="icon" src="./../../assets/img/info-icon.png" alt="Show Informations" >
+                    </button>
+                  </div>
+                  <dialog #dialog>
+                    <app-infos [title]="'hub2'"></app-infos>
+                    <div class="close-btn" data-title="Close informations">
+                        <button (click)="dialog.close()">
+                          <img class="icon" src="./../../assets/img/close-icon.png" alt="Close modal">
+                        </button>
+                      </div>
+                </dialog>
+            </div>
+       
+         <div class="body-content">
             <div class="knowncount">
                 <app-knowncount></app-knowncount>
               </div>
@@ -14,7 +35,7 @@
                         <div class="body-intro">
                             <p *ngIf="celestialBody.alternativeName">Alternative name: {{celestialBody.alternativeName}}</p>
                         <p *ngIf="celestialBody.discoveredBy"> Discover by: {{celestialBody.discoveredBy}}, the {{celestialBody.discoveryDate}}</p>
-                        <span style="cursor: pointer;" (click)="navigateToBodyType()">
+                        <span>
                             <p>Body Type: {{celestialBody.bodyType}}</p>
                         </span>
                         <p *ngIf="celestialBody.bodyType === 'Moon'">
@@ -27,32 +48,34 @@
                      
                         <div class="body-details">
                             <h4>Codex informations:</h4>
+                    
                             <div class="details-list">
-                                <span *ngIf="celestialBody.perihelion" data-title="The point in an object's orbit of a planet, asteroid or comet at which it is closest from the sun">
-                                <h5>Perihelion:</h5>
+                                <span *ngIf="celestialBody.aphelion">
+                                    <h5>Apoapsis:</h5>
+                                    <p>{{celestialBody.aphelion}} km</p>
+                                </span>
+                                <span *ngIf="celestialBody.perihelion">
+                                <h5>Periapsis:</h5>
                                 <p>{{celestialBody.perihelion}} km</p>
                             </span>
-                            <span *ngIf="celestialBody.aphelion" data-title="The point in an object's orbit of a planet, asteroid, or comet at which it is furthest from the sun">
-                                <h5>Aphelion:</h5>
-                                <p>{{celestialBody.aphelion}} km</p>
-                            </span>
-                            <span *ngIf="celestialBody.eccentricity" data-title="The deviation of a curve or orbit from circularity">
-                                <h5>Eccentricity:</h5>
+              
+                            <span *ngIf="celestialBody.eccentricity">
+                                <h5>Orbital Eccentricity:</h5>
                                 <p>{{celestialBody.eccentricity}} °</p>
                             </span>
-                            <span *ngIf="celestialBody.inclination" data-title="The angle between the orbital plane and the plane of reference">
-                                <h5>Inclination:</h5>
+                            <span *ngIf="celestialBody.inclination">
+                                <h5>Orbital Inclination:</h5>
                                 <p>{{celestialBody.inclination}} °</p>
                             </span>
-                            <span *ngIf="celestialBody.density" data-title="The mass per unit volume of an object">
+                            <span *ngIf="celestialBody.density">
                                 <h5>Density:</h5>
                                 <p>{{celestialBody.density}} g.cm³</p>
                             </span>
-                            <span *ngIf="celestialBody.gravity" data-title="The force by which a planet or other body draws objects toward its center">
+                            <span *ngIf="celestialBody.gravity">
                                 <h5>Gravity:</h5>
                                 <p>{{celestialBody.gravity}} m.s-²</p>
                             </span>
-                            <span *ngIf="celestialBody.escape" data-title="The speed necessary for an object to escape the gravitational pull of an object">
+                            <span *ngIf="celestialBody.escape">
                                 <h5>Escape:</h5>
                                 <p>{{celestialBody.escape}} m.s-¹</p>
                             </span>
@@ -72,17 +95,17 @@
                                 <h5>Polar Radius:</h5>
                                 <p>{{celestialBody.polarRadius}} km</p>
                             </span>
-                            <span *ngIf="celestialBody.sideralOrbit" data-title="The period the revolution of an object around another object (the Sun or a planet) in terrestrial days">
+                            <span *ngIf="celestialBody.sideralOrbit">
                                 <h5>Sideral Orbit:</h5>
                                 <p>{{celestialBody.sideralOrbit}} days</p>
                             </span>
-                            <span *ngIf="celestialBody.sideralRotation" data-title="The rotation period of an object, the time needed for the object to perform a turn on itself, in hours">
+                            <span *ngIf="celestialBody.sideralRotation">
                                 <h5>Sideral Rotation:</h5>
                                 <p>{{celestialBody.sideralRotation}} hours</p>
                             </span>
-                            <span *ngIf="celestialBody.avgTemp" data-title="The average temperature">
+                            <span *ngIf="celestialBody.avgTemp">
                                 <h5 >Average Temperature:</h5>
-                                <p>{{celestialBody.avgTemp}} K</p>
+                                <p>{{celestialBody.avgTemp}} K ({{(celestialBody.avgTemp - 273.15).toFixed(2)}} °C)</p>
                             </span>
                         </div>
                         </div>

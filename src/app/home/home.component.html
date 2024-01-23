@@ -1,47 +1,86 @@
 <div class="home container">
   <div class="home box">
-  <h2>Portal</h2>
-  <div class="intro">
-    <p>Welcome to the Celestial Observatory – Your Cosmic Gateway!</p>
-    <p>Begin a cosmic odyssey with Celestial Observatory, where the mysteries of space come alive, and the beauty of the cosmos awaits your exploration.</p>
-    <p>Our planet, a gem among thousands in the solar system, is just the starting point. Join us as we navigate through the cosmic tapestry, exploring millions of solar systems within our galaxy, the Milky Way, and billions of galaxies within our universe.</p>
-    <p>Our Cosmic Expedition:</p>
-  </div>
-<div class="menu">
-  <div class="module" routerLink="/iss-tracker">
-    <div class="module-content">
-  <h3>ISS Explorer: Real-time Celestial Navigation</h3>
-  
-    <p>Dive into the real-time tracking of the International Space Station (ISS) with ISS Explorer. Track the ISS on a dynamic map, get live coordinates, and stay updated on the current crew aboard. Witness the celestial dance as the ISS orbits Earth</p>
-  </div>
-    <img src="./../assets/img/iss-page.jpg" alt="iss-logo" class="logo">
+    <div class="nav-menu">
+      <h2>Portal</h2>
+    </div>
+    <div class="intro">
+      <h3>Welcome to the Celestial Observatory – Your Cosmic Gateway!</h3>
+      <p>
+        Begin a cosmic odyssey with Celestial Observatory, where the mysteries
+        of space come alive, and the beauty of the cosmos awaits your
+        exploration.
+      </p>
+      <p>
+        Our planet, a gem among thousands in the solar system, is just the
+        starting point. Join us as we navigate through the cosmic tapestry,
+        exploring millions of solar systems within our galaxy, the Milky Way,
+        and billions of galaxies within our universe.
+      </p>
+      <p>Our Cosmic Expedition:</p>
+    </div>
+    <div class="menu">
+      <div class="module" routerLink="/iss-tracker" data-title="Enter">
+        <div class="module-content">
+          <h4>ISS Explorer: Real-time Celestial Navigation</h4>
 
-  </div>
-    
-    <div class="module" routerLink="/observatory">
-      <div class="module-content">
-      <h3>Telescope Hub: Gateway to Celestial Wonders</h3>
-     
-        <p>Beyond Earth lies the heart of our solar system. Explore the intricacies of the Sun, Moon, planets, and their moons with the Telescope Hub. Discover the count of all known celestial bodies in our solar system, choose a celestial body to receive detailed information, and consult the Codex for explanations on the various terms presented. The Telescope Hub opens the door to a deeper understanding of the cosmos.</p>
+          <p>
+            Dive into the real-time tracking of the International Space Station
+            (ISS) with ISS Explorer. Track the ISS on a dynamic map, get live
+            coordinates, and stay updated on the current crew aboard. Witness
+            the celestial dance as the ISS orbits Earth.
+          </p>
+        </div>
+        <img src="./../assets/img/iss-page.jpg" alt="iss-logo" class="module-logo" />
       </div>
-        <img src="./../assets/img/observatory-page.png" alt="telescope-logo" class="logo">
-    
-   </div>
-     <div class="module" routerLink="/gallery">
-      <div class="module-content">
-     <h3>Cosmic Carousel: NASA's Galactic Showcase</h3>
-      
-        <p>Immerse yourself in the captivating visuals captured by NASA's cosmic lens with Cosmic Carousel. Experience a carousel of three images randomly selected from NASA's vast collection. Each image comes with detailed explanations, allowing you to appreciate the beauty and significance of the cosmic wonders captured by NASA's exploration missions.</p>
+
+      <div class="module" routerLink="/observatory" data-title="Enter">
+        <div class="module-content">
+          <h4>Telescope Hub: Gateway to Celestial Wonders</h4>
+
+          <p>
+            Beyond Earth lies the heart of our solar system. Explore the
+            intricacies of the Sun, Moon, planets, and their moons with the
+            Telescope Hub. Discover the count of all known celestial bodies in
+            our solar system, choose a celestial body to receive detailed
+            information, and consult the Codex for explanations on the various
+            terms presented. The Telescope Hub opens the door to a deeper
+            understanding of the cosmos.
+          </p>
+        </div>
+        <img
+          src="./../assets/img/observatory-page.png"
+          alt="telescope-logo"
+          class="module-logo"
+        />
       </div>
-        <img src="./../assets/img/gallery-page.png" alt="carousel-logo" class="logo">
-      
-    </div> 
+      <div class="module" routerLink="/gallery" data-title="Enter">
+        <div class="module-content">
+          <h4>Cosmic Carousel: NASA's Galactic Showcase</h4>
+
+          <p>
+            Immerse yourself in the captivating visuals captured by NASA's
+            cosmic lens with Cosmic Carousel. Experience a carousel of three
+            images randomly selected from NASA's vast collection. Each image
+            comes with detailed explanations, allowing you to appreciate the
+            beauty and significance of the cosmic wonders captured by NASA's
+            exploration missions.
+          </p>
+        </div>
+        <img
+          src="./../assets/img/gallery-page.png"
+          alt="carousel-logo"
+          class="module-logo"
+        />
+      </div>
+    </div>
+    <div class="back-btn" data-title="Leave Celestial Observatory">
+      <button (click)="backToSas()">
+        <img
+          class="icon"
+          src="./../../assets/img/back-icon.png"
+          alt="Leave Celestial Observatory"
+        />
+      </button>
+    </div>
   </div>
-     <!-- controls 
-  <nav>
-    <a routerLink="/iss-tracker" routerLinkActive="active">ISS Tracker</a>
-    <a routerLink="/observatory" routerLinkActive="active">Observatory</a>
-    <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
-  </nav>-->
-</div>
 </div>

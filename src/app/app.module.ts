@@ -19,6 +19,9 @@ import { CelestialBodyComponent } from './celestial-body/celestial-body.componen
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { CodexComponent } from './codex/codex.component';
+import { CreditsComponent } from './credits/credits.component';
+import { InfosComponent } from './infos/infos.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { CodexComponent } from './codex/codex.component';
     HomeComponent,
     FooterComponent,
     CodexComponent,
+    CreditsComponent,
+    InfosComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

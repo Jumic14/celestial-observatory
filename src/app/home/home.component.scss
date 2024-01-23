@@ -1,18 +1,53 @@
+
+
 .home {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
     flex-direction: column;
-    h2 {
-        margin: 0px;
+    overflow: visible;
+    .nav-menu {
+      justify-content: center;
     }
-
+    button {
+      padding: 5px 15px;
+      border-radius: 15px;
+  
+      .icon {
+        width: 20px;
+        height: auto;
+      }
+      
+    }
+    [data-title]:hover:after {
+      opacity: 1;
+      transition: all 0.1s ease 0.5s;
+      visibility: visible;
+  }
+  [data-title]:after {
+    content: attr(data-title);
+    background-color: transparent;
+    color: #70a7bd;
+    font-size: 100%;
+    opacity: 0.5;
+    z-index: 99999;
+    visibility: hidden;
+    position: relative;
+}
+.back-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   }
+   h3 {
+    color: #70a7bd;
+   }
     .menu {
-        height: 50%;
+        height: 40%;
         overflow: overlay;
         display: flex;
         flex-direction: column;
-        align-items: center;
+      margin-bottom: 10px;
     }
     .module {
       display: flex;
@@ -32,9 +67,28 @@
           text-decoration: none;
           transition: color 0.3s ease;          
           &:hover {
-            background-color: #2c4b5c; /* Changement de couleur au survol */
+            background-color: #2c4b5ca3; /* Changement de couleur au survol */
           }
-       
+          &[data-title]:hover:after {
+            opacity: 1;
+            transition: all 0.1s ease 0.5s;
+            visibility: visible;
+        }
+        &[data-title]:after {
+          content: attr(data-title);
+          background-color: transparent;
+          color: #e3eff5;
+          font-size: 30px;
+          opacity: 0.5;
+          z-index: 99999;
+          visibility: hidden;
+          position: relative;
+          left: 10%;
+          top: 40%;
+          width: 1%;
+          text-align: center;
+          text-shadow: #70a7bd 1px 0px 10px;
+      }
         a {
             border: 1px solid #3a6a7c;
             padding: 10px;
@@ -46,9 +100,10 @@
           transition: background-color 0.3s ease;
       
             text-decoration: none;
-            transition: color 0.3s ease;          
+     
             &:hover {
               background-color: #2c4b5c; /* Changement de couleur au survol */
+              
             }
           }
           .module-content {
@@ -57,20 +112,24 @@
             width: 60%;
             height: 100%;
         
-            h3 {
+            h4 {
+              font-size: 16px;
               color: #70a7bd;
           }
             p {
+              font-size: 14px;
               margin: 5px;
             }
        
           }
-          .logo {
+          .module-logo {
             height: auto;
-            width: 30%;
+            width: 25%;
             border-radius: 15px;
             border: 1px solid white;
             opacity: 80%;
           }
+          
     }
+
   }

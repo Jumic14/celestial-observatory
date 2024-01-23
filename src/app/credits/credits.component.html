@@ -1,0 +1,91 @@
+<div class="credits container">
+  <div class="credits box">
+    <div class="nav-menu">
+      <div class="back-btn" data-title="Back to Portal">
+        <button (click)="backToHome()">
+          <img
+            class="icon"
+            src="./../../assets/img/back-icon.png"
+            alt="Back to Hub"
+          />
+        </button>
+      </div>
+      <h2>Credits</h2>
+      <div class="info-btn" data-title="Open informations">
+        <button (click)="dialog.showModal()">
+          <img
+            class="icon"
+            src="./../../assets/img/info-icon.png"
+            alt="Show Informations"
+          />
+        </button>
+      </div>
+      <dialog #dialog>
+        <app-infos [title]="'credits'"></app-infos>
+        <div class="close-btn" data-title="Close informations">
+          <button (click)="dialog.close()">
+            <img
+              class="icon"
+              src="./../../assets/img/close-icon.png"
+              alt="Close modal"
+            />
+          </button>
+        </div>
+      </dialog>
+    </div>
+    <div class="credits-content">
+      <div class="credit-type">
+        <h3 class="type-name">Images</h3>
+        <div class="credits-page">
+          <h4 class="page-name">LANDING PAGE</h4>
+          <div class="page-element" *ngFor="let entry of creditEntries">
+            <div class="element" *ngIf="entry.type == 'images' && entry.page == 'landing-page'">
+            <h5>{{entry.name}}</h5>
+            <p>© {{entry.copyright}}</p>
+            <a href="{{entry.link}}">{{entry.link}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="credits-page">
+          <h4 class="page-name">CELESTIAL PORTAL</h4>
+          <div class="page-element" *ngFor="let entry of creditEntries">
+            <div class="element" *ngIf="entry.type == 'images' && entry.page == 'celestial-portal'">
+            <h5>{{entry.name}}</h5>
+            <p>© {{entry.copyright}}</p>
+            <a href="{{entry.link}}">{{entry.link}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="credit-type">
+        <h3 class="type-name">APIs</h3>
+        <div class="credits-page">
+          <h4 class="page-name">ISS EXPLORER</h4>
+          <div class="page-element" *ngFor="let entry of creditEntries">
+            <div class="element" *ngIf="entry.type == 'api' && entry.page == 'iss-explorer'">
+            <h5>{{entry.name}}</h5>
+            <a href="{{entry.link}}">{{entry.link}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="credits-page">
+          <h4 class="page-name">TELESCOPE HUB</h4>
+          <div class="page-element" *ngFor="let entry of creditEntries">
+            <div class="element" *ngIf="entry.type == 'api' && entry.page == 'telescope-hub'">
+            <h5>{{entry.name}}</h5>
+            <a href="{{entry.link}}">{{entry.link}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="credits-page">
+          <h4 class="page-name">COSMIC CAROUSEL</h4>
+          <div class="page-element" *ngFor="let entry of creditEntries">
+            <div class="element" *ngIf="entry.type == 'api' && entry.page == 'cosmic-carousel'">
+            <h5>{{entry.name}}</h5>
+            <a href="{{entry.link}}">{{entry.link}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

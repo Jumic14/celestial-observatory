@@ -4,5 +4,28 @@ footer {
   height: 100%;
   text-align: center;
   border-top: 1px solid #70a7bd;
-  
+  margin: 20px 0px;
+
+    .footer-content {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      a {
+        margin: 0 10px;
+        color: #c9dce5; /* Couleur des liens */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        
+        &.active {
+          color: #70a7bd; /* Couleur des liens actifs */
+        }
+        
+        &:hover {
+          color: #70a7bd; /* Changement de couleur au survol */
+        }
+      
+    }
+    }
+
 }

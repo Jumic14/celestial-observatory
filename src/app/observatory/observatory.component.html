@@ -1,53 +1,81 @@
 <div class="observatory container">
   <div class="observatory box">
     <div class="observatory-page">
-      <h2>Telescope Hub</h2>
+      <div class="nav-menu">
+        <div class="back-btn" data-title="Back to Portal"> 
+          <button (click)="backToHome()">
+          <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Portal">
+        </button>
+      </div>
+        <h2>Telescope Hub</h2>
+        <div class="info-btn" data-title="Open informations">
+          <button (click)="dialog.showModal()">
+            <img class="icon" src="./../../assets/img/info-icon.png" alt="Show Informations" >
+          </button>
+        </div>
+        <dialog #dialog>
+          <app-infos [title]="'hub1'"></app-infos>
+        <div class="close-btn" data-title="Close informations">
+          <button (click)="dialog.close()">
+            <img class="icon" src="./../../assets/img/close-icon.png" alt="Close modal">
+          </button>
+        </div>
+      </dialog>
+      </div>
       <div class="observatory-content">
         <div class="knowncount">
-        <app-knowncount></app-knowncount>
+          <app-knowncount></app-knowncount>
         </div>
         <div class="celestial-home">
-          <div class="intro">
-          <p>Start your observation by choosing a celestial body type, then click on the button to see all known bodies for this type.</p>
-          <p>You will then be able to focus the Telescope on the celestial body of your choose to learn more about it.</p>
-         </div>
-          <div class="options">
-            <button *ngFor="let type of allowedBodyTypes" (click)="onCategorySelected(type)">
-              {{ type }}
-            </button>
+          <div class="bodytype-selection">
+            <div class="bodytype-options">
+              <button
+                *ngFor="let type of allowedBodyTypes"
+                (click)="onCategorySelected(type)"
+              >
+                {{ type }}
+              </button>
+            </div>
+            <span>
+            <p *ngIf="selectedCategoryId" class="selected-option">
+              {{ selectedCategoryId }}
+            </p>
+            <p *ngIf="selectedCategoryId == 'Star'">A luminous celestial object primarily composed of hydrogen and helium undergoing nuclear fusion, emitting light and heat.</p>
+            <p *ngIf="selectedCategoryId == 'Planet'">A large celestial body orbiting a star, typically spherical in shape, and having cleared its orbit of other debris.</p>
+            <p *ngIf="selectedCategoryId == 'Dwarf Planet'">A celestial body similar to a planet but smaller and not having cleared its orbit of other debris.</p>
+            <p *ngIf="selectedCategoryId == 'Moon'">A natural satellite that orbits a planet or dwarf planet.</p>
+          </span>
+          <span>
+            <p *ngIf="!selectedCategoryId" class="unselected-option">
+              No body type selected
+            </p>
+          </span>
           </div>
-        
-        
-          <div class="options-selection">
-            <p *ngIf="selectedCategoryId" class="selected-option">{{ selectedCategoryId }}</p>
-            <p *ngIf="!selectedCategoryId" class="unselected-option">No body type selected</p>
 
-            
-            <dialog #dialog>
-
-              <div class="body-select">
+    
+            <div class="body-select">
               <div *ngIf="celestialObjects.length > 0" class="body-list">
-                <h2>Celestial Objects for : {{ category }}</h2>
-                  <div class="options">
-                    <button *ngFor="let object of celestialObjects" (click)="onBodySelected(object.id)">
-                      {{ object.englishName }}
-                    </button>
-                  </div>
 
-              <div *ngIf="selectedCategoryId" class="selected-option">
-                <h3>Choix sélectionné :</h3>
-                  <p>{{ getSelectedOptionName() }}</p>
-                  <button (click)="redirectToBody()">Show Category Details</button>
-              </div>
+                <div class="options">
+                  <button
+                    *ngFor="let object of celestialObjects"
+                    style="cursor: pointer"
+                    (click)="onBodySelected(object.id)"
+                  >
+                    {{ object.englishName }}
+                  </button>
+                </div>
               </div>
             </div>
+              <div *ngIf="selectedCelestialBodyId" class="selected-option">
+                <h4>The Telescope Hub is looking at {{ getSelectedOptionName() }}</h4>
 
-            <div>
-              <button (click)="dialog.close()">OK</button>
-            </div>
-      </dialog>
-          <button *ngIf="selectedCategoryId" (click)="dialog.showModal()">Show Celestial Bodies</button>
-          <button *ngIf="!selectedCategoryId"  class="type-button">Show Celestial Bodies</button>
+                <button
+                  *ngIf="selectedCelestialBodyId"
+                  (click)="redirectToBody()"
+                >
+                Explore
+                </button>
           </div>
         </div>
         <div class="codex">

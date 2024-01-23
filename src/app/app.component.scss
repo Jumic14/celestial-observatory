@@ -6,7 +6,7 @@
     padding: 0px;
     border-radius: 90px;
     width: 90%;
-    justify-content: center;
+    justify-content: space-around;
 
     height: 90vh;
     background: #0f2c34;
@@ -19,6 +19,7 @@
     }
 
     .wrap-center {
+        height: 75%;
         width: 100%;
     }
 

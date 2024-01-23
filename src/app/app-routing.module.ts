@@ -6,6 +6,8 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { IssPageComponent } from './iss-page/iss-page.component';
 import { CelestialBodyComponent } from './celestial-body/celestial-body.component';
 import { HomeComponent } from './home/home.component';
+import { CreditsComponent } from './credits/credits.component';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,8 @@ const routes: Routes = [
   {path: 'observatory', component: ObservatoryComponent},
   {path: 'gallery', component: GalleryComponent},
   { path: 'observatory/:id', component: CelestialBodyComponent },
-
+  {path: 'credits', component: CreditsComponent},
+  {path: 'about', component: AboutComponent}
 ];
 
 @NgModule({

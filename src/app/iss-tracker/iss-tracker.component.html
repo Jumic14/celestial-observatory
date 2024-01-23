@@ -3,14 +3,12 @@ integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 crossorigin=""/>
 <div class="iss-page">
 <div class="iss-info">
-  <div class="intro">
-    <p>The ISS Explorer allows you to track the real-time location of the International Space Station (ISS) on a map, access detailed coordinates and view the current crew members aboard the ISS.</p>
-  </div>  
+  
   <div class="loading" *ngIf="issLatitude == 0">
    <p>Waiting for ISS response...</p>
     </div>
   <div class="location" *ngIf="issLatitude !== 0">
-    <h3>ISS Location</h3>
+    <h3>ISS Coordinates </h3>
 
     <div class="location-info">
       <span>
@@ -35,7 +33,8 @@ crossorigin=""/>
     </span>
     </div>
     <div class="crew" >
-      <h5>Crew currently aboard the ISS: <span>{{crew.length}}</span></h5>
+      <h3>Crew</h3>
+      <h5>Astronauts currently on board the ISS: <span>{{crew.length}}</span></h5>
       <ul>
         <li *ngFor="let crewMember of crew">{{ crewMember.name }}</li>
       </ul>

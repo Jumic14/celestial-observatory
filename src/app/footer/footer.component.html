@@ -1,11 +1,9 @@
 <footer>
  
-    <ng-container *ngIf="isHomePage">
-        <button (click)="backToSas()">Back</button>
-      </ng-container>
-      
-      <ng-container *ngIf="!isHomePage">
-        <button (click)="backToHome()">Back</button>
-      </ng-container>
+   <div class="footer-content">
+      <a routerLink="about" routerLinkActive="active">About us</a>
+      <a routerLink="credits" routerLinkActive="active">Credits</a>
+
+   </div>
   
 </footer>

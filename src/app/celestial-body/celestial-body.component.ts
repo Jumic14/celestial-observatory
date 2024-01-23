@@ -5,7 +5,7 @@ import { SolarSystemService } from '../services/solar-system.service';
 import { AstronomyCodexService } from '../services/astronomy-codex.service';
 import { Moon } from '../interfaces/moons-interface';
 import { CodexEntry } from '../models/codex-entry.models';
-
+import { Info } from '../models/info.models';
 @Component({
   selector: 'app-celestial-body',
   templateUrl: './celestial-body.component.html',
@@ -14,7 +14,7 @@ import { CodexEntry } from '../models/codex-entry.models';
 export class CelestialBodyComponent implements OnInit {
   isEarthBody: boolean = false;
   IsMoonBody: boolean = false;
-  celestialBody: CelestialBody | undefined;
+  celestialBody!: CelestialBody;
   moons: Moon[] = [];
   moon: Moon[] = [];
   category: string | null = null;
@@ -49,6 +49,7 @@ export class CelestialBodyComponent implements OnInit {
       });
     }
   }
+
   loadCodexEntries(): void {
     this.codexEntries = this.astronomyCodexService.getAllCodexEntries(); // Utilise le service pour charger les entrées de codex
   }
@@ -78,5 +79,8 @@ export class CelestialBodyComponent implements OnInit {
     const bodyType = this.celestialBody.bodyType;
     this.router.navigateByUrl(`/observatory/bodyType/${bodyType}`);
   }
+}
+backToHub(): void {
+  this.router.navigateByUrl('/observatory');
 }
 }

@@ -1,6 +1,6 @@
 .codex {
   border-left: 1px solid #3a6a7c;
-  height: 90%;
+  height: 100%;
   width: 100%;
   color: #c9dce5;
   display: flex;
@@ -34,10 +34,11 @@ h3 {
       color: #e3eff5; /* Couleur du texte des boutons */
       cursor: pointer;
       transition: background-color 0.3s ease;
-  
-      &:hover {
+      font-family: 'Ubuntu Mono', monospace;
+      &:hover, &:focus {
         background-color: #2c4b5c; /* Changement de couleur au survol */
       }
+      
     }
   }
   
@@ -45,7 +46,15 @@ h3 {
     width: auto;
     height: 80%;
     overflow: overlay;
+    .description {
+      padding: 15px 5px;
+      line-height: 20px;
+    }
+    .schema {
 
+      width: 100%;
+      height: auto;
+    }
   }
  
 }

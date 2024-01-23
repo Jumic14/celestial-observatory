@@ -8,9 +8,12 @@ header {
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid #70a7bd;
-  .asc-logo {
-    height: 100px;
+  
+  .celestial-observatory-logo {
+    height: auto;
     width: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
   }
   h1 {
     margin: 0;
@@ -19,7 +22,7 @@ header {
   }
   
   nav {
-    margin-top: 10px;
+   
     a {
       margin: 0 10px;
       color: #c9dce5; /* Couleur des liens */

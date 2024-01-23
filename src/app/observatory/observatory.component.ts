@@ -30,7 +30,7 @@ export class ObservatoryComponent implements OnInit {
     moonsAsteroid: 'Moons of Asteroids'
     // Ajoute d'autres correspondances si nécessaire
   };
-  
+  selectedCelestialBodyId: string |null = null;
   selectedCategoryId: string | null = null; 
   allowedBodyTypes: string[] = ['Star', 'Planet', 'Dwarf Planet',  'Moon'];
   constructor(
@@ -64,20 +64,20 @@ fetchCelestialObjects(categoryId: string): void {
   });
 }
 onBodySelected(selectedId: string): void {
-  this.selectedCategoryId = selectedId;
-  console.log('Selected category:', this.selectedCategoryId);
+  this.selectedCelestialBodyId = selectedId;
+  console.log('Selected category:', this.selectedCelestialBodyId);
 }
 redirectToBody(): void {
   if (this.selectedCategoryId !== null) {
-    this.router.navigate(['/observatory/',this.selectedCategoryId]);
+    this.router.navigate(['/observatory/',this.selectedCelestialBodyId]);
   } else {
     console.log('Please select a category!');
     // Gérer le cas où aucune catégorie n'est sélectionnée
   }
 }
 getSelectedOptionName(): string {
-  if (this.selectedCategoryId) {
-    const selectedObject = this.celestialObjects.find(obj => obj.id === this.selectedCategoryId);
+  if (this.selectedCelestialBodyId) {
+    const selectedObject = this.celestialObjects.find(obj => obj.id === this.selectedCelestialBodyId);
     return selectedObject ? selectedObject.englishName : '';
   }
   return '';
@@ -87,7 +87,10 @@ getSelectedOptionName(): string {
     console.log('Selected category:', this.selectedCategoryId);
     this.category = this.selectedCategoryId;
     this.fetchCelestialObjects(this.category);
+    this.selectedCelestialBodyId = null;
   }
   
-
+  backToHome(): void {
+    this.router.navigateByUrl('/home');
+  }
 }
