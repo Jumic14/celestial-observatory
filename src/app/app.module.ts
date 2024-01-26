@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; // Importez FormsModule
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SpaceFormatPipe } from './pipes/space-format.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -41,6 +41,7 @@ import { AboutComponent } from './about/about.component';
     CreditsComponent,
     InfosComponent,
     AboutComponent,
+    SpaceFormatPipe
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
-<div class="landing-page">
-  <div class="landing-content">   
+<div class="landing-page" [@enter]>
+  <div class="landing-content" >   
     
 
       <img src="./../assets/img/celestial-observatory-logo-v2.png" alt="celestial-observatory-logo" class="celestial-observatory-logo">
 
     
-            <button (click)="onContinue()">Enter</button>
+            <button (click)="onContinue()" [@enter] [@leave]>Enter</button>
 
 
   </div>

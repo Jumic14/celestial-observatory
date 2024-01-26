@@ -10,6 +10,10 @@
       h3, h4, h5 {
       margin: 0px;
   }
+  .nav-menu {
+    margin-bottom: 10px;
+
+  }
   .body-content {
 
     display: flex;
@@ -22,6 +26,17 @@
     height: 100%;
     width: 20%; 
  }
+    .no-datas {
+        display: flex;
+        flex-direction: column;
+        height: 50%;
+        justify-content: space-around;
+        align-items: center;
+
+        button {
+            width: 20%;
+        }
+    }
     .celestial-body {
     margin: 0px 15px;
         display: flex;
@@ -51,8 +66,6 @@
             .details-list, .moons-list {
                 margin: 15px 0px ;
                 display: grid;
-                grid-template-columns: 25% 25% 25%;
-                align-self: center;
                 justify-content: space-around;
                 padding: 5px 0px;
                 border: 1px solid #70a7bd;
@@ -66,6 +79,12 @@
                         color: #70a7bd;
                     }
                 }
+            }
+            .details-list{
+                grid-template-columns: 45% 45%;
+            }
+            .moons-list {
+                grid-template-columns: 25% 25% 25%;
             }
        
         }

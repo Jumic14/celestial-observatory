@@ -34,6 +34,7 @@
       </dialog>
     </div>
     <div class="about">
+      <div class="about-content">
       <p>Celestial Observatory is an
         application developed to promote interest and awareness in astronomy.</p>
       <p>
@@ -47,6 +48,35 @@
         the cosmos.
       </p>
       <p>Click <a href="/credits">here</a> for full credits.</p>
+    </div>
+    <p>For any suggestion, demand or proposition, you may use the contact form below:</p>
+     
+      <form action="https://formspree.io/f/xgegoanz" method="POST" (submit)="onFormSubmit()">
+         <div class="contact">
+        <div class="contact-details">
+          <div class="contact-input">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="contact-input">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </div>
+      
+      <div class="contact-message">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+    </div>
+      <button type="submit">Send</button>
+      </form>
+      <div class="disclaimer">
+        <p>Celestial Observatory was developped with Angular.</p>
+        <p>© JM-D 2024</p>
+      </div>
+ 
+
     </div>
   </div>
 </div>

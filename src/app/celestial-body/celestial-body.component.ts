@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { CelestialBody } from '../models/celestial-body.models';
 import { SolarSystemService } from '../services/solar-system.service';
 import { AstronomyCodexService } from '../services/astronomy-codex.service';
 import { Moon } from '../interfaces/moons-interface';
 import { CodexEntry } from '../models/codex-entry.models';
-import { Info } from '../models/info.models';
+
 @Component({
   selector: 'app-celestial-body',
   templateUrl: './celestial-body.component.html',
-  styleUrls: ['./celestial-body.component.scss']
+  styleUrls: ['./celestial-body.component.scss'],
 })
 export class CelestialBodyComponent implements OnInit {
   isEarthBody: boolean = false;
@@ -23,7 +24,8 @@ export class CelestialBodyComponent implements OnInit {
     private route: ActivatedRoute,
     private solarSystemService: SolarSystemService,
     private router: Router,
-    private astronomyCodexService: AstronomyCodexService // Injecte le service AstronomyCodexService
+    private astronomyCodexService: AstronomyCodexService,
+    private location: Location // Injecte le service AstronomyCodexService
   ) {}
 
   ngOnInit(): void {
@@ -62,9 +64,13 @@ export class CelestialBodyComponent implements OnInit {
       if (currentUrl.includes('/observatory/terre')) {
         this.router.navigateByUrl(`/observatory/lune`);
       } else {
-        this.router.navigateByUrl(`/observatory/${moonName}`);
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/observatory', moonName]);
+        });
+        
       }
     }
+  
   }
 
   navigateToPlanet(): void {
@@ -79,6 +85,9 @@ export class CelestialBodyComponent implements OnInit {
     const bodyType = this.celestialBody.bodyType;
     this.router.navigateByUrl(`/observatory/bodyType/${bodyType}`);
   }
+}
+backToPlanet(): void {
+  this.location.back();
 }
 backToHub(): void {
   this.router.navigateByUrl('/observatory');

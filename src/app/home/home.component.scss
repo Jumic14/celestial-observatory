@@ -19,21 +19,7 @@
       }
       
     }
-    [data-title]:hover:after {
-      opacity: 1;
-      transition: all 0.1s ease 0.5s;
-      visibility: visible;
-  }
-  [data-title]:after {
-    content: attr(data-title);
-    background-color: transparent;
-    color: #70a7bd;
-    font-size: 100%;
-    opacity: 0.5;
-    z-index: 99999;
-    visibility: hidden;
-    position: relative;
-}
+   
 .back-btn {
   display: flex;
   flex-direction: column;
@@ -43,10 +29,11 @@
     color: #70a7bd;
    }
     .menu {
-        height: 40%;
+        height: auto;
         overflow: overlay;
         display: flex;
         flex-direction: column;
+        align-items: center;
       margin-bottom: 10px;
     }
     .module {

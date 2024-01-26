@@ -2,32 +2,48 @@
   <div class="observatory box">
     <div class="observatory-page">
       <div class="nav-menu">
-        <div class="back-btn" data-title="Back to Portal"> 
+        <div class="back-btn" data-title="Back to Portal">
           <button (click)="backToHome()">
-          <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Portal">
-        </button>
-      </div>
+            <img
+              class="icon"
+              src="./../../assets/img/back-icon.png"
+              alt="Back to Portal"
+            />
+          </button>
+        </div>
         <h2>Telescope Hub</h2>
         <div class="info-btn" data-title="Open informations">
           <button (click)="dialog.showModal()">
-            <img class="icon" src="./../../assets/img/info-icon.png" alt="Show Informations" >
+            <img
+              class="icon"
+              src="./../../assets/img/info-icon.png"
+              alt="Show Informations"
+            />
           </button>
         </div>
         <dialog #dialog>
           <app-infos [title]="'hub1'"></app-infos>
-        <div class="close-btn" data-title="Close informations">
-          <button (click)="dialog.close()">
-            <img class="icon" src="./../../assets/img/close-icon.png" alt="Close modal">
-          </button>
-        </div>
-      </dialog>
+          <div class="close-btn" data-title="Close informations">
+            <button (click)="dialog.close()">
+              <img
+                class="icon"
+                src="./../../assets/img/close-icon.png"
+                alt="Close modal"
+              />
+            </button>
+          </div>
+        </dialog>
       </div>
       <div class="observatory-content">
         <div class="knowncount">
           <app-knowncount></app-knowncount>
         </div>
         <div class="celestial-home">
+          <h4 class="hub-title">Explore the Solar System in 3 click</h4>
           <div class="bodytype-selection">
+            <p class="step">
+              <span class="step-number">1</span> Select a Body Type
+            </p>
             <div class="bodytype-options">
               <button
                 *ngFor="let type of allowedBodyTypes"
@@ -37,45 +53,84 @@
               </button>
             </div>
             <span>
-            <p *ngIf="selectedCategoryId" class="selected-option">
-              {{ selectedCategoryId }}
-            </p>
-            <p *ngIf="selectedCategoryId == 'Star'">A luminous celestial object primarily composed of hydrogen and helium undergoing nuclear fusion, emitting light and heat.</p>
-            <p *ngIf="selectedCategoryId == 'Planet'">A large celestial body orbiting a star, typically spherical in shape, and having cleared its orbit of other debris.</p>
-            <p *ngIf="selectedCategoryId == 'Dwarf Planet'">A celestial body similar to a planet but smaller and not having cleared its orbit of other debris.</p>
-            <p *ngIf="selectedCategoryId == 'Moon'">A natural satellite that orbits a planet or dwarf planet.</p>
-          </span>
-          <span>
-            <p *ngIf="!selectedCategoryId" class="unselected-option">
-              No body type selected
-            </p>
-          </span>
+              <p *ngIf="selectedCategoryId" class="selected-option">
+                {{ selectedCategoryId.toUpperCase() }}
+              </p>
+              <p
+                *ngIf="selectedCategoryId == 'Star'"
+                class="option-description"
+              >
+                A luminous celestial object primarily composed of hydrogen and
+                helium undergoing nuclear fusion, emitting light and heat.
+              </p>
+              <p
+                *ngIf="selectedCategoryId == 'Planet'"
+                class="option-description"
+              >
+                A large celestial body orbiting a star, typically spherical in
+                shape, and having cleared its orbit of other debris.
+              </p>
+              <p
+                *ngIf="selectedCategoryId == 'Dwarf Planet'"
+                class="option-description"
+              >
+                A celestial body similar to a planet but smaller and not having
+                cleared its orbit of other debris.
+              </p>
+              <p
+                *ngIf="selectedCategoryId == 'Moon'"
+                class="option-description"
+              >
+                A natural satellite that orbits a planet or dwarf planet, or
+                small Solar System body (or sometimes another natural
+                satellite).
+              </p>
+            </span>
+            <span>
+              <p *ngIf="!selectedCategoryId" class="unselected-option">
+                No Body Type selected
+              </p>
+            </span>
           </div>
 
-    
-            <div class="body-select">
-              <div *ngIf="celestialObjects.length > 0" class="body-list">
-
-                <div class="options">
-                  <button
-                    *ngFor="let object of celestialObjects"
-                    style="cursor: pointer"
-                    (click)="onBodySelected(object.id)"
-                  >
-                    {{ object.englishName }}
-                  </button>
-                </div>
-              </div>
-            </div>
-              <div *ngIf="selectedCelestialBodyId" class="selected-option">
-                <h4>The Telescope Hub is looking at {{ getSelectedOptionName() }}</h4>
-
+          <div class="body-select">
+            <div *ngIf="celestialObjects.length > 0" class="body-list">
+              <p class="step">
+                <span class="step-number">2</span> Select a Celestial Body
+              </p>
+              <div class="options" *ngIf="!selectedCelestialBodyId">
                 <button
-                  *ngIf="selectedCelestialBodyId"
-                  (click)="redirectToBody()"
+                  *ngFor="let object of celestialObjects"
+                  style="cursor: pointer"
+                  (click)="onBodySelected(object.id)"
                 >
-                Explore
+                  {{ object.englishName }}
                 </button>
+              </div>
+              <p *ngIf="!selectedCelestialBodyId" class="unselected-option">
+                No Celestial Body selected
+              </p>
+              <span *ngIf="selectedCelestialBodyId">
+                <p class="selected-option">
+                  {{ getSelectedOptionName().toUpperCase() }}
+                </p>
+                <button
+          
+                  (click)="resetSelection()"
+                >
+                  Change Celestial Body
+                </button>
+              </span>
+            </div>
+          </div>
+          <div *ngIf="selectedCelestialBodyId" class="start-hub">
+            <p class="step">
+              <span class="step-number">3</span> Start the Telescope Hub !
+            </p>
+
+            <button *ngIf="selectedCelestialBodyId" (click)="redirectToBody()">
+              Start
+            </button>
           </div>
         </div>
         <div class="codex">

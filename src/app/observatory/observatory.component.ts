@@ -65,7 +65,7 @@ fetchCelestialObjects(categoryId: string): void {
 }
 onBodySelected(selectedId: string): void {
   this.selectedCelestialBodyId = selectedId;
-  console.log('Selected category:', this.selectedCelestialBodyId);
+  console.log('Selected body:', this.selectedCelestialBodyId);
 }
 redirectToBody(): void {
   if (this.selectedCategoryId !== null) {
@@ -89,7 +89,9 @@ getSelectedOptionName(): string {
     this.fetchCelestialObjects(this.category);
     this.selectedCelestialBodyId = null;
   }
-  
+  resetSelection(): void {
+    this.selectedCelestialBodyId = null;
+  }
   backToHome(): void {
     this.router.navigateByUrl('/home');
   }

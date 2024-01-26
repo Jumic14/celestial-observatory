@@ -27,7 +27,13 @@
             <div class="knowncount">
                 <app-knowncount></app-knowncount>
               </div>
-            <div *ngIf="celestialBody" class="celestial-body">
+              <div *ngIf="!celestialBody" class="no-datas">
+            <h3>
+                No available datas par this Celestial Body
+            </h3>
+            <button (click)="backToPlanet()">Return </button>
+        </div>
+            <div *ngIf="celestialBody"  class="celestial-body">
                 <span class="body-name">
                 <h3>{{ celestialBody.englishName.toUpperCase()}}</h3>
                 </span>
@@ -52,11 +58,11 @@
                             <div class="details-list">
                                 <span *ngIf="celestialBody.aphelion">
                                     <h5>Apoapsis:</h5>
-                                    <p>{{celestialBody.aphelion}} km</p>
+                                    <p>{{celestialBody.aphelion | spaceFormat}} km</p>
                                 </span>
                                 <span *ngIf="celestialBody.perihelion">
                                 <h5>Periapsis:</h5>
-                                <p>{{celestialBody.perihelion}} km</p>
+                                <p>{{celestialBody.perihelion | spaceFormat}} km</p>
                             </span>
               
                             <span *ngIf="celestialBody.eccentricity">
@@ -77,7 +83,7 @@
                             </span>
                             <span *ngIf="celestialBody.escape">
                                 <h5>Escape:</h5>
-                                <p>{{celestialBody.escape}} m.s-¹</p>
+                                <p>{{celestialBody.escape | spaceFormat}} m.s-¹</p>
                             </span>
                             <span *ngIf="celestialBody.dimension">
                                 <h5>Dimensions:</h5>
@@ -85,23 +91,23 @@
                             </span>
                             <span *ngIf="celestialBody.meanRadius">
                                 <h5>Mean Radius:</h5>
-                                <p>{{celestialBody.meanRadius}} km</p>
+                                <p>{{celestialBody.meanRadius | spaceFormat}} km</p>
                             </span>
                             <span *ngIf="celestialBody.equaRadius">
                                 <h5>Equa Radius:</h5>
-                                <p>{{celestialBody.equaRadius}} km</p>
+                                <p>{{celestialBody.equaRadius | spaceFormat}} km</p>
                             </span>
                             <span *ngIf="celestialBody.polarRadius">
                                 <h5>Polar Radius:</h5>
-                                <p>{{celestialBody.polarRadius}} km</p>
+                                <p>{{celestialBody.polarRadius | spaceFormat}} km</p>
                             </span>
                             <span *ngIf="celestialBody.sideralOrbit">
                                 <h5>Sideral Orbit:</h5>
-                                <p>{{celestialBody.sideralOrbit}} days</p>
+                                <p>{{celestialBody.sideralOrbit | spaceFormat}} days</p>
                             </span>
                             <span *ngIf="celestialBody.sideralRotation">
                                 <h5>Sideral Rotation:</h5>
-                                <p>{{celestialBody.sideralRotation}} hours</p>
+                                <p>{{celestialBody.sideralRotation | spaceFormat}} hours</p>
                             </span>
                             <span *ngIf="celestialBody.avgTemp">
                                 <h5 >Average Temperature:</h5>
