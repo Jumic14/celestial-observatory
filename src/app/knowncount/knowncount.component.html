@@ -1,14 +1,14 @@
 <div class="dashboard-container">
-  <h3>Solar System known bodies count</h3>
-
-  <ul class="object-list-horizontal">
+  <h3>{{ languageService.selectedLanguage === 'en' ? 'Solar System: known bodies count' : 'Système solaire : corps célestes connus' }}</h3>
+  <ul class="object-list">
     <li *ngFor="let entry of knowcount" class="object-item">
-      <p class="bodies">{{ categoryMapping[entry.id]}}:</p>
-      <p class="count">{{ entry.knownCount }}</p>
+      <p class="bodies" *ngIf="languageService.selectedLanguage === 'en'">{{ categoryMapping[entry.id]}}:</p>
+      <p class="bodies" *ngIf="languageService.selectedLanguage === 'fr'">{{ getTranslatedCategoryName(entry.id) }} :</p>
+      <p class="count">{{ entry.knownCount | spaceFormat }}</p>
     </li>
   </ul>  
   <div class="count-summary">
-    <h4>Total Known Count: </h4>
-    <p>{{ totalKnownCount }}</p>
+    <h4>{{ languageService.selectedLanguage === 'en' ? 'Total known Count:' : 'Décompte total :' }}</h4>
+    <p>{{ totalKnownCount | spaceFormat}}</p>
   </div>
 </div>

@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { CelestialBody } from '../models/celestial-body.models';
 import { SolarSystemService } from '../services/solar-system.service';
 import { AstronomyCodexService } from '../services/astronomy-codex.service';
+import { LanguageService } from '../services/language.service';
 import { Moon } from '../interfaces/moons-interface';
 import { CodexEntry } from '../models/codex-entry.models';
 
@@ -25,7 +26,8 @@ export class CelestialBodyComponent implements OnInit {
     private solarSystemService: SolarSystemService,
     private router: Router,
     private astronomyCodexService: AstronomyCodexService,
-    private location: Location // Injecte le service AstronomyCodexService
+    private location: Location, // Injecte le service AstronomyCodexService
+    public languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
@@ -72,7 +74,24 @@ export class CelestialBodyComponent implements OnInit {
     }
   
   }
+  
+getTranslatedBodyType(): string {
+  const bodyType = this.celestialBody.bodyType;
 
+  if (this.languageService.selectedLanguage === 'fr') {
+    const frenchTranslations: { [key: string]: string } = {
+      'Star': 'Étoile',
+      'Planet': 'Planète',
+      'Dwarf Planet': 'Planète naine',
+      'Moon': 'Lune'
+      // Ajoutez d'autres traductions au besoin
+    };
+
+    return frenchTranslations[bodyType] || bodyType;
+  }
+
+  return bodyType;
+}
   navigateToPlanet(): void {
     if (this.celestialBody && this.celestialBody.bodyType === 'Moon' && this.celestialBody.aroundPlanet && this.celestialBody.aroundPlanet.planet) {
       const planetName = this.celestialBody.aroundPlanet.planet;

@@ -1,104 +1,82 @@
 <div class="observatory container">
   <div class="observatory box">
     <div class="observatory-page">
-      <div class="nav-menu">
-        <div class="back-btn" data-title="Back to Portal">
-          <button (click)="backToHome()">
-            <img
-              class="icon"
-              src="./../../assets/img/back-icon.png"
-              alt="Back to Portal"
-            />
-          </button>
-        </div>
-        <h2>Telescope Hub</h2>
-        <div class="info-btn" data-title="Open informations">
-          <button (click)="dialog.showModal()">
-            <img
-              class="icon"
-              src="./../../assets/img/info-icon.png"
-              alt="Show Informations"
-            />
-          </button>
-        </div>
-        <dialog #dialog>
-          <app-infos [title]="'hub1'"></app-infos>
-          <div class="close-btn" data-title="Close informations">
-            <button (click)="dialog.close()">
-              <img
-                class="icon"
-                src="./../../assets/img/close-icon.png"
-                alt="Close modal"
-              />
-            </button>
-          </div>
-        </dialog>
+  <div class="nav-menu">
+    <div class="back-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Back to Portal' : 'Retour au Portal'"> 
+      <button (click)="backToHome()">
+        <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Hub">
+      </button>
+    </div>   
+    <h2>Telescope Hub</h2>   
+    <div class="info-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Open information' : 'Ouvrir informations'">
+      <button (click)="dialog.showModal()">
+        <img class="icon" src="./../../assets/img/info-icon.png" alt="Open information" >
+      </button>
+    </div>  
+    <dialog #dialog>
+      <app-infos [title]="languageService.selectedLanguage === 'en' ? 'hub1' : 'hub1Fr'"></app-infos>
+      <div class="close-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Close information' : 'Fermer informations'">
+        <button (click)="dialog.close()">
+          <img class="icon" src="./../../assets/img/close-icon.png" alt="Close information">
+        </button>
       </div>
+    </dialog>
+  </div>
       <div class="observatory-content">
         <div class="knowncount">
           <app-knowncount></app-knowncount>
         </div>
         <div class="celestial-home">
-          <h4 class="hub-title">Explore the Solar System in 3 click</h4>
+          <h4 class="hub-title">{{ languageService.selectedLanguage === 'en' ? 'Explore the Solar System in 3 steps' : 'Explorez le Système Solaire en 3 étapes' }}</h4>
           <div class="bodytype-selection">
             <p class="step">
-              <span class="step-number">1</span> Select a Body Type
+              <span class="step-number">1</span> {{ languageService.selectedLanguage === 'en' ? 'Select a body type' : 'Choissisez un type de corps' }}
             </p>
             <div class="bodytype-options">
-              <button
-                *ngFor="let type of allowedBodyTypes"
-                (click)="onCategorySelected(type)"
-              >
-                {{ type }}
+              <button *ngFor="let type of allowedBodyTypes" (click)="onCategorySelected(type)">
+                {{ languageService.selectedLanguage === 'fr' ? getFrenchTranslation(type) : type }}
               </button>
             </div>
             <span>
               <p *ngIf="selectedCategoryId" class="selected-option">
-                {{ selectedCategoryId.toUpperCase() }}
+                {{ languageService.selectedLanguage === 'fr' ? getFrenchTranslation(selectedCategoryId) : selectedCategoryId.toUpperCase() }}
               </p>
               <p
                 *ngIf="selectedCategoryId == 'Star'"
                 class="option-description"
               >
-                A luminous celestial object primarily composed of hydrogen and
-                helium undergoing nuclear fusion, emitting light and heat.
+              {{ languageService.selectedLanguage === 'en' ? 'A luminous celestial object primarily composed of hydrogen and helium undergoing nuclear fusion, emitting light and heat.' : 'Un objet céleste lumineux principalement composé d\'hydrogène et d\'hélium subissant une fusion nucléaire, émettant de la lumière et de la chaleur.' }}
               </p>
               <p
                 *ngIf="selectedCategoryId == 'Planet'"
                 class="option-description"
               >
-                A large celestial body orbiting a star, typically spherical in
-                shape, and having cleared its orbit of other debris.
+              {{ languageService.selectedLanguage === 'en' ? 'A large celestial body orbiting a star, typically spherical in shape, and having cleared its orbit of other debris.' : 'Un grand corps céleste orbitant autour d\'une étoile, généralement de forme sphérique, et ayant dégagé son orbite de tout autre débris.' }}
               </p>
               <p
                 *ngIf="selectedCategoryId == 'Dwarf Planet'"
                 class="option-description"
               >
-                A celestial body similar to a planet but smaller and not having
-                cleared its orbit of other debris.
+              {{ languageService.selectedLanguage === 'en' ? 'A celestial body similar to a planet but smaller and not having cleared its orbit of other debris.' : 'Un corps céleste similaire à une planète mais de taille plus petite et n\'ayant pas dégagé son orbite de tout autre débris.' }}
               </p>
               <p
                 *ngIf="selectedCategoryId == 'Moon'"
                 class="option-description"
               >
-                A natural satellite that orbits a planet or dwarf planet, or
-                small Solar System body (or sometimes another natural
-                satellite).
-              </p>
+              {{ languageService.selectedLanguage === 'en' ? 'A natural satellite that orbits a planet or dwarf planet, or small Solar System body (or sometimes another natural satellite).' : 'Un satellite naturel qui orbite autour d\'une planète, d\'une planète naine, d\'un petit corps du système solaire (ou parfois un autre satellite naturel).' }}
+              </p>             
             </span>
             <span>
               <p *ngIf="!selectedCategoryId" class="unselected-option">
-                No Body Type selected
+                {{ languageService.selectedLanguage === 'en' ? 'Celestial body type missing' : 'Type de corps céleste manquant' }}
               </p>
             </span>
           </div>
-
           <div class="body-select">
             <div *ngIf="celestialObjects.length > 0" class="body-list">
-              <p class="step">
-                <span class="step-number">2</span> Select a Celestial Body
-              </p>
-              <div class="options" *ngIf="!selectedCelestialBodyId">
+              <p class="step" >
+                <span class="step-number">2</span> {{ languageService.selectedLanguage === 'en' ? 'Select a celestial body' : 'Choissisez un corps céleste' }}
+              <div class="options" *ngIf="!selectedCelestialBodyId && languageService.selectedLanguage === 'en'">
                 <button
                   *ngFor="let object of celestialObjects"
                   style="cursor: pointer"
@@ -107,29 +85,37 @@
                   {{ object.englishName }}
                 </button>
               </div>
+              <div class="options" *ngIf="!selectedCelestialBodyId && languageService.selectedLanguage === 'fr'">
+                <button
+                  *ngFor="let object of celestialObjects"
+                  style="cursor: pointer"
+                  (click)="onBodySelected(object.id)"
+                >
+                  {{ object.name }}
+                </button>
+              </div>
               <p *ngIf="!selectedCelestialBodyId" class="unselected-option">
-                No Celestial Body selected
+                {{ languageService.selectedLanguage === 'en' ? 'Celestial body missing' : 'Corps céleste manquant' }}
               </p>
               <span *ngIf="selectedCelestialBodyId">
-                <p class="selected-option">
+                <p class="selected-option" *ngIf="languageService.selectedLanguage === 'en'">
                   {{ getSelectedOptionName().toUpperCase() }}
                 </p>
-                <button
-          
-                  (click)="resetSelection()"
-                >
-                  Change Celestial Body
+                <p class="selected-option" *ngIf="languageService.selectedLanguage === 'fr'">
+                  {{ getSelectedOptionNameFr().toUpperCase() }}
+                </p>
+                <button (click)="resetSelection()">
+                  {{ languageService.selectedLanguage === 'en' ? 'Back to the list' : 'Retour à la liste ' }}
                 </button>
               </span>
             </div>
           </div>
           <div *ngIf="selectedCelestialBodyId" class="start-hub">
             <p class="step">
-              <span class="step-number">3</span> Start the Telescope Hub !
+              <span class="step-number">3</span> {{ languageService.selectedLanguage === 'en' ? 'Start the Telescope Hub !' : 'Démarrez le Telescope Hub !' }}
             </p>
-
             <button *ngIf="selectedCelestialBodyId" (click)="redirectToBody()">
-              Start
+              {{ languageService.selectedLanguage === 'en' ? 'Start' : 'Démarrez' }}
             </button>
           </div>
         </div>

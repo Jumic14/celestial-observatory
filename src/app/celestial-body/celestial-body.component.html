@@ -1,127 +1,150 @@
 <div class="container">
     <div class="box">
         <div class="body-page">
-            <div class="nav-menu">
-                <div class="back-btn" data-title="Back to Telescope Hub"> 
-                    <button (click)="backToHub()">
-                    <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Hub">
-                  </button>
-                </div>
-                <h2>Telescope Hub</h2>
-                <div class="info-btn" data-title="Open informations">
-                    <button (click)="dialog.showModal()">
-                      <img class="icon" src="./../../assets/img/info-icon.png" alt="Show Informations" >
-                    </button>
-                  </div>
-                  <dialog #dialog>
-                    <app-infos [title]="'hub2'"></app-infos>
-                    <div class="close-btn" data-title="Close informations">
-                        <button (click)="dialog.close()">
-                          <img class="icon" src="./../../assets/img/close-icon.png" alt="Close modal">
-                        </button>
-                      </div>
-                </dialog>
+          <div class="nav-menu">
+            <div class="back-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Back to Telescope Hub' : 'Retour au Telescope Hub'"> 
+              <button (click)="backToHub()">
+                <img class="icon" src="./../../assets/img/back-icon.png" alt="Back">
+              </button>
             </div>
-       
+           
+            <h2>Telescope Hub</h2>
+            
+            <div class="info-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Open information' : 'Ouvrir informations'">
+              <button (click)="dialog.showModal()">
+                <img class="icon" src="./../../assets/img/info-icon.png" alt="Open information" >
+              </button>
+            </div>
+           
+            <dialog #dialog>
+              <app-infos [title]="languageService.selectedLanguage === 'en' ? 'hub2' : 'hub2Fr'"></app-infos>
+              <div class="close-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Close information' : 'Fermer informations'">
+                <button (click)="dialog.close()">
+                  <img class="icon" src="./../../assets/img/close-icon.png" alt="Close information">
+                </button>
+              </div>
+            </dialog>
+          </div>
+
+
          <div class="body-content">
             <div class="knowncount">
                 <app-knowncount></app-knowncount>
               </div>
               <div *ngIf="!celestialBody" class="no-datas">
             <h3>
-                No available datas par this Celestial Body
+                {{ languageService.selectedLanguage === 'en' ? 'No available data for this celestial body!' : 'Pas d\'informations pour ce corps céleste !' }}
             </h3>
-            <button (click)="backToPlanet()">Return </button>
+            <button (click)="backToPlanet()">{{ languageService.selectedLanguage === 'en' ? 'Return' : 'Retour' }} </button>
         </div>
             <div *ngIf="celestialBody"  class="celestial-body">
                 <span class="body-name">
-                <h3>{{ celestialBody.englishName.toUpperCase()}}</h3>
+                    <h3 *ngIf="languageService.selectedLanguage === 'en'">{{ celestialBody.englishName.toUpperCase()}}</h3>
+                <h3 *ngIf="languageService.selectedLanguage === 'fr'">{{ celestialBody.name.toUpperCase()}}</h3>
                 </span>
                     <div class="body-description">
-                        <div class="body-intro">
+                        <div class="body-intro" *ngIf="languageService.selectedLanguage === 'en'">
                             <p *ngIf="celestialBody.alternativeName">Alternative name: {{celestialBody.alternativeName}}</p>
-                        <p *ngIf="celestialBody.discoveredBy"> Discover by: {{celestialBody.discoveredBy}}, the {{celestialBody.discoveryDate}}</p>
-                        <span>
+                          <p *ngIf="celestialBody.discoveredBy"> Discover by: {{celestialBody.discoveredBy}}, the {{celestialBody.discoveryDate}}</p>
+                             <span>
                             <p>Body Type: {{celestialBody.bodyType}}</p>
-                        </span>
-                        <p *ngIf="celestialBody.bodyType === 'Moon'">
+                             </span>
+                             <p *ngIf="celestialBody.bodyType === 'Moon'">
                             {{ celestialBody.englishName }} orbits around: 
                             <span style="cursor: pointer;" (click)="navigateToPlanet()">
                                 {{ IsMoonBody ? 'Earth' : celestialBody.aroundPlanet.planet | titlecase }}
                             </span>
-                        </p> 
+                             </p> 
                         </div>
-                     
-                        <div class="body-details">
-                            <h4>Codex informations:</h4>
-                    
+                        <div class="body-intro" *ngIf="languageService.selectedLanguage === 'fr'">
+                            <p *ngIf="celestialBody.alternativeName">Nom alernatif: {{celestialBody.alternativeName}}</p>
+                          <p *ngIf="celestialBody.discoveredBy"> Découvert par : {{celestialBody.discoveredBy}}, le {{celestialBody.discoveryDate}}</p>
+                          <span>
+                            <p>Type de corps : {{ getTranslatedBodyType() }}</p>
+                          </span>
+                             <p *ngIf="celestialBody.bodyType === 'Moon'">
+                            {{ celestialBody.name }} est en orbite autour de : 
+                            <span style="cursor: pointer;" (click)="navigateToPlanet()">
+                                {{ IsMoonBody ? 'Terre' : celestialBody.aroundPlanet.planet | titlecase }}
+                              </span>
+                             </p> 
+                        </div>
+
+                        <div class="body-details" >
+                            <h4 *ngIf="languageService.selectedLanguage === 'en'">{{celestialBody.englishName}} information:</h4>
+                            <h4 *ngIf="languageService.selectedLanguage === 'fr'">Informations de {{celestialBody.name}} :</h4>
                             <div class="details-list">
                                 <span *ngIf="celestialBody.aphelion">
-                                    <h5>Apoapsis:</h5>
+                                    <h5>{{ languageService.selectedLanguage === 'en' ? 'Apoapsis:' : 'Apoapside :' }} </h5>
                                     <p>{{celestialBody.aphelion | spaceFormat}} km</p>
                                 </span>
                                 <span *ngIf="celestialBody.perihelion">
-                                <h5>Periapsis:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Periapsis:' : 'Periapside :' }}</h5>
                                 <p>{{celestialBody.perihelion | spaceFormat}} km</p>
                             </span>
               
                             <span *ngIf="celestialBody.eccentricity">
-                                <h5>Orbital Eccentricity:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Orbital Eccentricity:' : 'Excentricité orbitale :' }}</h5>
                                 <p>{{celestialBody.eccentricity}} °</p>
                             </span>
                             <span *ngIf="celestialBody.inclination">
-                                <h5>Orbital Inclination:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Orbital Inclination:' : 'Inclination orbitale :' }} </h5>
                                 <p>{{celestialBody.inclination}} °</p>
                             </span>
                             <span *ngIf="celestialBody.density">
-                                <h5>Density:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Density:' : 'Densité :' }}</h5>
                                 <p>{{celestialBody.density}} g.cm³</p>
                             </span>
                             <span *ngIf="celestialBody.gravity">
-                                <h5>Gravity:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Gravity:' : 'Gravité :' }}</h5>
                                 <p>{{celestialBody.gravity}} m.s-²</p>
                             </span>
                             <span *ngIf="celestialBody.escape">
-                                <h5>Escape:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Escape:' : 'Vitesse d\'échappement :' }}</h5>
                                 <p>{{celestialBody.escape | spaceFormat}} m.s-¹</p>
                             </span>
                             <span *ngIf="celestialBody.dimension">
-                                <h5>Dimensions:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Dimensions:' : 'Dimensions :' }}:</h5>
                                 <p>{{ celestialBody.dimension}} km</p>
                             </span>
                             <span *ngIf="celestialBody.meanRadius">
-                                <h5>Mean Radius:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Mean Radius:' : 'Rayon moyen :' }}</h5>
                                 <p>{{celestialBody.meanRadius | spaceFormat}} km</p>
                             </span>
                             <span *ngIf="celestialBody.equaRadius">
-                                <h5>Equa Radius:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Equa Radius:' : 'Rayon équatorial :' }}</h5>
                                 <p>{{celestialBody.equaRadius | spaceFormat}} km</p>
                             </span>
                             <span *ngIf="celestialBody.polarRadius">
-                                <h5>Polar Radius:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Polar Radius:' : 'Rayon polaire :' }}</h5>
                                 <p>{{celestialBody.polarRadius | spaceFormat}} km</p>
                             </span>
                             <span *ngIf="celestialBody.sideralOrbit">
-                                <h5>Sideral Orbit:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Sideral Orbit:' : 'Orbite sidérale :' }}</h5>
                                 <p>{{celestialBody.sideralOrbit | spaceFormat}} days</p>
                             </span>
                             <span *ngIf="celestialBody.sideralRotation">
-                                <h5>Sideral Rotation:</h5>
+                                <h5>{{ languageService.selectedLanguage === 'en' ? 'Sideral Rotation:' : 'Rotation sidérale :' }}</h5>
                                 <p>{{celestialBody.sideralRotation | spaceFormat}} hours</p>
                             </span>
                             <span *ngIf="celestialBody.avgTemp">
-                                <h5 >Average Temperature:</h5>
+                                <h5 >{{ languageService.selectedLanguage === 'en' ? 'Average Temperature:' : 'Temperature moyenne :' }}</h5>
                                 <p>{{celestialBody.avgTemp}} K ({{(celestialBody.avgTemp - 273.15).toFixed(2)}} °C)</p>
                             </span>
                         </div>
                         </div>
                         <div class="body-moons" *ngIf="celestialBody.moons && celestialBody.moons.length > 0">
-                            <h4 *ngIf="celestialBody.moons.length > 1">Moons of {{ celestialBody.englishName}}:</h4>
-                            <h4 *ngIf="celestialBody.moons.length == 1">Moon of {{ celestialBody.englishName}}:</h4> 
+                            <h4 *ngIf="celestialBody.moons.length > 1 && languageService.selectedLanguage === 'en'">Moons of {{ celestialBody.englishName}}:</h4>
+                            <h4 *ngIf="celestialBody.moons.length == 1 && languageService.selectedLanguage === 'en'">Moon of {{ celestialBody.englishName}}:</h4> 
+                            <h4 *ngIf="celestialBody.moons.length > 1 && languageService.selectedLanguage === 'fr'">Lunes de {{ celestialBody.name}}:</h4>
+                            <h4 *ngIf="celestialBody.moons.length == 1 && languageService.selectedLanguage === 'fr'">Lune de {{ celestialBody.name}}:</h4> 
                             <div class="moons-list">
                             <span *ngFor="let moon of celestialBody.moons; let i = index">
-                                    <h5 style="cursor: pointer;" (click)="navigateToMoonDetails(i)">
-                                        {{ isEarthBody ? 'Moon' : moon }}
+                                    <h5 style="cursor: pointer;" (click)="navigateToMoonDetails(i)" *ngIf="languageService.selectedLanguage === 'en'">
+                                        {{ isEarthBody ? 'The Moon' : moon }}
+                                    </h5>
+                                    <h5 style="cursor: pointer;" (click)="navigateToMoonDetails(i)" *ngIf="languageService.selectedLanguage === 'fr'">
+                                        {{ isEarthBody ? 'La Lune' : moon }}
                                     </h5>
                                 </span>
                             </div> 

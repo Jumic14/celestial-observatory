@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-iss-tracker',
@@ -25,7 +26,8 @@ export class IssTrackerComponent implements OnInit {
   prediction: any = {}; // Utilisé pour stocker les informations de prédiction
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    public languageService: LanguageService) {}
 
   ngOnInit(): void {
     this.initMap();

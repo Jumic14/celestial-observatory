@@ -1,38 +1,30 @@
 <div class="credits container">
   <div class="credits box">
-    <div class="nav-menu">
-      <div class="back-btn" data-title="Back to Portal">
-        <button (click)="backToHome()">
-          <img
-            class="icon"
-            src="./../../assets/img/back-icon.png"
-            alt="Back to Hub"
-          />
-        </button>
-      </div>
-      <h2>Credits</h2>
-      <div class="info-btn" data-title="Open informations">
-        <button (click)="dialog.showModal()">
-          <img
-            class="icon"
-            src="./../../assets/img/info-icon.png"
-            alt="Show Informations"
-          />
-        </button>
-      </div>
-      <dialog #dialog>
-        <app-infos [title]="'credits'"></app-infos>
-        <div class="close-btn" data-title="Close informations">
-          <button (click)="dialog.close()">
-            <img
-              class="icon"
-              src="./../../assets/img/close-icon.png"
-              alt="Close modal"
-            />
-          </button>
-        </div>
-      </dialog>
+<div class="nav-menu">
+  <div class="back-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Back to Portal' : 'Retour au Portal'"> 
+    <button (click)="backToHome()">
+      <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Hub">
+    </button>
+  </div>
+ 
+  <h2>{{ languageService.selectedLanguage === 'en' ? 'Credits' : 'Crédits' }}</h2>
+  
+  <div class="info-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Open information' : 'Ouvrir informations'">
+    <button (click)="dialog.showModal()">
+      <img class="icon" src="./../../assets/img/info-icon.png" alt="Open information" >
+    </button>
+  </div>
+ 
+  <dialog #dialog>
+    <app-infos [title]="languageService.selectedLanguage === 'en' ? 'credits' : 'creditsFr'"></app-infos>
+    <div class="close-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Close information' : 'Fermer informations'">
+      <button (click)="dialog.close()">
+        <img class="icon" src="./../../assets/img/close-icon.png" alt="Close information">
+      </button>
     </div>
+  </dialog>
+</div>
+
     <div class="credits-content">
       <div class="credit-type">
         <h3 class="type-name">Images</h3>

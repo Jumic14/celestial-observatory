@@ -1,51 +1,45 @@
 <div class="home container">
   <div class="home box">
     <div class="nav-menu">
-      <h2>Portal</h2>
+      <h2>Celestial Portal</h2>
     </div>
     <div class="intro">
-      <h3>Welcome to the Celestial Observatory – Your Cosmic Gateway!</h3>
-      <p>
-        Begin a cosmic odyssey with Celestial Observatory, where the mysteries
-        of space come alive, and the beauty of the cosmos awaits your
-        exploration.
-      </p>
-      <p>
-        Our planet, a gem among thousands in the solar system, is just the
-        starting point. Join us as we navigate through the cosmic tapestry,
-        exploring millions of solar systems within our galaxy, the Milky Way,
-        and billions of galaxies within our universe.
-      </p>
-      <p>Our Cosmic Expedition:</p>
-    </div>
+      <h3>{{ languageService.selectedLanguage === 'en' ? 'Welcome to the Celestial Observatory – Your Cosmic Gateway!' : 'Bienvenue au Celestial Observatory – Votre Portail Cosmique !' }}</h3>
+      <p>{{ languageService.selectedLanguage === 'en' ? 
+        'Explore the wonders of space and dive into the beauty of the cosmos with Celestial Observatory.' : 
+        'Découvrez les mystères de l\'espace et explorez la splendeur du cosmos avec Celestial Observatory.' }}
+        </p>
+        <p>{{ languageService.selectedLanguage === 'en' ? 
+          'Our planet, one of many celestial bodies in the solar system, is just the beginning. Join us as we navigate through the cosmic expanse, exploring millions of solar systems within our galaxy, the Milky Way, and billions of galaxies within our universe.' : 
+          'Notre planète, l\'un des nombreux corps célestes du système solaire, n\'est que le commencement. Rejoignez-nous alors que nous naviguons à travers l\'immensité cosmique, explorant des millions de systèmes solaires dans notre galaxie, la Voie lactée, et des milliards de galaxies dans notre univers.' }}
+          </p>
+          <p>{{ languageService.selectedLanguage === 'en' ? 
+            'Our Cosmic Expedition:' : 
+            'Notre Expédition Cosmique :' }}
+            </p>
+         </div>
     <div class="menu">
       <div class="module" routerLink="/iss-tracker">
         <div class="module-content">
-          <h4>ISS Explorer: Real-time Celestial Navigation</h4>
-
-          <p>
-            Dive into the real-time tracking of the International Space Station
-            (ISS) with ISS Explorer. Track the ISS on a dynamic map, get live
-            coordinates, and stay updated on the current crew aboard. Witness
-            the celestial dance as the ISS orbits Earth.
+          <h4>{{ languageService.selectedLanguage === 'en' ? 'ISS Explorer: Real-time Celestial Navigation' : 'ISS Explorer : Navigation Céleste en Temps Réel' }}</h4>
+          <p>{{ languageService.selectedLanguage === 'en' ? 
+          'Dive into the real-time tracking of the International Space Station (ISS) with ISS Explorer. Track the ISS on a dynamic map, get live coordinates, and stay updated on the current crew aboard.' : 
+          'Plongez dans le suivi en temps réel de la Station spatiale internationale (ISS) avec l\'ISS Explorer. Suivez l\'ISS sur une carte dynamique, obtenez des coordonnées en direct et restez informé sur l\'équipage actuel à bord.' }}
           </p>
         </div>
-        <img src="./../assets/img/iss-page.jpg" alt="iss-logo" class="module-logo" />
+        <img
+          src="./../assets/img/iss-page.jpg"
+          alt="iss-logo"
+          class="module-logo"
+        />
       </div>
-
       <div class="module" routerLink="/observatory">
         <div class="module-content">
-          <h4>Telescope Hub: Gateway to Celestial Wonders</h4>
-
-          <p>
-            Beyond Earth lies the heart of our solar system. Explore the
-            intricacies of the Sun, Moon, planets, and their moons with the
-            Telescope Hub. Discover the count of all known celestial bodies in
-            our solar system, choose a celestial body to receive detailed
-            information, and consult the Codex for explanations on the various
-            terms presented. The Telescope Hub opens the door to a deeper
-            understanding of the cosmos.
-          </p>
+          <h4>{{ languageService.selectedLanguage === 'en' ? 'Telescope Hub: Gateway to Celestial Wonders' : 'Telescope Hub : Porte d\'accès à l\'horizon Céleste' }}</h4>
+          <p>{{ languageService.selectedLanguage === 'en' ? 
+            'Beyond Earth lies the heart of our solar system. Explore the details of stars, planets, dwarf planets, and their moons with the Telescope Hub.. Discover the count of all known celestial bodies in our solar system, choose a celestial body to receive detailed information, and consult the Codex for explanations on the various terms presented.' : 
+            'Au-delà de la Terre se trouve le cœur de notre système solaire. Explorez les détails des étoiles, des planètes, des planètes naines et de leurs lunes avec le Telescope Hub. Découvrez le nombre de tous les corps célestes connus dans notre système solaire, choisissez un corps céleste pour obtenir des informations détaillées et consultez le Codex pour des explications sur les différents termes présentés.' }}
+            </p>
         </div>
         <img
           src="./../assets/img/observatory-page.png"
@@ -55,16 +49,11 @@
       </div>
       <div class="module" routerLink="/gallery">
         <div class="module-content">
-          <h4>Cosmic Carousel: NASA's Galactic Showcase</h4>
-
-          <p>
-            Immerse yourself in the captivating visuals captured by NASA's
-            cosmic lens with Cosmic Carousel. Experience a carousel of three
-            images randomly selected from NASA's vast collection. Each image
-            comes with detailed explanations, allowing you to appreciate the
-            beauty and significance of the cosmic wonders captured by NASA's
-            exploration missions.
-          </p>
+          <h4>{{ languageService.selectedLanguage === 'en' ? 'Cosmic Carousel: NASA\'s Galactic Showcase' : 'Cosmic Carousel : Vitrine Galactique de la NASA' }}</h4>
+          <p>{{ languageService.selectedLanguage === 'en' ? 
+            'Immerse yourself in the captivating visuals captured by NASA\'s cosmic lens with Cosmic Carousel. Discover a carousel of three images with detailed explanations, randomly selected from NASA\'s vast collection.' : 
+            'Plongez-vous dans les visuels captivants capturés par l\'objectif cosmique de la NASA avec le Cosmic Carousel. Découvrez un carrousel de trois images avec explications détaillées, sélectionnées au hasard parmi la vaste collection de la NASA.' }}
+            </p>
         </div>
         <img
           src="./../assets/img/gallery-page.png"
@@ -73,7 +62,10 @@
         />
       </div>
     </div>
-    <div class="back-btn" data-title="Leave Celestial Observatory">
+    <div
+      class="back-btn"
+      [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Leave Celestial Observatory' : 'Quittez le Celestial Observatory'"
+    >
       <button (click)="backToSas()">
         <img
           class="icon"

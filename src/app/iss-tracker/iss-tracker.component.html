@@ -5,41 +5,40 @@ crossorigin=""/>
 <div class="iss-info">
   
   <div class="loading" *ngIf="issLatitude == 0">
-   <p>Waiting for ISS response...</p>
+   <p>{{ languageService.selectedLanguage === 'en' ? 'Waiting for ISS response...' : 'En attente de l\'ISS...' }}</p>
     </div>
   <div class="location" *ngIf="issLatitude !== 0">
-    <h3>ISS Coordinates </h3>
-
+    <h3>{{ languageService.selectedLanguage === 'en' ? 'ISS Coordinates' : 'Coordonnées de l\'ISS' }}</h3>
     <div class="location-info">
       <span>
-      <h4>Latitude: </h4>
+        <h4>{{ languageService.selectedLanguage === 'en' ? 'Latitude:' : 'Latitude :' }}</h4>
       <p>{{ issLatitude | number:'1.2-2' }} N</p>
     </span>
     <span>
-      <h4>Longitude:</h4>
+      <h4>{{ languageService.selectedLanguage === 'en' ? 'Longitude:' : 'Longitude :' }}</h4>
       <p> {{ issLongitude |spaceFormat }} E</p>
     </span>
     <span>
-      <h4>Velocity: </h4>
+      <h4>{{ languageService.selectedLanguage === 'en' ? 'Velocity:' : 'Vitesse :' }}</h4>
       <p>{{ velocity | number:'1.2-2'}} km/h</p>
     </span>
     <span>
-      <h4>Altitude: </h4>
+      <h4>{{ languageService.selectedLanguage === 'en' ? 'Altitude:' : 'Altitude :' }}</h4>
       <p>{{ altitude | number:'1.2-2'}} km</p>
     </span>
     <span>
-      <h4>Visibility: </h4>
-      <p>{{ visibility }}</p>
+      <h4>{{ languageService.selectedLanguage === 'en' ? 'Visibility:' : 'Visibilité :' }}</h4>
+      <p *ngIf="languageService.selectedLanguage === 'en'">{{ visibility }}</p>
+      <p *ngIf="languageService.selectedLanguage === 'fr'">{{ visibility === 'daylight' ? 'Visible' : 'Masqué' }}</p>
     </span>
     </div>
-    <div class="crew" >
-      <h3>Crew</h3>
-      <h5>Astronauts currently on board the ISS: <span>{{crew.length}}</span></h5>
+    <div class="crew">
+      <h3>{{ languageService.selectedLanguage === 'en' ? 'Crew' : 'Équipage' }}</h3>
+      <h5>{{ languageService.selectedLanguage === 'en' ? 'Astronauts currently on board the ISS:' : 'Astronautes actuellement à bord de l\'ISS :' }}<span>{{crew.length}}</span></h5>
       <ul>
         <li *ngFor="let crewMember of crew">{{ crewMember.name }}</li>
       </ul>
     </div>
-    
   </div>
 
  
@@ -47,6 +46,6 @@ crossorigin=""/>
 <div id="map"></div>
 
 </div>
-  <!-- Ajoute des éléments pour afficher les données de prédiction de passage -->
+
   
 

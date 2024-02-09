@@ -1,11 +1,9 @@
 .landing-page {
-  width: 100vw; /* Largeur de l'écran */
-  height: 90vh; /* Hauteur de l'écran */
-
+  width: 100vw; 
+  height: 90vh; 
   body {
     box-shadow: none;
   }
-
   .landing-content {
     height: 100%;
     width: 100%;
@@ -13,35 +11,67 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    opacity: 0.85;
     .celestial-observatory-logo {
       height: auto;
-      width: 50%;
-      opacity: 0.85;
+      width: 50%
     }
-
-        button {
-          height: fit-content;
-          border: 1px solid #3a6a7c;
-          padding: 20px;
-          margin: 5px;
-          background-color: #70a7bd1d;
-          border-radius: 15px;
-                  color: #70a7bd;
-          cursor: pointer;
-
-          transition: background-color 1s ease;
-          transition: all 1s ease;
-
+    .landing-txt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 5%;
+      p {
+        color: white;
+        font-size: 24px;
+      }
+      button {
+        padding: 15px 20px;
+        border-radius: 20px;
+        font-size: 20px;
+      }
+    }    
+  }
+}
+@media only screen and (min-width: 2501px) {
+.landing-page {
+  .landing-content {
+    .landing-txt {
+      p {
+        font-size: 32px;
+      }
+      button {
+        font-size: 28px;
+      }
+    }
+  }
+}
+}
+@media only screen and (min-width: 1921px) and (max-width: 2500px) {
+  .landing-page {
+    .landing-content {
+      .landing-txt {
+        p {
           font-size: 30px;
-          font-family: "Ubuntu Mono", monospace;
-          &:hover {
-            background-color: #39556092; /* Changement de couleur au survol */
-            color: #70a7bd;
-
-            
-          }
         }
-
-    
+        button {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .landing-page {
+    .landing-content {
+      .landing-txt {
+        p {
+          font-size: 18px;
+        }
+        button {
+          font-size: 14px;
+        }
+      }
+    }
   }
 }

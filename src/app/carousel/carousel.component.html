@@ -1,25 +1,28 @@
-
 <div class="nav-menu">
-  <div class="back-btn" data-title="Back to Portal"> 
+  <div class="back-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Back to Portal' : 'Retour au Portal'"> 
     <button (click)="backToHome()">
-    <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Portal">
-  </button>
-</div>
-  <h2>Cosmic Carousel</h2>
-  <div class="info-btn" data-title="Open informations">
-    <button (click)="dialog.showModal()">
-      <img class="icon" src="./../../assets/img/info-icon.png" alt="Show Informations" >
+      <img class="icon" src="./../../assets/img/back-icon.png" alt="Back">
     </button>
   </div>
+ 
+  <h2>Cosmic Carousel</h2>
+  
+  <div class="info-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Open information' : 'Ouvrir informations'">
+    <button (click)="dialog.showModal()">
+      <img class="icon" src="./../../assets/img/info-icon.png" alt="Open information" >
+    </button>
+  </div>
+ 
   <dialog #dialog>
-    <app-infos [title]="'carousel'"></app-infos>
-    <div class="close-btn" data-title="Close informations">
+    <app-infos [title]="languageService.selectedLanguage === 'en' ? 'carousel' : 'carouselFr'"></app-infos>
+    <div class="close-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Close information' : 'Fermer informations'">
       <button (click)="dialog.close()">
-        <img class="icon" src="./../../assets/img/close-icon.png" alt="Close modal">
+        <img class="icon" src="./../../assets/img/close-icon.png" alt="Close information">
       </button>
     </div>
-</dialog>
+  </dialog>
 </div>
+
 <div class="carousel-page">
   <div class="carousel-content">
     <div class="arrows-container">
@@ -37,22 +40,22 @@
         <div *ngIf="i === currentSlide" class="slide-content">
           <div class="slide-info">
             <h3>{{ slide.title }}</h3>
-            <p>{{ slide.date | date : "MMMM d, yyyy" }}</p>
-            <p *ngIf="slide.copyright">©{{ slide.copyright }}</p>
             <div class="details">
-              <p>{{ slide.explanation }}</p>
+              <p>{{ slide.date | date : "MMMM d, yyyy" }}</p>
+              <p *ngIf="slide.copyright">©{{ slide.copyright }}</p>
+              <p class="explanation">{{ slide.explanation }}</p>
             </div>  
           
           </div>
           <div class="slide-img">
           <img [src]="slide.url" class="slide" [alt]="slide.title" (click)="onImageClick(slide.hdurl)"/>
-          <button (click)="onImageClick(slide.hdurl)">See in full dimensions</button>
-          <button (click)="onRefresh()">Reload Cosmic Carousel</button>
-        </div>
+          <div class="slide-btn">
+          <button class="zoom-btn" (click)="onImageClick(slide.hdurl)">Zoom</button>
+          <button class="reload-btn" (click)="onRefresh()">{{ languageService.selectedLanguage === 'en' ? 'Reload' : 'Recharger' }}</button>
+        </div> 
+        <p class="attention" *ngIf="languageService.selectedLanguage === 'fr'">*Ce module n'est pas disponible en version traduite.</p></div>
         </div>
       </ng-container>
-   
-      <!-- controls -->
     </div>
    
   </div>

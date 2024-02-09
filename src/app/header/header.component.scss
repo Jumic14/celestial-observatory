@@ -1,43 +1,242 @@
-/* Header */
 header {
-    width: 100%;
-    height: 100%;
-    color: #c9dce5; /* Couleur du texte */
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #c9dce5;
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid #70a7bd;
-  
-  .celestial-observatory-logo {
-    height: auto;
-    width: auto;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
   h1 {
     margin: 0;
-    font-size: 24px;
-    color: #c9dce5; /* Couleur du titre */
+    .co-logo {
+      height: auto;
+      width: auto;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    .co-icon {
+      display: none;
+    }
   }
-  
-  nav {
-   
-    a {
-      margin: 0 10px;
-      color: #c9dce5; /* Couleur des liens */
-      text-decoration: none;
-      transition: color 0.3s ease;
-      
-      
-      &.active {
-        color: #70a7bd; /* Couleur des liens actifs */
+  .language-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    label {
+      padding-right: 5%;
+      .language-icon {
+        height: 20px;
+        width: auto;
       }
-      
-      &:hover {
-        color: #70a7bd; /* Changement de couleur au survol */
+    }
+    select {
+      border: 0.1em solid #70a7bd;
+      padding: 5px;
+      margin: 5px;
+      background-color: rgba(112, 167, 189, 0.155);
+      border-radius: 15px;
+      color: #e3eff5;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: "Ubuntu Mono", monospace;
+      &:hover,
+      &:focus {
+        background-color: #2c4b5c;
       }
     }
   }
+  nav {
+    display: flex;
+    align-items: center;
+    a {
+      margin: 0 10px;
+      color: #c9dce5;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 14px;
+      img {
+        display: none;
+      }
+      &.active {
+        color: #70a7bd;
+      }
+      &:hover {
+        color: #70a7bd;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 2501px) {
+  header {
+    h1 {
+      .co-logo {
+        width: 200px;
+      }
+    }
+    .language-selector {
+      label {
+        .language-icon {
+          height: 25px;
+        }
+      }
+      select {
+        font-size: 20px;
+      }
+    }
+    nav {
+      width: 60%;
+      justify-content: space-between;
+      a {
+        font-size: 24px;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1921px) and (max-width: 2500px) {
+  header {
+    h1 {
+      .co-logo {
+        width: 150px;
+      }
+    }
+    .language-selector {
+      label {
+        .language-icon {
+          height: 25px;
+        }
+      }
+      select {
+        font-size: 16px;
+      }
+    }
+    nav {
+      width: 60%;
+      justify-content: space-between;
+      a {
+        font-size: 20px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1199px) {
+  header {
+    nav {
+      width: 50%;
+    }
+  }
+}
+@media only screen and (max-width: 992px) {
+  header {
+    h1 {
+      .co-logo {
+        width: 80px;
+      }
+    }
+    .language-selector {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      label {
+        padding-right: 5%;
+        .language-icon {
+          height: 15px;
+        }
+      }
+      select {
+        font-size: 10px;
+      }
+    }
+    nav {
+      width: 60%;
+      a {
+        font-size: 12px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  header {
+    padding-bottom: 5px;
+    h1 {
+      .co-logo {
 
+        width: 60px;
+        margin-bottom: 5px;
+      }
+    }
+    .language-selector {
+      justify-content: end;
+      margin-bottom: 5px;
+      label {
+
+        .language-icon {
+          height: 10px;
+          padding-right: 2%;  
+        }
+      }
+      select {
+        padding: 5px 3px;
+        margin: 5px 0px;
+        font-size: 8px;
+      }
+    }
+    nav {
+      justify-content: space-evenly;
+      width: 55%;
+      a {
+        margin: 0px;
+        font-size: 8px;
+        p {
+          display: none;
+        }
+        img {
+          width: 20px;
+          display: unset;
+          margin-bottom: 5px;
+        }
+        &.active {
+          border-bottom: 1px solid white;
+        }
+        &:hover {
+          border-bottom: 1px solid white;
+        }
+      }
+  
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  header {
+    h1 {
+      .co-logo {
+        display: none;
+      }
+      .co-icon {
+        display: unset;
+        width: 20px;
+        height: 20px;
+        margin-bottom: 5px;
+      }
+    }
+    .language-selector {
+      width: 30%;
+      label {
+        .language-icon {
+          display: none;
+        }
+      }
+    }
+    nav {
+      justify-content: space-evenly;
+      width: 45%;
+      a {
+        img {
+          width: 15px;
+          height: 15px;
+        }
+      }
+  
+    }
+  }
 }

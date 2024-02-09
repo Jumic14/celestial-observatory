@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CelestialBody } from '../models/celestial-body.models';
 import { SolarSystemService } from '../services/solar-system.service';
 import { AstronomyCodexService } from '../services/astronomy-codex.service';
+import { LanguageService } from '../services/language.service';
 import { Moon } from '../interfaces/moons-interface';
 import { CodexEntry } from '../models/codex-entry.models';
 import { Subscription } from 'rxjs';
@@ -37,7 +38,8 @@ export class ObservatoryComponent implements OnInit {
     private route: ActivatedRoute,
     private solarSystemService: SolarSystemService,
     private router: Router,
-    private astronomyCodexService: AstronomyCodexService // Injecte le service AstronomyCodexService
+    private astronomyCodexService: AstronomyCodexService,
+    public languageService: LanguageService // Injecte le service AstronomyCodexService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +50,17 @@ export class ObservatoryComponent implements OnInit {
 
     });
   }
-
+  getFrenchTranslation(type: string): string {
+    const frenchTranslations: { [key: string]: string } = {
+      'Star': 'Étoile',
+      'Planet': 'Planète',
+      'Dwarf Planet': 'Planète naine',
+      'Moon': 'Lune'
+      // Ajoutez d'autres traductions au besoin
+    };
+  
+    return frenchTranslations[type] || type;
+  }
   loadCodexEntries(): void {
     this.codexEntries = this.astronomyCodexService.getAllCodexEntries(); // Utilise le service pour charger les entrées de codex
   }
@@ -75,10 +87,18 @@ redirectToBody(): void {
     // Gérer le cas où aucune catégorie n'est sélectionnée
   }
 }
+
 getSelectedOptionName(): string {
   if (this.selectedCelestialBodyId) {
     const selectedObject = this.celestialObjects.find(obj => obj.id === this.selectedCelestialBodyId);
     return selectedObject ? selectedObject.englishName : '';
+  }
+  return '';
+}
+getSelectedOptionNameFr(): string {
+  if (this.selectedCelestialBodyId) {
+    const selectedObject = this.celestialObjects.find(obj => obj.id === this.selectedCelestialBodyId);
+    return selectedObject ? selectedObject.name : '';
   }
   return '';
 }

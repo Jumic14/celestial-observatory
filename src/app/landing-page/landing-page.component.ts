@@ -1,21 +1,23 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { fadeInRightOnEnterAnimation, fadeOutRightOnLeaveAnimation } from 'angular-animations';
+import { fadeInOnEnterAnimation,  } from 'angular-animations';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
   animations: [
-    fadeInRightOnEnterAnimation({ anchor: 'enter', duration: 1000, delay: 100, translate: '30px' }),
-    fadeOutRightOnLeaveAnimation({ anchor: 'leave', duration: 500, delay: 100, translate: '40px' })
+    fadeInOnEnterAnimation({ anchor: 'enter', duration: 1500, delay: 100}),
+    fadeInOnEnterAnimation({ anchor: 'enter2', duration: 1500, delay: 1000}),
+    fadeInOnEnterAnimation({ anchor: 'enter3', duration: 1500, delay: 2000}),
   ]
 })
 export class LandingPageComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, public languageService: LanguageService) {}
 
   onContinue(): void {
-    fadeOutRightOnLeaveAnimation();
+
     setTimeout(() => {
 
     }, 1000);

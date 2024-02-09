@@ -1,9 +1,12 @@
 <footer>
  
    <div class="footer-content">
-      <a routerLink="about" routerLinkActive="active">About us</a>
-      <a routerLink="credits" routerLinkActive="active">Credits</a>
-
+      <a routerLink="about" routerLinkActive="active">
+         {{ languageService.selectedLanguage === 'en' ? 'About us' : 'À propos' }}
+      </a>
+      <a routerLink="credits" routerLinkActive="active">
+         {{ languageService.selectedLanguage === 'en' ? 'Credits' : 'Crédits' }}
+      </a>
    </div>
   
 </footer>

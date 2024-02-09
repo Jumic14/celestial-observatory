@@ -13,12 +13,13 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent, data: { hideHeaderFooter: true } },
   { path: 'home', component: HomeComponent },
-  {path: 'iss-tracker', component: IssPageComponent},
-  {path: 'observatory', component: ObservatoryComponent},
-  {path: 'gallery', component: GalleryComponent},
+  { path: 'iss-tracker', component: IssPageComponent },
+  { path: 'observatory', component: ObservatoryComponent },
+  { path: 'gallery', component: GalleryComponent },
   { path: 'observatory/:id', component: CelestialBodyComponent },
-  {path: 'credits', component: CreditsComponent},
-  {path: 'about', component: AboutComponent}
+  { path: 'credits', component: CreditsComponent },
+  { path: 'about', component: AboutComponent },
+  
 ];
 
 @NgModule({

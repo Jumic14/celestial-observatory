@@ -1,12 +1,21 @@
 <div class="landing-page" [@enter]>
-  <div class="landing-content" >   
-    
-
-      <img src="./../assets/img/celestial-observatory-logo-v2.png" alt="celestial-observatory-logo" class="celestial-observatory-logo">
-
-    
-            <button (click)="onContinue()" [@enter] [@leave]>Enter</button>
-
-
+  <div class="landing-content">
+    <img
+      src="./../assets/img/celestial-observatory-logo-v2.png"
+      alt="celestial-observatory-logo"
+      class="celestial-observatory-logo"
+    />
+    <div class="landing-txt">
+      <p [@enter2]>
+        {{
+          languageService.selectedLanguage === "en"
+            ? "Your Cosmic Gateway"
+            : "Votre Portail Cosmique"
+        }}
+      </p>
+      <button (click)="onContinue()" [@enter3]>
+        {{ languageService.selectedLanguage === "en" ? "Enter" : "Entrez" }}
+      </button>
+    </div>
   </div>
 </div>

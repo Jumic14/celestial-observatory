@@ -1,6 +1,7 @@
 import { Component, Input, OnInit} from "@angular/core";
 import { NasaApiService } from '../services/nasa-api.services';
 import {Router } from '@angular/router';
+import { LanguageService } from "../services/language.service";
 
 import {
   fadeIn,
@@ -27,7 +28,7 @@ export class CarouselComponent implements OnInit {
   currentSlide = 0;
   showDetails = false;
 
-  constructor(private nasaApiService: NasaApiService,private router: Router) {}
+  constructor(private nasaApiService: NasaApiService,private router: Router, public languageService: LanguageService) {}
 
   onPreviousClick() {
     const previous = this.currentSlide - 1;

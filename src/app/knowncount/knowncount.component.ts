@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { KnownCountService } from '../services/knowncount.service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-knowncount',
@@ -24,7 +24,7 @@ export class KnowncountComponent implements OnInit, OnDestroy {
     // Ajoute d'autres correspondances si nécessaire
   };
 
-  constructor(private knownCountService: KnownCountService, private router: Router) {}
+  constructor(private knownCountService: KnownCountService, public languageService: LanguageService) {}
 
   ngOnInit(): void {
     this.fetchKnowcount();
@@ -53,7 +53,26 @@ export class KnowncountComponent implements OnInit, OnDestroy {
       })
     );
   }
-
+  getTranslatedCategoryName(id: string): string {
+    const categoryName = this.categoryMapping[id];
+  
+    if (this.languageService.selectedLanguage === 'fr') {
+      const frenchTranslations: { [key: string]: string } = {
+        'Planets': 'Planètes',
+        'Dwarf Planets': 'Planètes naines',
+        'Asteroids': 'Astéroïdes',
+        'Comets': 'Comètes',
+        'Moons of Planets': 'Lunes de planètes',
+        'Moons of Dwarf Planets': 'Lunes de planètes naines',
+        'Moons of Asteroids': 'Lunes d\'astéroïdes'
+        // Ajoutez d'autres traductions au besoin
+      };
+  
+      return frenchTranslations[categoryName] || categoryName;
+    }
+  
+    return categoryName;
+  }
   calculateTotalKnownCount(): void {
     // Utilisation de la méthode reduce pour additionner tous les knownCount
     this.totalKnownCount = this.knowcount.reduce((total: number, entry: any) => {

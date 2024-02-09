@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  constructor(
 
+    public languageService: LanguageService
+  ) {}
 }

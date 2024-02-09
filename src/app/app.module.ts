@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms'; // Importez FormsModule
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpaceFormatPipe } from './pipes/space-format.pipe';
+import { LanguageService } from './services/language.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -51,7 +52,8 @@ import { AboutComponent } from './about/about.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LanguageService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
