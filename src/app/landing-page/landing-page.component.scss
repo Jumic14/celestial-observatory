@@ -1,6 +1,6 @@
 .landing-page {
-  width: 100vw; 
-  height: 90vh; 
+  width: 100vw;
+  height: 90vh;
   body {
     box-shadow: none;
   }
@@ -14,7 +14,7 @@
     opacity: 0.85;
     .celestial-observatory-logo {
       height: auto;
-      width: 50%
+      width: 50%;
     }
     .landing-txt {
       display: flex;
@@ -30,23 +30,25 @@
         border-radius: 20px;
         font-size: 20px;
       }
-    }    
+    }
   }
 }
+
 @media only screen and (min-width: 2501px) {
-.landing-page {
-  .landing-content {
-    .landing-txt {
-      p {
-        font-size: 32px;
-      }
-      button {
-        font-size: 28px;
+  .landing-page {
+    .landing-content {
+      .landing-txt {
+        p {
+          font-size: 32px;
+        }
+        button {
+          font-size: 28px;
+        }
       }
     }
   }
 }
-}
+
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
   .landing-page {
     .landing-content {
@@ -61,6 +63,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 768px) {
   .landing-page {
     .landing-content {

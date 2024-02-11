@@ -21,6 +21,7 @@ footer {
     }
   }
 }
+
 @media only screen and (min-width: 2501px) {
   footer {
     .footer-content {
@@ -28,6 +29,7 @@ footer {
     }
   }
 }
+
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
   footer {
     .footer-content {
@@ -35,18 +37,20 @@ footer {
     }
   }
 }
+
 @media only screen and (max-width: 1199px) {
   footer {
     .footer-content {
-      margin-top: 10px; 
+      margin-top: 10px;
     }
   }
 }
+
 @media only screen and (max-width: 992px) {
   footer {
     .footer-content {
       font-size: 12px;
-      margin-top: 5px; 
+      margin-top: 5px;
     }
   }
 }

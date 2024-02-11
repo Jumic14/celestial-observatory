@@ -21,23 +21,24 @@ export class CelestialBodyComponent implements OnInit {
   moon: Moon[] = [];
   category: string | null = null;
   codexEntries: CodexEntry[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private solarSystemService: SolarSystemService,
     private router: Router,
     private astronomyCodexService: AstronomyCodexService,
-    private location: Location, // Injecte le service AstronomyCodexService
+    private location: Location,
     public languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       this.category = params.get('id');
       this.loadCelestialBody(this.category);
-      this.loadCodexEntries(); // Charge les entrées de codex au démarrage
+      this.loadCodexEntries(); 
       const currentUrl = this.router.url;
-    this.isEarthBody = currentUrl.includes('observatory/terre');
-    this.IsMoonBody = currentUrl.includes('observatory/lune');
+      this.isEarthBody = currentUrl.includes('observatory/terre');
+      this.IsMoonBody = currentUrl.includes('observatory/lune');
     });
   }
 
@@ -49,66 +50,72 @@ export class CelestialBodyComponent implements OnInit {
         },
         error: (error: any) => {
           console.error('Error fetching data:', error);
-        }
+        },
       });
     }
   }
 
   loadCodexEntries(): void {
-    this.codexEntries = this.astronomyCodexService.getAllCodexEntries(); // Utilise le service pour charger les entrées de codex
+    this.codexEntries = this.astronomyCodexService.getAllCodexEntries();
   }
+
   navigateToMoonDetails(index: number): void {
-    if (this.celestialBody && this.celestialBody.moons && this.celestialBody.moons.length > index) {
+    if (
+      this.celestialBody &&
+      this.celestialBody.moons &&
+      this.celestialBody.moons.length > index
+    ) {
       const moonName = this.celestialBody.moons[index];
       const currentUrl = this.router.url;
-      
-      // Vérification de l'URL actuelle pour rediriger de la Terre à la Lune
       if (currentUrl.includes('/observatory/terre')) {
         this.router.navigateByUrl(`/observatory/lune`);
       } else {
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['/observatory', moonName]);
-        });
-        
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/observatory', moonName]);
+          });
       }
     }
-  
-  }
-  
-getTranslatedBodyType(): string {
-  const bodyType = this.celestialBody.bodyType;
-
-  if (this.languageService.selectedLanguage === 'fr') {
-    const frenchTranslations: { [key: string]: string } = {
-      'Star': 'Étoile',
-      'Planet': 'Planète',
-      'Dwarf Planet': 'Planète naine',
-      'Moon': 'Lune'
-      // Ajoutez d'autres traductions au besoin
-    };
-
-    return frenchTranslations[bodyType] || bodyType;
   }
 
-  return bodyType;
-}
+  getTranslatedBodyType(): string {
+    const bodyType = this.celestialBody.bodyType;
+    if (this.languageService.selectedLanguage === 'fr') {
+      const frenchTranslations: { [key: string]: string } = {
+        Star: 'Étoile',
+        Planet: 'Planète',
+        'Dwarf Planet': 'Planète naine',
+        Moon: 'Lune',
+      };
+      return frenchTranslations[bodyType] || bodyType;
+    }
+    return bodyType;
+  }
   navigateToPlanet(): void {
-    if (this.celestialBody && this.celestialBody.bodyType === 'Moon' && this.celestialBody.aroundPlanet && this.celestialBody.aroundPlanet.planet) {
+    if (
+      this.celestialBody &&
+      this.celestialBody.bodyType === 'Moon' &&
+      this.celestialBody.aroundPlanet &&
+      this.celestialBody.aroundPlanet.planet
+    ) {
       const planetName = this.celestialBody.aroundPlanet.planet;
       this.router.navigateByUrl(`/observatory/${planetName}`);
     }
   }
 
   navigateToBodyType(): void {
-  if (this.celestialBody && this.celestialBody.bodyType) {
-    const bodyType = this.celestialBody.bodyType;
-    this.router.navigateByUrl(`/observatory/bodyType/${bodyType}`);
+    if (this.celestialBody && this.celestialBody.bodyType) {
+      const bodyType = this.celestialBody.bodyType;
+      this.router.navigateByUrl(`/observatory/bodyType/${bodyType}`);
+    }
   }
-}
-backToPlanet(): void {
-  this.location.back();
-}
-backToHub(): void {
-  this.router.navigateByUrl('/observatory');
-}
+
+  backToPlanet(): void {
+    this.location.back();
+  }
+
+  backToHub(): void {
+    this.router.navigateByUrl('/observatory');
+  }
 }

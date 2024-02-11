@@ -1,83 +1,153 @@
 <div class="about container">
   <div class="about box">
     <div class="nav-menu">
-      <div class="back-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Back to Portal' : 'Retour au Portal'"> 
+      <div
+        class="back-btn"
+        [attr.data-title]="
+          languageService.selectedLanguage === 'en'
+            ? 'Back to Portal'
+            : 'Retour au Portal'
+        "
+      >
         <button (click)="backToHome()">
-          <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Hub">
+          <img
+            class="icon"
+            src="./../../assets/img/back-icon.png"
+            alt="Back to Hub"
+          />
         </button>
       </div>
-     
-      <h2>{{ languageService.selectedLanguage === 'en' ? 'About us' : 'À propos' }}</h2>
-      
-      <div class="info-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Open information' : 'Ouvrir informations'">
+      <h2>
+        {{
+          languageService.selectedLanguage === "en" ? "About us" : "À propos"
+        }}
+      </h2>
+      <div
+        class="info-btn"
+        [attr.data-title]="
+          languageService.selectedLanguage === 'en'
+            ? 'Open information'
+            : 'Ouvrir informations'
+        "
+      >
         <button (click)="dialog.showModal()">
-          <img class="icon" src="./../../assets/img/info-icon.png" alt="Open information" >
+          <img
+            class="icon"
+            src="./../../assets/img/info-icon.png"
+            alt="Open information"
+          />
         </button>
       </div>
-     
       <dialog #dialog>
-        <app-infos [title]="languageService.selectedLanguage === 'en' ? 'about' : 'aboutFr'"></app-infos>
-        <div class="close-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Close information' : 'Fermer informations'">
+        <app-infos
+          [title]="
+            languageService.selectedLanguage === 'en' ? 'about' : 'aboutFr'
+          "
+        ></app-infos>
+        <div
+          class="close-btn"
+          [attr.data-title]="
+            languageService.selectedLanguage === 'en'
+              ? 'Close information'
+              : 'Fermer informations'
+          "
+        >
           <button (click)="dialog.close()">
-            <img class="icon" src="./../../assets/img/close-icon.png" alt="Close information">
+            <img
+              class="icon"
+              src="./../../assets/img/close-icon.png"
+              alt="Close information"
+            />
           </button>
         </div>
       </dialog>
     </div>
     <div class="about-content">
       <div class="about-text" *ngIf="languageService.selectedLanguage === 'en'">
-      <p>Celestial Observatory is an
-        application developed to promote interest and awareness in science and astronomy.</p>
-      <p>
-        We express gratitude to NASA, ESA, and all space agencies for their
-        invaluable contributions to space exploration and for making their
-        resources accessible to the public. 
-      </p>
-      <p>
-        We also extend our thanks to the passionate individuals who create APIs
-        and make them accessible, contributing to the wealth of knowledge about
-        the cosmos.
-      </p>
-      <p>Click <a href="/credits">here</a> for full credits.</p>
+        <p>
+          Celestial Observatory is an application developed to promote interest
+          and awareness in science and astronomy.
+        </p>
+        <p>
+          We express gratitude to NASA, ESA, and all space agencies for their
+          invaluable contributions to space exploration and for making their
+          resources accessible to the public.
+        </p>
+        <p>
+          We also extend our thanks to the passionate individuals who create
+          APIs and make them accessible, contributing to the wealth of knowledge
+          about the cosmos.
+        </p>
+        <p>Click <a href="/credits">here</a> for full credits.</p>
       </div>
       <div class="about-text" *ngIf="languageService.selectedLanguage === 'fr'">
-        <p>Celestial Observatory est une application développée pour promouvoir l'intérêt et la sensibilisation à la science et à l'astronomie.</p>
         <p>
-          Nous exprimons notre gratitude à la NASA, à l'ESA et à toutes les agences spatiales pour leurs contributions inestimables à l'exploration spatiale et pour rendre leurs ressources accessibles au public.
+          Celestial Observatory est une application développée pour promouvoir
+          l'intérêt et la sensibilisation à la science et à l'astronomie.
         </p>
         <p>
-          Nous remercions également les individus passionnés qui créent des API et les rendent accessibles, contribuant ainsi à la richesse des connaissances sur le cosmos.
+          Nous exprimons notre gratitude à la NASA, à l'ESA et à toutes les
+          agences spatiales pour leurs contributions inestimables à
+          l'exploration spatiale et pour rendre leurs ressources accessibles au
+          public.
+        </p>
+        <p>
+          Nous remercions également les individus passionnés qui créent des API
+          et les rendent accessibles, contribuant ainsi à la richesse des
+          connaissances sur le cosmos.
         </p>
         <p>Cliquez <a href="/credits">ici</a> pour les crédits complets.</p>
+      </div>
+      <form
+        action="https://formspree.io/f/xgegoanz"
+        method="POST"
+        (submit)="onFormSubmit()"
+      >
+        <p>
+          {{
+            languageService.selectedLanguage === "en"
+              ? "For any suggestion, inquiries or others, you may use the contact form below:"
+              : "Pour toutes suggestions, demandes d'informations ou autres, vous pouvez utiliser le formulaire de contact ci-dessous :"
+          }}
+        </p>
+        <div class="contact">
+          <div class="contact-details">
+            <div class="contact-input">
+              <label for="name">{{
+                languageService.selectedLanguage === "en" ? "Name:" : "Nom :"
+              }}</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="contact-input">
+              <label for="email">{{
+                languageService.selectedLanguage === "en" ? "Email:" : "Email :"
+              }}</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="contact-message">
+            <label for="message">{{
+              languageService.selectedLanguage === "en"
+                ? "Message:"
+                : "Message :"
+            }}</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
         </div>
-     
-     
-      <form action="https://formspree.io/f/xgegoanz" method="POST" (submit)="onFormSubmit()">
-        <p>{{ languageService.selectedLanguage === 'en' ? 'For any suggestion, inquiries or others, you may use the contact form below:' : 'Pour toutes suggestions, demandes d\'informations ou autres, vous pouvez utiliser le formulaire de contact ci-dessous :' }}</p>         <div class="contact">
-        <div class="contact-details">
-          <div class="contact-input">
-        <label for="name">{{ languageService.selectedLanguage === 'en' ? 'Name:' : 'Nom :' }}</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="contact-input">
-        <label for="email">{{ languageService.selectedLanguage === 'en' ? 'Email:' : 'Email :' }}</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-    </div>
-      
-      <div class="contact-message">
-        <label for="message">{{ languageService.selectedLanguage === 'en' ? 'Message:' : 'Message :' }}</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-    </div>
-    <button type="submit">{{ languageService.selectedLanguage === 'en' ? 'Send' : 'Envoyer' }}</button>
+        <button type="submit">
+          {{ languageService.selectedLanguage === "en" ? "Send" : "Envoyer" }}
+        </button>
       </form>
       <div class="disclaimer">
-        <p>{{ languageService.selectedLanguage === 'en' ? 'Celestial Observatory was developed with Angular.' : 'Celestial Observatory a été développé avec Angular.' }}</p>
+        <p>
+          {{
+            languageService.selectedLanguage === "en"
+              ? "Celestial Observatory was developed with Angular."
+              : "Celestial Observatory a été développé avec Angular."
+          }}
+        </p>
         <p>© JM-D 2024</p>
       </div>
- 
-
     </div>
   </div>
 </div>

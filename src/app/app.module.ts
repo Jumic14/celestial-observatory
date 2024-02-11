@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // Importez FormsModule
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpaceFormatPipe } from './pipes/space-format.pipe';
@@ -42,7 +42,7 @@ import { AboutComponent } from './about/about.component';
     CreditsComponent,
     InfosComponent,
     AboutComponent,
-    SpaceFormatPipe
+    SpaceFormatPipe,
   ],
   imports: [
     BrowserModule,
@@ -50,10 +50,10 @@ import { AboutComponent } from './about/about.component';
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [LanguageService],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

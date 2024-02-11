@@ -1,32 +1,27 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    padding: 0px;
-    border-radius: 90px;
-    width: 90%;
-    justify-content: space-around;
-
-    height: 90vh;
-    background: #0f2c34;
-    background-color: rgba(8, 20, 27, 0.7); 
-    color: #c9dce5; 
-    box-shadow: 0 0 10px rgba(112, 167, 189, 0.5);
-    
-    .wrap-header {
-        width: 70%;
-    }
-
-    .wrap-center {
-        height: 75%;
-        width: 100%;
-    }
-
-    .wrap-footer {
-        width: 70%;
-    }
-    &.landing-page {
-        box-shadow: none; // Supprime la box-shadow pour la landing page
-      }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  border-radius: 90px;
+  width: 90%;
+  justify-content: space-around;
+  height: 90vh;
+  background: #0f2c34;
+  background-color: rgba(8, 20, 27, 0.7);
+  color: #c9dce5;
+  box-shadow: 0 0 10px rgba(112, 167, 189, 0.5);
+  .wrap-header {
+    width: 70%;
+  }
+  .wrap-center {
+    height: 75%;
+    width: 100%;
+  }
+  .wrap-footer {
+    width: 70%;
+  }
+  &.landing-page {
+    box-shadow: none;
+  }
 }

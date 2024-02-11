@@ -80,6 +80,7 @@
     margin-bottom: 5px;
   }
 }
+
 @media only screen and (min-width: 2501px) {
   .iss-page {
     .iss-info {
@@ -91,7 +92,8 @@
       h3 {
         font-size: 28px;
       }
-      h4, h5 {
+      h4,
+      h5 {
         font-size: 26px;
       }
       .location {
@@ -109,8 +111,9 @@
         }
       }
     }
+  }
 }
-}
+
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
   .iss-page {
     .iss-info {
@@ -122,7 +125,8 @@
       h3 {
         font-size: 24px;
       }
-      h4, h5 {
+      h4,
+      h5 {
         font-size: 22px;
       }
       .location {
@@ -140,8 +144,9 @@
         }
       }
     }
+  }
 }
-}
+
 @media only screen and (max-width: 1199px) {
   .iss-page {
     margin-top: 1%;
@@ -167,6 +172,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 992px) {
   .iss-page {
     flex-direction: column-reverse;
@@ -210,6 +216,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 480px) {
   .iss-page {
     .iss-info {

@@ -3,12 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class KnownCountService {
   private apiUrl = 'https://api.le-systeme-solaire.net/rest/';
-
-  // Correspondance entre l'ID et le nom des catégories
   private categoryMapping: { [key: string]: string } = {
     planet: 'Planet',
     dwarfPlanet: 'Dwarf Planet',
@@ -17,7 +15,6 @@ export class KnownCountService {
     moonsPlanet: 'Moons of Planets',
     moonsDwarfPlanet: 'Moons of Dwarf Planets',
     moonsAsteroid: 'Moons of Asteroids',
-    // Ajoute d'autres correspondances si nécessaire
   };
 
   constructor(private http: HttpClient) {}
@@ -27,7 +24,6 @@ export class KnownCountService {
   }
 
   getCategoryNameFromId(id: string): string {
-    console.log(id);
     return this.categoryMapping[id] || '';
   }
 }

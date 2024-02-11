@@ -1,5 +1,5 @@
 export class Info {
-    title!: string;
-    content!:string;
-    features?:string;
+  title!: string;
+  content!: string;
+  features?: string;
 }

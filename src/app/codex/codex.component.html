@@ -1,15 +1,40 @@
-<div class="codex" *ngIf="languageService.selectedLanguage === 'en' || languageService.selectedLanguage === 'fr'">
+<div
+  class="codex"
+  *ngIf="
+    languageService.selectedLanguage === 'en' ||
+    languageService.selectedLanguage === 'fr'
+  "
+>
   <h3>Codex</h3>
   <div class="options">
     <select (change)="onEntrySelected($event)" class="type-button">
-      <option value="" selected class="selection">{{ languageService.selectedLanguage === 'en' ? 'Select a term' : 'Sélectionnez un terme' }}</option>
-      <option *ngFor="let entry of codexEntries" [value]="entry.title" class="selection">
-        {{ languageService.selectedLanguage === 'en' ? entry.title : entry.titleFr }}
+      <option value="" selected class="selection">
+        {{
+          languageService.selectedLanguage === "en"
+            ? "Select a term"
+            : "Sélectionnez un terme"
+        }}
+      </option>
+      <option
+        *ngFor="let entry of codexEntries"
+        [value]="entry.title"
+        class="selection"
+      >
+        {{
+          languageService.selectedLanguage === "en"
+            ? entry.title
+            : entry.titleFr
+        }}
       </option>
     </select>
   </div>
-
   <div *ngIf="selectedEntry" class="selected-option">
-    <p class="description">{{ languageService.selectedLanguage === 'en' ? selectedEntry.description : selectedEntry.descriptionFr }}</p>
+    <p class="description">
+      {{
+        languageService.selectedLanguage === "en"
+          ? selectedEntry.description
+          : selectedEntry.descriptionFr
+      }}
+    </p>
   </div>
 </div>

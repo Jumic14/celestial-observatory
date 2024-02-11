@@ -1,11 +1,11 @@
 .cosmic {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  .carousel {
     display: flex;
-    align-self: center;
-    width: 100%;
-    .carousel {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
-} 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

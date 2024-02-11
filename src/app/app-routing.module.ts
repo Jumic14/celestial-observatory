@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'observatory/:id', component: CelestialBodyComponent },
   { path: 'credits', component: CreditsComponent },
   { path: 'about', component: AboutComponent },
-  
 ];
 
 @NgModule({

@@ -1,4 +1,7 @@
-<body [ngClass]="{'landing-page': isLandingPage, 'wrapper': !isLandingPage}" class="wrapper">
+<body
+  [ngClass]="{ 'landing-page': isLandingPage, wrapper: !isLandingPage }"
+  class="wrapper"
+>
   <div *ngIf="!isLandingPage" class="wrap-header">
     <app-header></app-header>
   </div>
@@ -9,4 +12,3 @@
     <app-footer></app-footer>
   </div>
 </body>
-  

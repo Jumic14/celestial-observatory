@@ -67,6 +67,7 @@ header {
     }
   }
 }
+
 @media only screen and (min-width: 2501px) {
   header {
     h1 {
@@ -93,6 +94,7 @@ header {
     }
   }
 }
+
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
   header {
     h1 {
@@ -119,6 +121,7 @@ header {
     }
   }
 }
+
 @media only screen and (max-width: 1199px) {
   header {
     nav {
@@ -126,6 +129,7 @@ header {
     }
   }
 }
+
 @media only screen and (max-width: 992px) {
   header {
     h1 {
@@ -155,12 +159,12 @@ header {
     }
   }
 }
+
 @media only screen and (max-width: 768px) {
   header {
     padding-bottom: 5px;
     h1 {
       .co-logo {
-
         width: 60px;
         margin-bottom: 5px;
       }
@@ -169,10 +173,9 @@ header {
       justify-content: end;
       margin-bottom: 5px;
       label {
-
         .language-icon {
           height: 10px;
-          padding-right: 2%;  
+          padding-right: 2%;
         }
       }
       select {
@@ -202,7 +205,6 @@ header {
           border-bottom: 1px solid white;
         }
       }
-  
     }
   }
 }
@@ -236,7 +238,6 @@ header {
           height: 15px;
         }
       }
-  
     }
   }
 }

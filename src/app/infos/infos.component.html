@@ -1,12 +1,14 @@
 <div class="modal">
-<div class="modal-title">
-    <h2>{{info.title}}</h2>
-    <img src="./../assets/img/celestial-observatory-icon.png" alt="celestial-observatory-logo" class="celestial-observatory-logo">
-
-</div>
-   <div class="modal-content">
+  <div class="modal-title">
+    <h2>{{ info.title }}</h2>
+    <img
+      src="./../assets/img/celestial-observatory-icon.png"
+      alt="celestial-observatory-logo"
+      class="celestial-observatory-logo"
+    />
+  </div>
+  <div class="modal-content">
     <div class="content" [innerHTML]="info.content"></div>
     <div class="features" [innerHTML]="info.features"></div>
-</div>
-
+  </div>
 </div>

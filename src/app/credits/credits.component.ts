@@ -7,16 +7,21 @@ import { LanguageService } from '../services/language.service';
 @Component({
   selector: 'app-credits',
   templateUrl: './credits.component.html',
-  styleUrl: './credits.component.scss'
+  styleUrl: './credits.component.scss',
 })
 export class CreditsComponent implements OnInit {
   @Input() creditEntries: CreditEntry[] = [];
-  constructor(private router: Router, private creditService: CreditService, public languageService: LanguageService) {}
+  constructor(
+    private router: Router,
+    private creditService: CreditService,
+    public languageService: LanguageService
+  ) {}
+
   ngOnInit(): void {
     this.creditEntries = this.creditService.getAllCreditEntries();
   }
+
   backToHome(): void {
     this.router.navigateByUrl('/home');
   }
-
 }

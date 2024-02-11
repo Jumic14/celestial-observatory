@@ -1,50 +1,91 @@
 <div class="credits container">
   <div class="credits box">
-<div class="nav-menu">
-  <div class="back-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Back to Portal' : 'Retour au Portal'"> 
-    <button (click)="backToHome()">
-      <img class="icon" src="./../../assets/img/back-icon.png" alt="Back to Hub">
-    </button>
-  </div>
- 
-  <h2>{{ languageService.selectedLanguage === 'en' ? 'Credits' : 'Crédits' }}</h2>
-  
-  <div class="info-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Open information' : 'Ouvrir informations'">
-    <button (click)="dialog.showModal()">
-      <img class="icon" src="./../../assets/img/info-icon.png" alt="Open information" >
-    </button>
-  </div>
- 
-  <dialog #dialog>
-    <app-infos [title]="languageService.selectedLanguage === 'en' ? 'credits' : 'creditsFr'"></app-infos>
-    <div class="close-btn" [attr.data-title]="languageService.selectedLanguage === 'en' ? 'Close information' : 'Fermer informations'">
-      <button (click)="dialog.close()">
-        <img class="icon" src="./../../assets/img/close-icon.png" alt="Close information">
-      </button>
+    <div class="nav-menu">
+      <div
+        class="back-btn"
+        [attr.data-title]="
+          languageService.selectedLanguage === 'en'
+            ? 'Back to Portal'
+            : 'Retour au Portal'
+        "
+      >
+        <button (click)="backToHome()">
+          <img
+            class="icon"
+            src="./../../assets/img/back-icon.png"
+            alt="Back to Hub"
+          />
+        </button>
+      </div>
+      <h2>
+        {{ languageService.selectedLanguage === "en" ? "Credits" : "Crédits" }}
+      </h2>
+      <div
+        class="info-btn"
+        [attr.data-title]="
+          languageService.selectedLanguage === 'en'
+            ? 'Open information'
+            : 'Ouvrir informations'
+        "
+      >
+        <button (click)="dialog.showModal()">
+          <img
+            class="icon"
+            src="./../../assets/img/info-icon.png"
+            alt="Open information"
+          />
+        </button>
+      </div>
+      <dialog #dialog>
+        <app-infos
+          [title]="
+            languageService.selectedLanguage === 'en' ? 'credits' : 'creditsFr'
+          "
+        ></app-infos>
+        <div
+          class="close-btn"
+          [attr.data-title]="
+            languageService.selectedLanguage === 'en'
+              ? 'Close information'
+              : 'Fermer informations'
+          "
+        >
+          <button (click)="dialog.close()">
+            <img
+              class="icon"
+              src="./../../assets/img/close-icon.png"
+              alt="Close information"
+            />
+          </button>
+        </div>
+      </dialog>
     </div>
-  </dialog>
-</div>
-
     <div class="credits-content">
       <div class="credit-type">
         <h3 class="type-name">Images</h3>
         <div class="credits-page">
           <h4 class="page-name">LANDING PAGE</h4>
           <div class="page-element" *ngFor="let entry of creditEntries">
-            <div class="element" *ngIf="entry.type == 'images' && entry.page == 'landing-page'">
-            <h5>{{entry.name}}</h5>
-            <p>© {{entry.copyright}}</p>
-            <a href="{{entry.link}}">{{entry.link}}</a>
+            <div
+              class="element"
+              *ngIf="entry.type == 'images' && entry.page == 'landing-page'"
+            >
+              <h5>{{ entry.name }}</h5>
+              <p>© {{ entry.copyright }}</p>
+              <a href="{{ entry.link }}">{{ entry.link }}</a>
             </div>
           </div>
         </div>
         <div class="credits-page">
           <h4 class="page-name">CELESTIAL PORTAL</h4>
           <div class="page-element" *ngFor="let entry of creditEntries">
-            <div class="element" *ngIf="entry.type == 'images' && entry.page == 'celestial-portal'">
-            <h5>{{entry.name}}</h5>
-            <p>© {{entry.copyright}}</p>
-            <a href="{{entry.link}}">{{entry.link}}</a>
+            <div
+              class="element"
+              *ngIf="entry.type == 'images' && entry.page == 'celestial-portal'"
+            >
+              <h5>{{ entry.name }}</h5>
+              <p>© {{ entry.copyright }}</p>
+              <a href="{{ entry.link }}">{{ entry.link }}</a>
             </div>
           </div>
         </div>
@@ -54,30 +95,40 @@
         <div class="credits-page">
           <h4 class="page-name">ISS EXPLORER</h4>
           <div class="page-element" *ngFor="let entry of creditEntries">
-            <div class="element" *ngIf="entry.type == 'api' && entry.page == 'iss-explorer'">
-            <h5>{{entry.name}}</h5>
-            <a href="{{entry.link}}">{{entry.link}}</a>
+            <div
+              class="element"
+              *ngIf="entry.type == 'api' && entry.page == 'iss-explorer'"
+            >
+              <h5>{{ entry.name }}</h5>
+              <a href="{{ entry.link }}">{{ entry.link }}</a>
             </div>
           </div>
         </div>
         <div class="credits-page">
           <h4 class="page-name">TELESCOPE HUB</h4>
           <div class="page-element" *ngFor="let entry of creditEntries">
-            <div class="element" *ngIf="entry.type == 'api' && entry.page == 'telescope-hub'">
-            <h5>{{entry.name}}</h5>
-            <a href="{{entry.link}}">{{entry.link}}</a>
+            <div
+              class="element"
+              *ngIf="entry.type == 'api' && entry.page == 'telescope-hub'"
+            >
+              <h5>{{ entry.name }}</h5>
+              <a href="{{ entry.link }}">{{ entry.link }}</a>
             </div>
           </div>
         </div>
         <div class="credits-page">
           <h4 class="page-name">COSMIC CAROUSEL</h4>
           <div class="page-element" *ngFor="let entry of creditEntries">
-            <div class="element" *ngIf="entry.type == 'api' && entry.page == 'cosmic-carousel'">
-            <h5>{{entry.name}}</h5>
-            <a href="{{entry.link}}">{{entry.link}}</a>
+            <div
+              class="element"
+              *ngIf="entry.type == 'api' && entry.page == 'cosmic-carousel'"
+            >
+              <h5>{{ entry.name }}</h5>
+              <a href="{{ entry.link }}">{{ entry.link }}</a>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>

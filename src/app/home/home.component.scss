@@ -6,7 +6,6 @@
   .nav-menu {
     justify-content: center;
   }
-
   [data-title]:hover:after {
     opacity: 1;
     transition: all 0.1s ease 0.5s;
@@ -21,7 +20,7 @@
     z-index: 99999;
     visibility: hidden;
     position: relative;
-  } 
+  }
   .back-btn {
     display: flex;
     flex-direction: column;
@@ -95,13 +94,14 @@
     }
   }
 }
+
 @media only screen and (min-width: 2501px) {
   .home {
     h3 {
       font-size: 32px;
     }
     .intro {
-      p { 
+      p {
         font-size: 26px;
       }
     }
@@ -117,7 +117,7 @@
     }
     [data-title]:after {
       font-size: 150%;
-    } 
+    }
     .back-btn {
       button {
         padding: 10px 20px;
@@ -129,128 +129,130 @@
     }
   }
 }
-@media only screen and (min-width: 1921px) and (max-width: 2500px) {
-.home {
-  h3 {
-    font-size: 28px;
-  }
-  .intro {
-    p { 
-      font-size: 22px;
-    }
-  }
-  .module {
-    .module-content {
-      h4 {
-        font-size: 24px;
-      }
-      p {
-        font-size: 20px;
-      }
-    }
-  }
-  [data-title]:after {
-    font-size: 125%;
-  } 
-  .back-btn {
-    button {
-      padding: 10px 20px;
-      border-radius: 30px;
-      .icon {
-        width: 30px;
-      }
-    }
-  }
-}
 
+@media only screen and (min-width: 1921px) and (max-width: 2500px) {
+  .home {
+    h3 {
+      font-size: 28px;
+    }
+    .intro {
+      p {
+        font-size: 22px;
+      }
+    }
+    .module {
+      .module-content {
+        h4 {
+          font-size: 24px;
+        }
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+    [data-title]:after {
+      font-size: 125%;
+    }
+    .back-btn {
+      button {
+        padding: 10px 20px;
+        border-radius: 30px;
+        .icon {
+          width: 30px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 992px) {
- .home {
-  [data-title]:after {
-    content: attr(data-title);
-    font-size: 80%;
-  } 
-  h3 {
-    font-size: 18px;
-  }
-  .intro {
-    p {
-      font-size: 14px;
+  .home {
+    [data-title]:after {
+      content: attr(data-title);
+      font-size: 80%;
     }
-  }
-  .module {
-    .module-content {
-      h4 {
-        font-size: 14px;
-        margin: 5px 0px;
-      }
+    h3 {
+      font-size: 18px;
+    }
+    .intro {
       p {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
-    .module-logo {
-      width: 40%;      
+    .module {
+      .module-content {
+        h4 {
+          font-size: 14px;
+          margin: 5px 0px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+      .module-logo {
+        width: 40%;
+      }
     }
   }
- }
 }
+
 @media only screen and (max-width: 768px) {
   .home {
-   [data-title]:after {
-     content: attr(data-title);
-     font-size: 70%;
-   } 
-   .back-btn {
-    margin-bottom: 5px;
-   }
-   h3 {
-     font-size: 16px;
-   }
-   .module {
-    flex-direction: column;
-    justify-content: space-around;
-     .module-content {
-      width: 100%;
-      height: 65%;
-     }
-     .module-logo {
-       margin-top: 3%;
-     }
-   }
+    [data-title]:after {
+      content: attr(data-title);
+      font-size: 70%;
+    }
+    .back-btn {
+      margin-bottom: 5px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    .module {
+      flex-direction: column;
+      justify-content: space-around;
+      .module-content {
+        width: 100%;
+        height: 65%;
+      }
+      .module-logo {
+        margin-top: 3%;
+      }
+    }
   }
- }
- @media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 480px) {
   .home {
     .intro {
       p {
         font-size: 12px;
       }
     }
-   [data-title]:after {
-     content: attr(data-title);
-     font-size: 70%;
-   } 
-   .back-btn {
-    margin-bottom: 5px;
-   }
-   h3 {
-     font-size: 14px;
-   }
-   .module {
-    flex-direction: column;
-    justify-content: space-around;
-    .module-content {
-      h4 {
-        font-size: 12px;
+    [data-title]:after {
+      content: attr(data-title);
+      font-size: 70%;
+    }
+    .back-btn {
+      margin-bottom: 5px;
+    }
+    h3 {
+      font-size: 14px;
+    }
+    .module {
+      flex-direction: column;
+      justify-content: space-around;
+      .module-content {
+        h4 {
+          font-size: 12px;
+        }
+        p {
+          font-size: 10px;
+        }
       }
-      p {
-        font-size: 10px;
+      .module-logo {
+        margin-top: 10%;
       }
     }
-     .module-logo {
-       margin-top: 10%;
-     }
-   }
   }
- }
+}

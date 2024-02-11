@@ -6,12 +6,12 @@ import { LanguageService } from '../services/language.service';
 @Component({
   selector: 'app-knowncount',
   templateUrl: './knowncount.component.html',
-  styleUrl: './knowncount.component.scss'
+  styleUrl: './knowncount.component.scss',
 })
 export class KnowncountComponent implements OnInit, OnDestroy {
   knowcount: any;
   totalKnownCount: number = 0;
-  selectedCategoryId: string | null = null; 
+  selectedCategoryId: string | null = null;
   private subscription: Subscription = new Subscription();
   categoryMapping: { [key: string]: string } = {
     planet: 'Planets',
@@ -20,11 +20,13 @@ export class KnowncountComponent implements OnInit, OnDestroy {
     comet: 'Comets',
     moonsPlanet: 'Moons of Planets',
     moonsDwarfPlanet: 'Moons of Dwarf Planets',
-    moonsAsteroid: 'Moons of Asteroids'
-    // Ajoute d'autres correspondances si nécessaire
+    moonsAsteroid: 'Moons of Asteroids',
   };
 
-  constructor(private knownCountService: KnownCountService, public languageService: LanguageService) {}
+  constructor(
+    private knownCountService: KnownCountService,
+    public languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {
     this.fetchKnowcount();
@@ -39,7 +41,7 @@ export class KnowncountComponent implements OnInit, OnDestroy {
               return {
                 id: entry.id,
                 knownCount: entry.knownCount,
-                name: this.knownCountService.getCategoryNameFromId(entry.id)
+                name: this.knownCountService.getCategoryNameFromId(entry.id),
               };
             });
             this.calculateTotalKnownCount();
@@ -49,39 +51,38 @@ export class KnowncountComponent implements OnInit, OnDestroy {
         },
         error: (error: any) => {
           console.error('Error fetching knowcount:', error);
-        }
+        },
       })
     );
   }
+
   getTranslatedCategoryName(id: string): string {
     const categoryName = this.categoryMapping[id];
-  
     if (this.languageService.selectedLanguage === 'fr') {
       const frenchTranslations: { [key: string]: string } = {
-        'Planets': 'Planètes',
+        Planets: 'Planètes',
         'Dwarf Planets': 'Planètes naines',
-        'Asteroids': 'Astéroïdes',
-        'Comets': 'Comètes',
+        Asteroids: 'Astéroïdes',
+        Comets: 'Comètes',
         'Moons of Planets': 'Lunes de planètes',
         'Moons of Dwarf Planets': 'Lunes de planètes naines',
-        'Moons of Asteroids': 'Lunes d\'astéroïdes'
-        // Ajoutez d'autres traductions au besoin
+        'Moons of Asteroids': "Lunes d'astéroïdes",
       };
-  
       return frenchTranslations[categoryName] || categoryName;
     }
-  
     return categoryName;
   }
+  
   calculateTotalKnownCount(): void {
-    // Utilisation de la méthode reduce pour additionner tous les knownCount
-    this.totalKnownCount = this.knowcount.reduce((total: number, entry: any) => {
-      return total + entry.knownCount;
-    }, 0);
+    this.totalKnownCount = this.knowcount.reduce(
+      (total: number, entry: any) => {
+        return total + entry.knownCount;
+      },
+      0
+    );
   }
 
   ngOnDestroy(): void {
-    this.subscription.closed; // Nettoyage de l'abonnement
+    this.subscription.closed;
   }
-
 }
