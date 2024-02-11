@@ -2,19 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NasaApiService } from '../../services/nasa-api.services';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
-import { fadeIn, fadeOut } from './carousel.animations';
-import { trigger, transition, useAnimation } from '@angular/animations';
 
 @Component({
   selector: 'carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
-  animations: [
-    trigger('carouselAnimation', [
-      transition(':enter', [useAnimation(fadeIn)]),
-      transition(':leave', [useAnimation(fadeOut)]),
-    ]),
-  ],
 })
 export class CarouselComponent implements OnInit {
   @Input() slides!: any[];
