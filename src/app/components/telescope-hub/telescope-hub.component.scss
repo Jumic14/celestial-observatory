@@ -1,4 +1,4 @@
-.observatory-page {
+.telescope-hub {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -8,7 +8,7 @@
   .nav-menu {
     margin-bottom: 10px;
   }
-  .observatory-content {
+  .telescope-hub-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,7 +18,7 @@
       height: 100%;
       width: 20%;
     }
-    .celestial-home {
+    .telescope-home {
       height: 100%;
       width: 55%;
       display: flex;
@@ -120,9 +120,9 @@
 }
 
 @media only screen and (min-width: 2501px) {
-  .observatory-page {
-    .observatory-content {
-      .celestial-home {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
         h4 {
           font-size: 34px;
         }
@@ -167,9 +167,9 @@
 }
 
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
-  .observatory-page {
-    .observatory-content {
-      .celestial-home {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
         h4 {
           font-size: 30px;
         }
@@ -214,9 +214,9 @@
 }
 
 @media only screen and (max-width: 1199px) {
-  .observatory-page {
-    .observatory-content {
-      .celestial-home {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
         .bodytype-selection {
           .bodytype-options {
             button {
@@ -239,9 +239,9 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .observatory-page {
-    .observatory-content {
-      .celestial-home {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
         h4 {
           font-size: 14px;
         }
@@ -263,9 +263,9 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .observatory-page {
-    .observatory-content {
-      .celestial-home {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
         h4 {
           font-size: 12px;
         }
@@ -327,12 +327,12 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .observatory-page {
-    .observatory-content {
+  .telescope-hub {
+    .telescope-hub-content {
       .knowncount {
         width: 25%;
       }
-      .celestial-home {
+      .telescope-home {
         width: 50%;
         h4 {
           font-size: 10px;

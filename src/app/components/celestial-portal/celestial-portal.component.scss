@@ -1,4 +1,4 @@
-.home {
+.portal {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -96,7 +96,7 @@
 }
 
 @media only screen and (min-width: 2501px) {
-  .home {
+  .portal {
     h3 {
       font-size: 32px;
     }
@@ -131,7 +131,7 @@
 }
 
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
-  .home {
+  .portal {
     h3 {
       font-size: 28px;
     }
@@ -166,7 +166,7 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .home {
+  .portal {
     [data-title]:after {
       content: attr(data-title);
       font-size: 80%;
@@ -197,7 +197,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .home {
+  .portal {
     [data-title]:after {
       content: attr(data-title);
       font-size: 70%;
@@ -223,7 +223,7 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .home {
+  .portal {
     .intro {
       p {
         font-size: 12px;

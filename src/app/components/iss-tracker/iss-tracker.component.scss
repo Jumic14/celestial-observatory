@@ -1,4 +1,4 @@
-.iss-page {
+.iss-tracker {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -82,7 +82,7 @@
 }
 
 @media only screen and (min-width: 2501px) {
-  .iss-page {
+  .iss-tracker {
     .iss-info {
       .loading {
         p {
@@ -115,7 +115,7 @@
 }
 
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
-  .iss-page {
+  .iss-tracker {
     .iss-info {
       .loading {
         p {
@@ -148,7 +148,7 @@
 }
 
 @media only screen and (max-width: 1199px) {
-  .iss-page {
+  .iss-tracker {
     margin-top: 1%;
     .iss-info {
       .crew {
@@ -174,7 +174,7 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .iss-page {
+  .iss-tracker {
     flex-direction: column-reverse;
     align-items: center;
     .iss-info {
@@ -218,7 +218,7 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .iss-page {
+  .iss-tracker {
     .iss-info {
       .location {
         width: 100%;

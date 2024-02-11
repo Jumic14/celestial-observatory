@@ -1,4 +1,4 @@
-.body-page {
+.telescope {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -13,7 +13,7 @@
   .nav-menu {
     margin-bottom: 10px;
   }
-  .body-content {
+  .telescope-content {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -96,8 +96,8 @@
 }
 
 @media only screen and (min-width: 2501px) {
-  .body-page {
-    .body-content {
+  .telescope {
+    .telescope-content {
       .no-datas {
         h3 {
           font-size: 34px;
@@ -128,8 +128,8 @@
 }
 
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
-  .body-page {
-    .body-content {
+  .telescope {
+    .telescope-content {
       .no-datas {
         h3 {
           font-size: 30px;
@@ -160,8 +160,8 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .body-page {
-    .body-content {
+  .telescope {
+    .telescope-content {
       .no-datas {
         h3 {
           font-size: 16px;
@@ -186,8 +186,8 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .body-page {
-    .body-content {
+  .telescope {
+    .telescope-content {
       .celestial-body {
         .body-name {
           margin: 5px 0px;
@@ -207,8 +207,8 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .body-page {
-    .body-content {
+  .telescope {
+    .telescope-content {
       .no-datas {
         h3 {
           font-size: 14px;

@@ -1,4 +1,4 @@
-.dashboard-container {
+.known-count {
   border-right: 1px solid #3a6a7c;
   height: 100%;
   color: #c9dce5;
@@ -41,7 +41,7 @@
 }
 
 @media only screen and (min-width: 2501px) {
-  .dashboard-container {
+  .known-count {
     p {
       font-size: 26px;
     }
@@ -53,7 +53,7 @@
 }
 
 @media only screen and (min-width: 1921px) and (max-width: 2500px) {
-  .dashboard-container {
+  .known-count {
     p {
       font-size: 22px;
     }
@@ -65,7 +65,7 @@
 }
 
 @media only screen and (max-width: 1199px) {
-  .dashboard-container {
+  .known-count {
     p {
       font-size: 14px;
     }
@@ -80,7 +80,7 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .dashboard-container {
+  .known-count {
     p,
     h4 {
       font-size: 12px;
@@ -92,7 +92,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .dashboard-container {
+  .known-count {
     p {
       font-size: 8px;
     }
@@ -110,7 +110,7 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .dashboard-container {
+  .known-count {
     h4 {
       font-size: 8px;
     }
