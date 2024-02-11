@@ -8,21 +8,21 @@ import { SpaceFormatPipe } from './pipes/space-format.pipe';
 import { LanguageService } from './services/language.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { IssTrackerComponent } from './iss-tracker/iss-tracker.component';
-import { ObservatoryComponent } from './observatory/observatory.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { IssPageComponent } from './iss-page/iss-page.component';
-import { KnowncountComponent } from './knowncount/knowncount.component';
-import { CelestialBodyComponent } from './celestial-body/celestial-body.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
-import { CodexComponent } from './codex/codex.component';
-import { CreditsComponent } from './credits/credits.component';
-import { InfosComponent } from './infos/infos.component';
-import { AboutComponent } from './about/about.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { IssTrackerComponent } from './components/iss-tracker/iss-tracker.component';
+import { TelescopeHubComponent } from './components/telescope-hub/telescope-hub.component';
+import { CosmicCarouselComponent } from './components/cosmic-carousel/cosmic-carousel.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { IssExplorerComponent } from './components/iss-explorer/iss-explorer.component';
+import { KnowncountComponent } from './components/knowncount/knowncount.component';
+import { TelescopeComponent } from './components/telescope/telescope.component';
+import { CelestialPortalComponent } from './components/celestial-portal/celestial-portal.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CodexComponent } from './components/codex/codex.component';
+import { CreditsComponent } from './components/credits/credits.component';
+import { InfosComponent } from './components/infos/infos.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +30,13 @@ import { AboutComponent } from './about/about.component';
     HeaderComponent,
     LandingPageComponent,
     IssTrackerComponent,
-    ObservatoryComponent,
-    GalleryComponent,
+    TelescopeHubComponent,
+    CosmicCarouselComponent,
     CarouselComponent,
-    IssPageComponent,
+    IssExplorerComponent,
     KnowncountComponent,
-    CelestialBodyComponent,
-    HomeComponent,
+    TelescopeComponent,
+    CelestialPortalComponent,
     FooterComponent,
     CodexComponent,
     CreditsComponent,

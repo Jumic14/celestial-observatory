@@ -1,0 +1,63 @@
+<header>
+  <h1>
+    <img
+      src="./../assets/img/celestial-observatory-icon.png"
+      alt="Celestial Observatory - Your Cosmic Gateway"
+      class="co-logo"
+      routerLink="celestial-portal"
+    />
+    <img
+      src="./../assets/img/co-icon.png"
+      alt="Celestial Observatory - Your Cosmic Gateway"
+      class="co-icon"
+      routerLink="celestial-portal"
+    />
+  </h1>
+  <nav>
+    <a routerLink="celestial-portal" routerLinkActive="active">
+      <p class="nav-txt">Celestial Portal</p>
+      <img
+        src="./../assets/img/home-icon.png"
+        alt="Celestial Portal icon"
+        class="nav-icon"
+      />
+    </a>
+    <a routerLink="iss-explorer" routerLinkActive="active">
+      <p class="nav-txt">ISS Explorer</p>
+      <img
+        src="./../assets/img/iss-nav-icon.png"
+        alt="ISS Explorer icon"
+        class="nav-icon"
+      />
+    </a>
+    <a routerLink="telescope-hub" routerLinkActive="active">
+      <p class="nav-txt">Telescope Hub</p>
+      <img
+        src="./../assets/img/telescope-icon.png"
+        alt="Telescope Hub icon"
+        class="nav-icon"
+      />
+    </a>
+    <a routerLink="cosmic-carousel" routerLinkActive="active">
+      <p class="nav-txt">Cosmic Carousel</p>
+      <img
+        src="./../assets/img/carousel-icon.png"
+        alt="Cosmic Carousel icon"
+        class="nav-icon"
+      />
+    </a>
+  </nav>
+  <div class="language-selector">
+    <label for="language">
+      <img
+        src="./../assets/img/language-icon.png"
+        alt="language-icon"
+        class="language-icon"
+      />
+    </label>
+    <select id="language" [(ngModel)]="languageService.selectedLanguage">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+    </select>
+  </div>
+</header>
