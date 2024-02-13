@@ -18,14 +18,6 @@ Choose a celestial body within our solar system to discover its characteristics.
 
 View three random images from NASA's archives, accompanied by detailed explanations.
 
-## Project Structure
-
-- Components: Stored in the `components` directory.
-- Services: Stored in the `services` directory.
-- Interfaces: Stored in the `interfaces` directory.
-- Models: Stored in the `models` directory.
-- Pipes: Stored in the `pipes` directory.
-
 ## License
 
 This application is provided without any specific license. All credits are available within the application. Non-commercial use only.
