@@ -1,27 +1,43 @@
-# Oco
+# Celestial Observatory
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+Celestial Observatory is a web application that allows users to explore the wonders of our solar system, galaxy, and universe through various modules. The application is available in both English and French and is designed to be responsive, accommodating screen sizes ranging from approximately 320px to 3000px.
 
-## Development server
+## Modules
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 1. ISS Explorer
 
-## Code scaffolding
+Track the International Space Station (ISS) in real-time, including its coordinates and current crew members.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 2. Telescope Hub
 
-## Build
+Choose a celestial body within our solar system to discover its characteristics. This module includes additional features:
+   - **Known Count:** Keep a tally of celestial bodies in our solar system.
+   - **Codex:** Provides explanations for terms used in the descriptions of celestial bodies.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 3. Cosmic Carousel
 
-## Running unit tests
+View three random images from NASA's archives, accompanied by detailed explanations.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Project Structure
 
-## Running end-to-end tests
+- Components: Stored in the `components` directory.
+- Services: Stored in the `services` directory.
+- Interfaces: Stored in the `interfaces` directory.
+- Models: Stored in the `models` directory.
+- Pipes: Stored in the `pipes` directory.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## License
 
-## Further help
+This application is provided without any specific license. All credits are available within the application. Non-commercial use only.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contact and Contributions
+
+For any inquiries or contributions, please contact us at [test@test.com](mailto:celestialobservatory.contact@gmail.com).
+
+## Known Issues
+
+- **Telescope Hub Module:**
+  - Error in the console when searching for a planet with no available data.
+- Error in the console in case of no response from various APIs.
+
+Feel free to explore the wonders of the cosmos with Celestial Observatory!
