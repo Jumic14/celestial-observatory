@@ -32,7 +32,7 @@ This application is provided without any specific license. All credits are avail
 
 ## Contact and Contributions
 
-For any inquiries or contributions, please contact us at [test@test.com](mailto:celestialobservatory.contact@gmail.com).
+For any inquiries or contributions, please contact us at [celestialobservatory.contact@gmail.com](mailto:celestialobservatory.contact@gmail.com).
 
 ## Known Issues
 
