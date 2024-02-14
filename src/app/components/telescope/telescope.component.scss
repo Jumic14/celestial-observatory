@@ -1,1 +1,253 @@
-.telescope{display:flex;flex-direction:column;height:100%;width:100%;align-items:center;justify-content:space-between;h3,h4,h5{margin:0}.nav-menu{margin-bottom:10px}.telescope-content{display:flex;flex-direction:row;width:100%;height:100%;justify-content:space-between;.knowncount{height:100%;width:20%}.no-datas{display:flex;flex-direction:column;height:50%;justify-content:space-around;align-items:center;text-align:center;margin:0 10px;button{width:fit-content}}.celestial-body{margin:0 15px;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;height:85%;width:55%;.body-name{margin:10px 0}.body-description{display:flex;flex-direction:column;overflow:overlay;justify-content:space-between;height:100%;width:100%;h5{font-size:16px}.body-details,.body-moons{display:flex;flex-direction:column;align-items:center}.details-list,.moons-list{margin:15px 0;display:grid;justify-content:space-around;padding:5px 0;border:1px solid #70a7bd;border-radius:15px;background-color:rgba(112,167,189,.155);width:90%;span{margin:10px 0;p{margin:0;color:#70a7bd}}}.details-list{grid-template-columns:45% 45%}.moons-list{grid-template-columns:25% 25% 25%}}}.codex{height:100%;width:20%}}}@media only screen and (min-width:2501px){.telescope{.telescope-content{.no-datas{h3{font-size:34px}button{font-size:24px}}.celestial-body{.body-name{h3{font-size:32px}}.body-description{.body-intro{font-size:26px}h4,h5{font-size:26px}font-size:24px}}}}}@media only screen and (min-width:1921px) and (max-width:2500px){.telescope{.telescope-content{.no-datas{h3{font-size:30px}button{font-size:20px}}.celestial-body{.body-name{h3{font-size:28px}}.body-description{.body-intro{font-size:22px}h4,h5{font-size:22px}font-size:20px}}}}}@media only screen and (max-width:992px){.telescope{.telescope-content{.no-datas{h3{font-size:16px}}.celestial-body{.body-name{margin:5px 0;h3{font-size:20px}}.body-description{h5{font-size:14px}font-size:14px}}}}}@media only screen and (max-width:768px){.telescope{.telescope-content{.celestial-body{.body-name{margin:5px 0;h3{font-size:20px}}.body-description{h5{font-size:10px}font-size:12px}}}}}@media only screen and (max-width:480px){.telescope{.telescope-content{.no-datas{h3{font-size:14px}button{font-size:10px}}.knowncount{width:25%}.celestial-body{width:50%;margin:0 10px;.body-name{h3{font-size:16px}}.body-description{h5{font-size:10px}font-size:10px;.details-list{grid-template-columns:80%}.moons-list{h5{font-size:8px}grid-template-columns:40% 40%;overflow:hidden}}}.codex{width:25%}}}}
+.telescope {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  h3,
+  h4,
+  h5 {
+    margin: 0px;
+  }
+  .nav-menu {
+    margin-bottom: 10px;
+  }
+  .telescope-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    .knowncount {
+      height: 100%;
+      width: 20%;
+    }
+    .no-datas {
+      display: flex;
+      flex-direction: column;
+      height: 50%;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      margin: 0px 10px;
+      button {
+        width: fit-content;
+      }
+    }
+    .celestial-body {
+      margin: 0px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 85%;
+      width: 55%;
+      .body-name {
+        margin: 10px 0px;
+      }
+      .body-description {
+        display: flex;
+        flex-direction: column;
+        overflow: overlay;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        h5 {
+          font-size: 16px;
+        }
+        .body-details,
+        .body-moons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .details-list,
+        .moons-list {
+          margin: 15px 0px;
+          display: grid;
+          justify-content: space-around;
+          padding: 5px 0px;
+          border: 1px solid #70a7bd;
+          border-radius: 15px;
+          background-color: rgba(112, 167, 189, 0.155);
+          width: 90%;
+          span {
+            margin: 10px 0px;
+            p {
+              margin: 0px;
+              color: #70a7bd;
+            }
+          }
+        }
+        .details-list {
+          grid-template-columns: 45% 45%;
+        }
+        .moons-list {
+          grid-template-columns: 25% 25% 25%;
+        }
+      }
+    }
+    .codex {
+      height: 100%;
+      width: 20%;
+    }
+  }
+}
+
+@media only screen and (min-width: 2501px) {
+  .telescope {
+    .telescope-content {
+      .no-datas {
+        h3 {
+          font-size: 34px;
+        }
+        button {
+          font-size: 24px;
+        }
+      }
+      .celestial-body {
+        .body-name {
+          h3 {
+            font-size: 32px;
+          }
+        }
+        .body-description {
+          .body-intro {
+            font-size: 26px;
+          }
+          h4,
+          h5 {
+            font-size: 26px;
+          }
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1921px) and (max-width: 2500px) {
+  .telescope {
+    .telescope-content {
+      .no-datas {
+        h3 {
+          font-size: 30px;
+        }
+        button {
+          font-size: 20px;
+        }
+      }
+      .celestial-body {
+        .body-name {
+          h3 {
+            font-size: 28px;
+          }
+        }
+        .body-description {
+          .body-intro {
+            font-size: 22px;
+          }
+          h4,
+          h5 {
+            font-size: 22px;
+          }
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .telescope {
+    .telescope-content {
+      .no-datas {
+        h3 {
+          font-size: 16px;
+        }
+      }
+      .celestial-body {
+        .body-name {
+          margin: 5px 0px;
+          h3 {
+            font-size: 20px;
+          }
+        }
+        .body-description {
+          h5 {
+            font-size: 14px;
+          }
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .telescope {
+    .telescope-content {
+      .celestial-body {
+        .body-name {
+          margin: 5px 0px;
+          h3 {
+            font-size: 20px;
+          }
+        }
+        .body-description {
+          h5 {
+            font-size: 10px;
+          }
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .telescope {
+    .telescope-content {
+      .no-datas {
+        h3 {
+          font-size: 14px;
+        }
+        button {
+          font-size: 10px;
+        }
+      }
+      .knowncount {
+        width: 25%;
+      }
+      .celestial-body {
+        width: 50%;
+        margin: 0px 10px;
+        .body-name {
+          h3 {
+            font-size: 16px;
+          }
+        }
+        .body-description {
+          h5 {
+            font-size: 10px;
+          }
+          font-size: 10px;
+          .details-list {
+            grid-template-columns: 80%;
+          }
+          .moons-list {
+            h5 {
+              font-size: 8px;
+            }
+            grid-template-columns: 40% 40%;
+            overflow: hidden;
+          }
+        }
+      }
+      .codex {
+        width: 25%;
+      }
+    }
+  }
+}

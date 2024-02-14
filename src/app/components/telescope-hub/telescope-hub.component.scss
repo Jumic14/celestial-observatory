@@ -1,1 +1,391 @@
-.telescope-hub{display:flex;flex-direction:column;height:100%;width:100%;align-items:center;justify-content:space-between;.nav-menu{margin-bottom:10px}.telescope-hub-content{display:flex;justify-content:space-between;align-items:center;height:100%;width:100%;.knowncount{height:100%;width:20%}.telescope-home{height:100%;width:55%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;margin:0 15px;h4{font-size:18px;margin:5px;color:#70a7bd}p{margin-bottom:20px;color:#dbe6ee}.step{width:100%;text-align:start;margin:10px 0;color:#70a7bd;.step-number{color:white;border-radius:30px;border:1px solid white;font-size:26px;padding:5px 10px}}.bodytype-selection{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;.bodytype-options{width:100%;display:grid;grid-template-columns:25% 25% 25% 25%}.option-description{margin:0}}.selected-option{text-align:center;color:#70a7bd;font-size:20px;line-height:22px;margin:5px}.unselected-option{font-size:12px;line-height:22px;font-style:italic}.body-select{width:100%;height:50%;.body-list{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;overflow:hidden;.options{display:grid;grid-template-columns:40% 40%;align-self:center;justify-content:space-around;width:100%;height:40%;overflow:overlay;span{margin:10px 0;p{margin:0;color:#70a7bd}}}}}.start-hub{width:100%;display:flex;flex-direction:column;button{align-self:center}}}}.codex{height:100%;width:20%}}@media only screen and (min-width:2501px){.telescope-hub{.telescope-hub-content{.telescope-home{h4{font-size:34px}button{padding:10px 25px;border-radius:30px;font-size:26px}.step{font-size:26px;.step-number{padding:10px 15px;font-size:36px}}.bodytype-selection{margin:10px 0}.body-select{height:40%;margin:15px 0}.selected-option{margin:10px;font-size:28px;line-height:30px}.unselected-option{font-size:22px;line-height:30px}.option-description{margin:10px;font-size:22px}.start-hub{margin:10px 0}}}}}@media only screen and (min-width:1921px) and (max-width:2500px){.telescope-hub{.telescope-hub-content{.telescope-home{h4{font-size:30px}button{padding:10px 20px;border-radius:30px;font-size:22px}.step{font-size:22px;.step-number{padding:10px 15px;font-size:32px}}.bodytype-selection{margin:10px 0}.body-select{height:40%;margin:15px 0}.selected-option{margin:10px;font-size:24px;line-height:26px}.unselected-option{font-size:16px;line-height:26px}.option-description{margin:10px;font-size:18px}.start-hub{margin:10px 0}}}}}@media only screen and (max-width:1199px){.telescope-hub{.telescope-hub-content{.telescope-home{.bodytype-selection{.bodytype-options{button{padding:5px 10px;height:auto;font-size:12px}}}.selected-option{font-size:16px;line-height:18px}.option-description{font-size:14px}}}}}@media only screen and (max-width:992px){.telescope-hub{.telescope-hub-content{.telescope-home{h4{font-size:14px}.step{font-size:14px;.step-number{font-size:20px}}.option-description{font-size:12px}.selected-option{margin:2px}}}}}@media only screen and (max-width:768px){.telescope-hub{.telescope-hub-content{.telescope-home{h4{font-size:12px}.step{font-size:10px;.step-number{font-size:12px}}.bodytype-selection{.bodytype-options{display:flex;flex-wrap:wrap;justify-content:center;button{font-size:8px;width:40%;padding:5px}}}.option-description{font-size:10px}.selected-option{font-size:14px;line-height:16px}.unselected-option{font-size:10px;line-height:16px}.body-select{.body-list{.options{display:grid;grid-template-columns:40% 40%;align-self:center;justify-content:space-around;width:100%;overflow:overlay;button{padding:5px;font-size:8px}span{margin:5px 0;p{margin:0;color:#70a7bd}}}}}}}}}@media only screen and (max-width:480px){.telescope-hub{.telescope-hub-content{.knowncount{width:25%}.telescope-home{width:50%;h4{font-size:10px;margin:2px 0}.step{display:flex;flex-direction:column;align-items:center;font-size:10px;margin:1px 0;.step-number{width:fit-content;font-size:10px;padding:1px 5px;margin-bottom:1px}}.option-description{font-size:8px}.selected-option{font-size:12px;line-height:12px}.unselected-option{font-size:8px;line-height:12px}.body-select{.body-list{.options{grid-template-columns:45% 45%;button{overflow:hidden}}button{padding:5px 10px;font-size:8px}}}.start-hub{button{padding:5px 10px;font-size:8px}}}.codex{width:25%}}}}
+.telescope-hub {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  .nav-menu {
+    margin-bottom: 10px;
+  }
+  .telescope-hub-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    .knowncount {
+      height: 100%;
+      width: 20%;
+    }
+    .telescope-home {
+      height: 100%;
+      width: 55%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0px 15px;
+      h4 {
+        font-size: 18px;
+        margin: 5px;
+        color: #70a7bd;
+      }
+      p {
+        margin-bottom: 20px;
+        color: #dbe6ee;
+      }
+      .step {
+        width: 100%;
+        text-align: start;
+        margin: 10px 0px;
+        color: #70a7bd;
+        .step-number {
+          color: white;
+          border-radius: 30px;
+          border: 1px solid white;
+          font-size: 26px;
+          padding: 5px 10px;
+        }
+      }
+      .bodytype-selection {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        .bodytype-options {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 25% 25% 25% 25%;
+        }
+        .option-description {
+          margin: 0px;
+        }
+      }
+      .selected-option {
+        text-align: center;
+        color: #70a7bd;
+        font-size: 20px;
+        line-height: 22px;
+        margin: 5px;
+      }
+      .unselected-option {
+        font-size: 12px;
+        line-height: 22px;
+        font-style: italic;
+      }
+      .body-select {
+        width: 100%;
+        height: 50%;
+        .body-list {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          .options {
+            display: grid;
+            grid-template-columns: 40% 40%;
+            align-self: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 40%;
+            overflow: overlay;
+            span {
+              margin: 10px 0px;
+              p {
+                margin: 0px;
+                color: #70a7bd;
+              }
+            }
+          }
+        }
+      }
+      .start-hub {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        button {
+          align-self: center;
+        }
+      }
+    }
+  }
+  .codex {
+    height: 100%;
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 2501px) {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
+        h4 {
+          font-size: 34px;
+        }
+        button {
+          padding: 10px 25px;
+          border-radius: 30px;
+          font-size: 26px;
+        }
+        .step {
+          font-size: 26px;
+          .step-number {
+            padding: 10px 15px;
+            font-size: 36px;
+          }
+        }
+        .bodytype-selection {
+          margin: 10px 0px;
+        }
+        .body-select {
+          height: 40%;
+          margin: 15px 0px;
+        }
+        .selected-option {
+          margin: 10px;
+          font-size: 28px;
+          line-height: 30px;
+        }
+        .unselected-option {
+          font-size: 22px;
+          line-height: 30px;
+        }
+        .option-description {
+          margin: 10px;
+          font-size: 22px;
+        }
+        .start-hub {
+          margin: 10px 0px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1921px) and (max-width: 2500px) {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
+        h4 {
+          font-size: 30px;
+        }
+        button {
+          padding: 10px 20px;
+          border-radius: 30px;
+          font-size: 22px;
+        }
+        .step {
+          font-size: 22px;
+          .step-number {
+            padding: 10px 15px;
+            font-size: 32px;
+          }
+        }
+        .bodytype-selection {
+          margin: 10px 0px;
+        }
+        .body-select {
+          height: 40%;
+          margin: 15px 0px;
+        }
+        .selected-option {
+          margin: 10px;
+          font-size: 24px;
+          line-height: 26px;
+        }
+        .unselected-option {
+          font-size: 16px;
+          line-height: 26px;
+        }
+        .option-description {
+          margin: 10px;
+          font-size: 18px;
+        }
+        .start-hub {
+          margin: 10px 0px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
+        .bodytype-selection {
+          .bodytype-options {
+            button {
+              padding: 5px 10px;
+              height: auto;
+              font-size: 12px;
+            }
+          }
+        }
+        .selected-option {
+          font-size: 16px;
+          line-height: 18px;
+        }
+        .option-description {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
+        h4 {
+          font-size: 14px;
+        }
+        .step {
+          font-size: 14px;
+          .step-number {
+            font-size: 20px;
+          }
+        }
+        .option-description {
+          font-size: 12px;
+        }
+        .selected-option {
+          margin: 2px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .telescope-hub {
+    .telescope-hub-content {
+      .telescope-home {
+        h4 {
+          font-size: 12px;
+        }
+        .step {
+          font-size: 10px;
+          .step-number {
+            font-size: 12px;
+          }
+        }
+        .bodytype-selection {
+          .bodytype-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            button {
+              font-size: 8px;
+              width: 40%;
+              padding: 5px;
+            }
+          }
+        }
+        .option-description {
+          font-size: 10px;
+        }
+        .selected-option {
+          font-size: 14px;
+          line-height: 16px;
+        }
+        .unselected-option {
+          font-size: 10px;
+          line-height: 16px;
+        }
+        .body-select {
+          .body-list {
+            .options {
+              display: grid;
+              grid-template-columns: 40% 40%;
+              align-self: center;
+              justify-content: space-around;
+              width: 100%;
+              overflow: overlay;
+              button {
+                padding: 5px;
+                font-size: 8px;
+              }
+              span {
+                margin: 5px 0px;
+                p {
+                  margin: 0px;
+                  color: #70a7bd;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .telescope-hub {
+    .telescope-hub-content {
+      .knowncount {
+        width: 25%;
+      }
+      .telescope-home {
+        width: 50%;
+        h4 {
+          font-size: 10px;
+          margin: 2px 0px;
+        }
+        .step {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 10px;
+          margin: 1px 0px;
+          .step-number {
+            width: fit-content;
+            font-size: 10px;
+            padding: 1px 5px;
+            margin-bottom: 1px;
+          }
+        }
+        .option-description {
+          font-size: 8px;
+        }
+        .selected-option {
+          font-size: 12px;
+          line-height: 12px;
+        }
+        .unselected-option {
+          font-size: 8px;
+          line-height: 12px;
+        }
+        .body-select {
+          .body-list {
+            .options {
+              grid-template-columns: 45% 45%;
+              button {
+                overflow: hidden;
+              }
+            }
+            button {
+              padding: 5px 10px;
+              font-size: 8px;
+            }
+          }
+        }
+        .start-hub {
+          button {
+            padding: 5px 10px;
+            font-size: 8px;
+          }
+        }
+      }
+      .codex {
+        width: 25%;
+      }
+    }
+  }
+}
