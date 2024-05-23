@@ -84,14 +84,17 @@
         <h3>
           {{ languageService.selectedLanguage === "en" ? "Crew" : "Équipage" }}
         </h3>
-        <h5>
+        <h5 *ngIf="crew.length > 0">
           {{
             languageService.selectedLanguage === "en"
               ? "Astronauts currently on board the ISS:"
               : "Astronautes actuellement à bord de l'ISS :"
           }}<span>{{ crew.length }}</span>
         </h5>
-        <ul>
+        <p *ngIf="crew.length === 0">
+          {{ errorMessage }}
+        </p>
+        <ul *ngIf="crew.length > 0">
           <li *ngFor="let crewMember of crew">{{ crewMember.name }}</li>
         </ul>
       </div>

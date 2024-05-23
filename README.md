@@ -25,11 +25,13 @@ This application is provided without any specific license. All credits are avail
 ## Contact and Contributions
 
 For any inquiries or contributions, please contact us at [celestialobservatory.contact@gmail.com](mailto:celestialobservatory.contact@gmail.com).
-
+Build by [Julien Michel](https://v2-jumic.vercel.app/) with [Angular](https://angular.io/)
+Deployed with [Vercel](https://vercel.com/)
 ## Known Issues
 
 - **Telescope Hub Module:**
   - Error in the console when searching for a planet with no available data.
-- Error in the console in case of no response from various APIs.
+  - Error in the console in case of no response from various APIs.
+  - Error with crew request in ISS Explorer
 
 Feel free to explore the wonders of the cosmos with Celestial Observatory!

@@ -24,6 +24,8 @@ export class IssTrackerComponent implements OnInit {
   offset: number = 0;
   countryCode: string = '';
   prediction: any = {};
+  errorMessage: string = '';
+  crewFetchFailed: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -46,21 +48,39 @@ export class IssTrackerComponent implements OnInit {
     setInterval(() => {
       this.http
         .get('https://api.wheretheiss.at/v1/satellites/25544')
-        .subscribe((data: any) => {
-          const { latitude, longitude } = data;
-          this.updateIssPosition(latitude, longitude);
-          this.issLatitude = latitude;
-          this.issLongitude = longitude;
-          this.velocity = data.velocity;
-          this.visibility = data.visibility;
-          this.altitude = data.altitude;
+        .subscribe({
+          next: (data: any) => {
+            const { latitude, longitude } = data;
+            this.updateIssPosition(latitude, longitude);
+            this.issLatitude = latitude;
+            this.issLongitude = longitude;
+            this.velocity = data.velocity;
+            this.visibility = data.visibility;
+            this.altitude = data.altitude;
+          },
+          error: (error) => {
+            console.error('Failed to fetch ISS data:', error);
+          }
         });
-      this.http
-        .get('http://api.open-notify.org/astros.json')
-        .subscribe((data: any) => {
-          this.crew = data.people;
-          this.crewNumber = data.number;
-        });
+
+      if (!this.crewFetchFailed) {
+        this.http
+          .get('https://api.open-notify.org/astros.json')
+          .subscribe({
+            next: (data: any) => {
+              this.crew = data.people;
+              this.crewNumber = data.number;
+            },
+            error: (error) => {
+              this.crew = [];
+              this.crewNumber = 0;
+              this.errorMessage = this.languageService.selectedLanguage === 'en' 
+                ? 'Sorry, we are experiencing a transmission issue with the crew' 
+                : 'Désolé, nous rencontrons un problème de transmission avec l\'équipage';
+              this.crewFetchFailed = true;
+            }
+          });
+      }
     }, 5000);
   }
 
